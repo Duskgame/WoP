@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf0dy1l0puenm"]
+
+[ext_resource type="Script" path="res://scripts/health_manager.gd" id="1_owfqn"]
+[ext_resource type="PackedScene" uid="uid://byefvsu1bivqs" path="res://scenes/hp_bar.tscn" id="2_3jhnr"]
+[ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="3_qymx6"]
+
+[node name="EnemyHealthComponent" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_owfqn")
+
+[node name="HPBar" parent="." instance=ExtResource("2_3jhnr")]
+layout_mode = 1
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_bottom = 0.0
+grow_vertical = 2
+theme = ExtResource("3_qymx6")
+
+[node name="HealTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

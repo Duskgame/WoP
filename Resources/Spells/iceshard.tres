@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpellResource" load_steps=2 format=3 uid="uid://dfyc88lf5il4i"]
+
+[ext_resource type="Script" path="res://scripts/Spell.gd" id="1_86cjp"]
+
+[resource]
+script = ExtResource("1_86cjp")
+name = "Iceshard"
+type = 1
+element = 3

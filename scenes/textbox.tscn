@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqnk3fok3i4bx"]
+
+[ext_resource type="Script" path="res://scripts/textbox.gd" id="1_648ys"]
+[ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_q5o84"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmo1p"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwd4p"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bk3j"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4kxv"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Textbox" type="Panel"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fmo1p")
+script = ExtResource("1_648ys")
+
+[node name="TextboxText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_q5o84")
+theme_override_font_sizes/font_size = 35
+text = "A wild Monster has appeared 
+Defend youself!"
+
+[node name="AcceptButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95229
+anchor_top = 0.57377
+anchor_right = 0.985687
+anchor_bottom = 0.877049
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_q5o84")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_lwd4p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5bk3j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l4kxv")
+text = "x"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="AcceptButton" to="." method="_on_accept_button_pressed"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://6d2ixkebi30a"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_yebia"]
+[ext_resource type="Texture2D" uid="uid://dt132osyudhlt" path="res://assets/sprites/wassersiedler.png" id="2_3f1ue"]
+
+[resource]
+script = ExtResource("1_yebia")
+name = "Waterhermit"
+texture = ExtResource("2_3f1ue")
+health = 25
+damage = 1
+attack_cooldown = 2.0
+regeneration = 3
+heal_cooldown = 2.0
+element = 2

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://dllxikmt4ldra"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_gcviq"]
+[ext_resource type="Texture2D" uid="uid://ci6rkwrclgsj" path="res://assets/sprites/feuerameise.png" id="2_c2b6u"]
+
+[resource]
+script = ExtResource("1_gcviq")
+name = "Fireant"
+texture = ExtResource("2_c2b6u")
+health = 20
+damage = 1
+regeneration = 1
+element = 1

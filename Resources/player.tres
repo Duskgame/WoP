@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PlayerStatResource" load_steps=2 format=3 uid="uid://dourjm8sinpdf"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_dy3w8"]
+
+[resource]
+script = ExtResource("1_dy3w8")
+max_health = 10
+current_health = 10

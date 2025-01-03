@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://btvq4efm5xmqo"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_heps2"]
+[ext_resource type="Texture2D" uid="uid://sfkjb4fxk0r6" path="res://assets/sprites/wasserkrabbe.png" id="2_oyjed"]
+
+[resource]
+script = ExtResource("1_heps2")
+name = "Watercrab"
+texture = ExtResource("2_oyjed")
+health = 30
+damage = 2
+attack_cooldown = 3.0
+regeneration = 2
+heal_cooldown = 3.0
+element = 2

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://blo888x60cime"]
+
+[ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_1xpxx"]
+
+[resource]
+default_font = ExtResource("1_1xpxx")
+default_font_size = 20

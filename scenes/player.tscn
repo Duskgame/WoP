@@ -1,0 +1,201 @@
+[gd_scene load_steps=22 format=3 uid="uid://bbnoa6cp5ucjw"]
+
+[ext_resource type="Script" path="res://scripts/player2.0.gd" id="1_2di24"]
+[ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_cqce4"]
+[ext_resource type="PackedScene" uid="uid://byefvsu1bivqs" path="res://scenes/hp_bar.tscn" id="2_rlmq3"]
+[ext_resource type="PackedScene" uid="uid://d14cfn23axeem" path="res://scenes/player_health_component.tscn" id="5_6xhc7"]
+[ext_resource type="Script" path="res://scripts/spellbook.gd" id="5_xpf6h"]
+[ext_resource type="Script" path="res://scripts/Spell.gd" id="6_urdqv"]
+[ext_resource type="Resource" uid="uid://dl1ikw5k81bia" path="res://Resources/Spells/fire.tres" id="7_83c2s"]
+[ext_resource type="Script" path="res://scripts/spell_panel.gd" id="7_kt6rk"]
+[ext_resource type="Resource" uid="uid://chc7cusd3skvh" path="res://Resources/Spells/heal.tres" id="7_qicrt"]
+[ext_resource type="Resource" uid="uid://msxu3dxqe36b" path="res://Resources/Spells/fireball.tres" id="8_yp70q"]
+[ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="9_hhqyk"]
+[ext_resource type="Resource" uid="uid://cd7w6orxusrgh" path="res://Resources/Spells/ice.tres" id="9_vsr7p"]
+[ext_resource type="Resource" uid="uid://4t2422kal7i6" path="res://Resources/Spells/recovery.tres" id="9_x24v3"]
+[ext_resource type="Resource" uid="uid://dfyc88lf5il4i" path="res://Resources/Spells/iceshard.tres" id="10_ubj71"]
+[ext_resource type="Resource" uid="uid://cb4cewfm2mnp2" path="res://Resources/Spells/water.tres" id="10_v245e"]
+[ext_resource type="Resource" uid="uid://t4pqfml48gog" path="res://Resources/Spells/waterslash.tres" id="11_wqkuq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8abae"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exf7e"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se587"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd283"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjp2a"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="Control"]
+layout_mode = 3
+anchor_top = 0.278
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.160019
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2di24")
+
+[node name="PlayerPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayerDisplay" type="HBoxContainer" parent="PlayerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PlayerText" type="Label" parent="PlayerPanel/PlayerDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_cqce4")
+theme_override_font_sizes/font_size = 50
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPBar" parent="PlayerPanel/PlayerDisplay" instance=ExtResource("2_rlmq3")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_stretch_ratio = 1.87
+
+[node name="Run" type="Button" parent="PlayerPanel/PlayerDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_cqce4")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_8abae")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_exf7e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_se587")
+text = "Run"
+
+[node name="SpellBook" type="Node" parent="."]
+script = ExtResource("5_xpf6h")
+spells = Array[ExtResource("6_urdqv")]([ExtResource("7_83c2s"), ExtResource("8_yp70q"), ExtResource("7_qicrt"), ExtResource("9_vsr7p"), ExtResource("10_ubj71"), ExtResource("9_x24v3"), ExtResource("10_v245e"), ExtResource("11_wqkuq")])
+
+[node name="SpellPanel" type="Panel" parent="SpellBook"]
+anchors_preset = -1
+anchor_left = 0.0925926
+anchor_top = 0.277778
+anchor_right = 0.444444
+anchor_bottom = 0.791667
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_kt6rk")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SpellBook/SpellPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Seperator" type="Control" parent="SpellBook/SpellPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SpellBook/SpellPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("9_hhqyk")
+theme_override_fonts/font = ExtResource("1_cqce4")
+theme_override_font_sizes/font_size = 30
+text = "Spells"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator2" type="Control" parent="SpellBook/SpellPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SpellBook/SpellPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SpellBook/SpellPanel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="SpellBook/SpellPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -55.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/caret_width = 0
+theme_override_fonts/font = ExtResource("1_cqce4")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/read_only = SubResource("StyleBoxFlat_qd283")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjp2a")
+placeholder_text = "Type to form spells Enter to cast them"
+alignment = 1
+editable = false
+expand_to_text_length = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="PlayerHealthComponent" parent="." instance=ExtResource("5_6xhc7")]
+
+[connection signal="pressed" from="PlayerPanel/PlayerDisplay/Run" to="." method="_on_run_pressed"]
+[connection signal="text_submitted" from="SpellBook/SpellPanel/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="battle_lost" from="PlayerHealthComponent" to="." method="_on_player_health_component_battle_lost"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=17 format=3 uid="uid://do2ac5etua6pm"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_kp8uo"]
+[ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="2_fss1a"]
+[ext_resource type="PackedScene" uid="uid://cf0dy1l0puenm" path="res://scenes/enemy_health_component.tscn" id="3_5txmx"]
+[ext_resource type="Texture2D" uid="uid://r7a48iy7ynra" path="res://assets/sprites/feuersalamande.png" id="4_a6dbm"]
+[ext_resource type="Script" path="res://scripts/enemytexture.gd" id="5_unlcq"]
+[ext_resource type="Script" path="res://scripts/damage_component.gd" id="6_levlm"]
+[ext_resource type="Script" path="res://scripts/random_enemy_spawner.gd" id="7_uquvt"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="8_sl7ly"]
+[ext_resource type="Resource" uid="uid://bxrndpp7vs0kx" path="res://Resources/enemies/firesalamander.tres" id="9_qtum4"]
+[ext_resource type="Resource" uid="uid://cj31375r1ngwg" path="res://Resources/enemies/firevulpes.tres" id="10_ka4y6"]
+[ext_resource type="Resource" uid="uid://btvq4efm5xmqo" path="res://Resources/enemies/watercrab.tres" id="11_5jrb4"]
+[ext_resource type="Resource" uid="uid://v6cf32mib8pg" path="res://Resources/enemies/waterfrog.tres" id="12_vduwe"]
+[ext_resource type="Resource" uid="uid://6d2ixkebi30a" path="res://Resources/enemies/waterhermit.tres" id="13_sesy3"]
+[ext_resource type="Resource" uid="uid://ddnsqcchgngk4" path="res://Resources/enemies/icebear.tres" id="14_2ldv1"]
+[ext_resource type="Resource" uid="uid://bp6fa7yy8jejk" path="res://Resources/enemies/icebunny.tres" id="15_3afml"]
+[ext_resource type="Resource" uid="uid://bcm0mtrd6n1wl" path="res://Resources/enemies/icewolf.tres" id="16_qltk2"]
+
+[node name="Enemy" type="Control"]
+layout_mode = 3
+anchor_left = 0.555556
+anchor_top = 0.277778
+anchor_right = 0.907407
+anchor_bottom = 0.791667
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_kp8uo")
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemyContainer" type="VBoxContainer" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemyHealthComponent" parent="EnemyContainer" instance=ExtResource("3_5txmx")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_stretch_ratio = 0.16
+
+[node name="Enemy" type="TextureRect" parent="EnemyContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_a6dbm")
+stretch_mode = 5
+script = ExtResource("5_unlcq")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="DamageComponent" type="Node" parent="."]
+script = ExtResource("6_levlm")
+
+[node name="RandomEnemySpawner" type="Node" parent="."]
+script = ExtResource("7_uquvt")
+possible_enemies = Array[ExtResource("8_sl7ly")]([ExtResource("2_fss1a"), ExtResource("9_qtum4"), ExtResource("10_ka4y6"), ExtResource("11_5jrb4"), ExtResource("12_vduwe"), ExtResource("13_sesy3"), ExtResource("14_2ldv1"), ExtResource("15_3afml"), ExtResource("16_qltk2")])
+
+[connection signal="battle_won" from="EnemyContainer/EnemyHealthComponent" to="." method="_on_enemy_health_component_battle_won"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="random_enemy" from="RandomEnemySpawner" to="." method="_on_random_enemy_spawner_random_enemy"]

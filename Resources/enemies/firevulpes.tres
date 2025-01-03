@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://cj31375r1ngwg"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_bf02r"]
+[ext_resource type="Texture2D" uid="uid://bgih2l5s0pkf1" path="res://assets/sprites/flammenfuchs.png" id="2_o60pp"]
+
+[resource]
+script = ExtResource("1_bf02r")
+name = "Firevulpe"
+texture = ExtResource("2_o60pp")
+health = 25
+damage = 3
+attack_cooldown = 2.0
+regeneration = 1
+heal_cooldown = 2.0
+element = 1

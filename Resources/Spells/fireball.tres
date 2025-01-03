@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpellResource" load_steps=2 format=3 uid="uid://msxu3dxqe36b"]
+
+[ext_resource type="Script" path="res://scripts/Spell.gd" id="1_w60qf"]
+
+[resource]
+script = ExtResource("1_w60qf")
+name = "Fireball"
+type = 1
+element = 1

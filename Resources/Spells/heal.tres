@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SpellResource" load_steps=2 format=3 uid="uid://chc7cusd3skvh"]
+
+[ext_resource type="Script" path="res://scripts/Spell.gd" id="1_7w5yn"]
+
+[resource]
+script = ExtResource("1_7w5yn")
+name = "Heal"
+type = null

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://bxrndpp7vs0kx"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_huso7"]
+[ext_resource type="Texture2D" uid="uid://r7a48iy7ynra" path="res://assets/sprites/feuersalamande.png" id="2_ulgen"]
+
+[resource]
+script = ExtResource("1_huso7")
+name = "Firesalamander"
+texture = ExtResource("2_ulgen")
+health = 30
+damage = 2
+attack_cooldown = 3.0
+regeneration = 2
+heal_cooldown = 3.0
+element = 1

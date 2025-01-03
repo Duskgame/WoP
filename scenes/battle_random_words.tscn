@@ -1,0 +1,408 @@
+[gd_scene load_steps=21 format=3 uid="uid://d3fhot74l7sjp"]
+
+[ext_resource type="Script" path="res://scripts/battle_random_words.gd" id="1_c3j68"]
+[ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="2_y21va"]
+[ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="3_hdski"]
+[ext_resource type="Texture2D" uid="uid://ci6rkwrclgsj" path="res://assets/sprites/feuerameise.png" id="4_ij84i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfgwy"]
+bg_color = Color(1, 1, 1, 0.470588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgkeb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_su155"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18r0v"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aov02"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi3rm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x11yx"]
+bg_color = Color(0.596663, 0, 0.0811091, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_size = 1
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jou5"]
+bg_color = Color(0.208327, 0.627507, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhc7w"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e6gh"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3uul3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vy5li"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bvbh"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8h7vs"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vg5so"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehkh6"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c3j68")
+enemy = ExtResource("2_y21va")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1081.0
+offset_bottom = 722.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 200.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 59
+alignment = 1
+
+[node name="Seperator" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_cfgwy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 27
+
+[node name="Seperator" type="Control" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Headline" type="Label" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 30
+text = "Spells"
+horizontal_alignment = 1
+
+[node name="HealSpell" type="Button" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_cgkeb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_su155")
+theme_override_styles/normal = SubResource("StyleBoxFlat_18r0v")
+text = "Heal"
+
+[node name="AttackSpell1" type="Button" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_cgkeb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_su155")
+theme_override_styles/normal = SubResource("StyleBoxFlat_18r0v")
+text = "Fire"
+
+[node name="AttackSpell2" type="Button" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_cgkeb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_su155")
+theme_override_styles/normal = SubResource("StyleBoxFlat_18r0v")
+text = "Ice"
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/caret_width = 0
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/read_only = SubResource("StyleBoxFlat_aov02")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fi3rm")
+placeholder_text = "Type to form spells Enter to cast them"
+alignment = 1
+editable = false
+expand_to_text_length = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Seperator3" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Seperator4" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="EnemyContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="CenterContainer/EnemyContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_x11yx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4jou5")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="CenterContainer/EnemyContainer/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 24
+text = "HP 50/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy" type="TextureRect" parent="CenterContainer/EnemyContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_ij84i")
+stretch_mode = 5
+
+[node name="AttackTimer" type="Timer" parent="CenterContainer/EnemyContainer/Enemy"]
+wait_time = 2.0
+
+[node name="HealTimer" type="Timer" parent="CenterContainer/EnemyContainer/Enemy"]
+
+[node name="Seperator2" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="PlayerPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -99.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nhc7w")
+
+[node name="PlayerData" type="HBoxContainer" parent="PlayerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 50
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="PlayerPanel/PlayerData"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 7
+theme_override_styles/background = SubResource("StyleBoxFlat_x11yx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4jou5")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PlayerPanel/PlayerData/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 40
+text = "HP 50/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Run" type="Button" parent="PlayerPanel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_3e6gh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3uul3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vy5li")
+text = "Run"
+
+[node name="Textbox" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bvbh")
+
+[node name="Label" type="Label" parent="Textbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 35
+text = "A wild Monster has appeared 
+Defend youself!"
+
+[node name="Ticker" type="Button" parent="Textbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 998.0
+offset_top = 70.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_hdski")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_8h7vs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vg5so")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ehkh6")
+text = "x"
+icon_alignment = 1
+
+[connection signal="lost_battle" from="." to="." method="_on_lost_battle"]
+[connection signal="won_battle" from="." to="." method="_on_won_battle"]
+[connection signal="text_submitted" from="CenterContainer/VBoxContainer/Panel/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="timeout" from="CenterContainer/EnemyContainer/Enemy/AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="CenterContainer/EnemyContainer/Enemy/HealTimer" to="." method="_on_heal_timer_timeout"]
+[connection signal="pressed" from="PlayerPanel/PlayerData/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="Textbox/Ticker" to="." method="_on_ticker_pressed"]

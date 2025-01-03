@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://bcm0mtrd6n1wl"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_sqh2g"]
+[ext_resource type="Texture2D" uid="uid://bkmgkvjq0ntb7" path="res://assets/sprites/icewolf.png" id="2_n26qh"]
+
+[resource]
+script = ExtResource("1_sqh2g")
+name = "Icewolf"
+texture = ExtResource("2_n26qh")
+health = 25
+damage = 3
+attack_cooldown = 2.0
+regeneration = 1
+heal_cooldown = 2.0
+element = 3
