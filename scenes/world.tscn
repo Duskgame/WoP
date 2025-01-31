@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://djcyj2dlav5y7"]
+
+[ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="1_7vwl5"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_hb66u"]
+[ext_resource type="Script" path="res://scripts/polygon_2d.gd" id="1_hqven"]
+[ext_resource type="PackedScene" uid="uid://di6gvedk7q15d" path="res://scenes/enemy_body.tscn" id="2_kxb44"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_hb66u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(25, 60, 81, 683, 1026, 602, 987, 43, 1110, 73, 1161, 708, -17, 818, -127, -8, 1076, -72, 987, 43)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+script = ExtResource("1_hqven")
+
+[node name="EnemyBody" parent="." instance=ExtResource("2_kxb44")]
+position = Vector2(346, 340)
+collision_priority = 10.0
+motion_mode = 1
+
+[node name="PlayerBody" parent="." instance=ExtResource("1_7vwl5")]
+position = Vector2(549, 203)
+
+[connection signal="battle_detected" from="PlayerBody" to="." method="_on_player_body_battle_detected"]

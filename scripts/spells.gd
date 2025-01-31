@@ -5,8 +5,13 @@ var attack_spells = ["Ice", "Fire", "Fireball", "Iceshard", "Water", "Waterslash
 var heal_spells = ["Heal", "Recovery", "Healing", "Balm"]
 
 enum ELEMENTS {
-	NONE = 0,
-	FIRE = 1,
-	WATER = 2,
-	ICE = 3
+	FIRE = 0,
+	WATER = 1,
+	ICE = 2
+}
+
+enum TYPES {
+	HEALING = 0,
+	DAMAGE = 1,
+	SUMMONING = 2
 }

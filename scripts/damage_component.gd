@@ -2,40 +2,31 @@ extends Node
 
 class_name DamageComponent
 
-func damage_multiplyer(player_element: int, enemy_element: int):
+func damage_multiplyer(other_element: int, self_element: int):
 	var multiplyer: float = 1
-	match player_element:
+	match other_element:
 		0:
-			multiplyer *= 1
+			match self_element:
+				0:
+					multiplyer *=  1
+				1: 
+					multiplyer *=  0.5
+				2:
+					multiplyer *=  2
 		1:
-			match enemy_element:
+			match self_element:
 				0:
-					multiplyer *=  1
-				1:
-					multiplyer *=  1
-				2: 
-					multiplyer *=  0.5
-				3:
 					multiplyer *=  2
+				1: 
+					multiplyer *=  1
+				2:
+					multiplyer *=  0.5
 		2:
-			match enemy_element:
+			match self_element:
 				0:
-					multiplyer *=  1
-				1:
-					multiplyer *=  2
-				2: 
-					multiplyer *=  1
-				3:
 					multiplyer *=  0.5
-		3:
-			match enemy_element:
-				0:
-					multiplyer *=  1
-				1:
-					multiplyer *=  0.5
-				2: 
+				1: 
 					multiplyer *=  2
-				3:
+				2:
 					multiplyer *=  1
-	print("dmg multiplyer: " + str(multiplyer))
 	return multiplyer

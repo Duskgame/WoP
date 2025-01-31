@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="SpellResource" load_steps=2 format=3 uid="uid://msxu3dxqe36b"]
+[gd_resource type="Resource" script_class="DamageSpellResource" load_steps=2 format=3 uid="uid://ijvb4dyo5vk8"]
 
-[ext_resource type="Script" path="res://scripts/Spell.gd" id="1_w60qf"]
+[ext_resource type="Script" path="res://scripts/damage_spell_resource.gd" id="1_qr4vw"]
 
 [resource]
-script = ExtResource("1_w60qf")
+script = ExtResource("1_qr4vw")
+element = 0
 name = "Fireball"
 type = 1
-element = 1

@@ -12,4 +12,4 @@ damage = 2
 attack_cooldown = 3.0
 regeneration = 2
 heal_cooldown = 3.0
-element = 1
+element = 0

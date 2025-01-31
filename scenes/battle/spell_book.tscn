@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://cyxg7vi3rrn5w"]
+
+[ext_resource type="Script" path="res://scripts/spellbook.gd" id="1_ach15"]
+[ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_imj3r"]
+[ext_resource type="Script" path="res://scripts/spell_panel.gd" id="11_m21xa"]
+[ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="12_iprwj"]
+[ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="13_k46dk"]
+[ext_resource type="StyleBox" uid="uid://c2uct5l0mj500" path="res://assets/fonts/styleboxes/invisible_border_stylebox.tres" id="17_fr0lp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd283"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjp2a"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="SpellBook" type="Node"]
+script = ExtResource("1_ach15")
+spellbook = ExtResource("2_imj3r")
+
+[node name="SpellPanel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.0925926
+anchor_top = 0.277778
+anchor_right = 0.444444
+anchor_bottom = 0.791667
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_m21xa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SpellPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Seperator" type="Control" parent="SpellPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SpellPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("12_iprwj")
+theme_override_fonts/font = ExtResource("13_k46dk")
+theme_override_font_sizes/font_size = 30
+text = "Spells"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator2" type="Control" parent="SpellPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="SpellPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("17_fr0lp")
+tab_alignment = 1
+tabs_position = 1
+
+[node name="LineEdit" type="LineEdit" parent="SpellPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -55.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/caret_width = 0
+theme_override_fonts/font = ExtResource("13_k46dk")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/read_only = SubResource("StyleBoxFlat_qd283")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjp2a")
+placeholder_text = "Type to form spells Enter to cast them"
+alignment = 1
+editable = false
+expand_to_text_length = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[connection signal="text_submitted" from="SpellPanel/LineEdit" to="." method="_on_line_edit_text_submitted"]

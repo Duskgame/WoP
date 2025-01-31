@@ -1,6 +1,6 @@
 extends TextureRect
 
-func enemy_attack_animation():
+func attack_animation():
 	var tween = create_tween()
 	tween.tween_property(self, "position", Vector2(0, 64), 0.05)
 	tween.tween_property(self, "position", Vector2(0, 44), 0.05)

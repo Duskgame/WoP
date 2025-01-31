@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bye8g5i4n2f3w"]
+
+[ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_qmvc7"]
+[ext_resource type="Script" path="res://scripts/expirience_bar.gd" id="2_yctth"]
+[ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="3_nlbhj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p23te"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mg4u"]
+bg_color = Color(0, 0.517094, 0.0445464, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_bottom = 8
+border_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="ProgressBar" type="ProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qmvc7")
+theme_override_styles/background = SubResource("StyleBoxFlat_p23te")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8mg4u")
+step = 1.0
+value = 30.0
+show_percentage = false
+script = ExtResource("2_yctth")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_nlbhj")
+text = "Exp to next Lvl : 
+10/20"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

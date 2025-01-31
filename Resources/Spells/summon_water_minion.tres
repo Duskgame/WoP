@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SummoningSpellResource" load_steps=3 format=3 uid="uid://rg3iew1osxg8"]
+
+[ext_resource type="Script" path="res://scripts/summoning_spell_resource.gd" id="1_j2ttu"]
+[ext_resource type="Texture2D" uid="uid://ctywuei78l3ea" path="res://assets/sprites/summon.png" id="2_mvxh5"]
+
+[resource]
+script = ExtResource("1_j2ttu")
+element = 1
+texture = ExtResource("2_mvxh5")
+health = 10
+damage = 1.0
+attack_cooldown = 3.0
+type = 2
+name = "Summon Water Minion"
+proficiency_lvl = 1
+proficiency_exp = 0
+needed_exp = 10

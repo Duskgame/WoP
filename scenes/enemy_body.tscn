@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://di6gvedk7q15d"]
+
+[ext_resource type="Script" path="res://scripts/enemy_body.gd" id="1_dpsx4"]
+[ext_resource type="Resource" uid="uid://ddnsqcchgngk4" path="res://Resources/enemies/icebear.tres" id="2_og4pr"]
+
+[node name="EnemyBody" type="CharacterBody2D"]
+disable_mode = 1
+script = ExtResource("1_dpsx4")
+enemy_resource = ExtResource("2_og4pr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+top_level = true
+visibility_layer = 3

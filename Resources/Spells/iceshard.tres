@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="SpellResource" load_steps=2 format=3 uid="uid://dfyc88lf5il4i"]
+[gd_resource type="Resource" script_class="DamageSpellResource" load_steps=2 format=3 uid="uid://ck4yxu8py3bxt"]
 
-[ext_resource type="Script" path="res://scripts/Spell.gd" id="1_86cjp"]
+[ext_resource type="Script" path="res://scripts/damage_spell_resource.gd" id="1_eqd18"]
 
 [resource]
-script = ExtResource("1_86cjp")
+script = ExtResource("1_eqd18")
+element = 2
 name = "Iceshard"
 type = 1
-element = 3

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SpellBookResource" load_steps=14 format=3 uid="uid://sa7p8d2726yw"]
+
+[ext_resource type="Script" path="res://scripts/spellbook_resource.gd" id="1_abu4q"]
+[ext_resource type="Script" path="res://scripts/Spell.gd" id="2_d77m5"]
+[ext_resource type="Resource" uid="uid://ce0icyb0wcftj" path="res://Resources/Spells/fire.tres" id="3_c15cb"]
+[ext_resource type="Resource" uid="uid://ijvb4dyo5vk8" path="res://Resources/Spells/fireball.tres" id="4_vq7v0"]
+[ext_resource type="Resource" uid="uid://2xngnu6lumb2" path="res://Resources/Spells/heal.tres" id="5_5h4k7"]
+[ext_resource type="Resource" uid="uid://c4ls2asdt68b7" path="res://Resources/Spells/ice.tres" id="6_kl8ov"]
+[ext_resource type="Resource" uid="uid://ck4yxu8py3bxt" path="res://Resources/Spells/iceshard.tres" id="7_bvvlu"]
+[ext_resource type="Resource" uid="uid://dlf35jayags28" path="res://Resources/Spells/recovery.tres" id="8_wjkv2"]
+[ext_resource type="Resource" uid="uid://b1l2p0nylauhh" path="res://Resources/Spells/summon_fire_minion.tres" id="9_2cfcx"]
+[ext_resource type="Resource" uid="uid://c5yyyadyg4ouo" path="res://Resources/Spells/summon_ice_minion.tres" id="10_yj7cc"]
+[ext_resource type="Resource" uid="uid://rg3iew1osxg8" path="res://Resources/Spells/summon_water_minion.tres" id="11_74iir"]
+[ext_resource type="Resource" uid="uid://0ebat5ahyfqt" path="res://Resources/Spells/water.tres" id="12_bbwqm"]
+[ext_resource type="Resource" uid="uid://hte81bqqhfyr" path="res://Resources/Spells/waterslash.tres" id="13_h8y2v"]
+
+[resource]
+script = ExtResource("1_abu4q")
+spells = Array[ExtResource("2_d77m5")]([ExtResource("3_c15cb"), ExtResource("4_vq7v0"), ExtResource("5_5h4k7"), ExtResource("6_kl8ov"), ExtResource("7_bvvlu"), ExtResource("8_wjkv2"), ExtResource("9_2cfcx"), ExtResource("10_yj7cc"), ExtResource("11_74iir"), ExtResource("12_bbwqm"), ExtResource("13_h8y2v")])

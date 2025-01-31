@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="SpellResource" load_steps=2 format=3 uid="uid://dl1ikw5k81bia"]
+[gd_resource type="Resource" script_class="DamageSpellResource" load_steps=2 format=3 uid="uid://ce0icyb0wcftj"]
 
-[ext_resource type="Script" path="res://scripts/Spell.gd" id="1_jdeul"]
+[ext_resource type="Script" path="res://scripts/damage_spell_resource.gd" id="1_nci1v"]
 
 [resource]
-script = ExtResource("1_jdeul")
+script = ExtResource("1_nci1v")
+element = 0
 name = "Fire"
 type = 1
-element = 1

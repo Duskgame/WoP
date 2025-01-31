@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbnoa6cp5ucjw"]
+
+[ext_resource type="Script" path="res://scripts/player_battle.gd" id="1_2di24"]
+[ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_cqce4"]
+[ext_resource type="PackedScene" uid="uid://cyxg7vi3rrn5w" path="res://scenes/battle/spell_book.tscn" id="4_ioysa"]
+[ext_resource type="PackedScene" uid="uid://d14cfn23axeem" path="res://scenes/battle/player_health_component.tscn" id="5_6xhc7"]
+[ext_resource type="Script" path="res://scripts/save_manager.gd" id="5_0238p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8abae"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exf7e"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se587"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="InputEventKey" id="InputEventKey_0io23"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_mw2gk"]
+events = [SubResource("InputEventKey_0io23")]
+
+[node name="Player" type="Control"]
+layout_mode = 3
+anchor_top = 0.278
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.160019
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2di24")
+
+[node name="PlayerPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayerDisplay" type="HBoxContainer" parent="PlayerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PlayerText" type="Label" parent="PlayerPanel/PlayerDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_cqce4")
+theme_override_font_sizes/font_size = 50
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerHealthComponent" parent="PlayerPanel/PlayerDisplay" instance=ExtResource("5_6xhc7")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Run" type="Button" parent="PlayerPanel/PlayerDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_cqce4")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_8abae")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_exf7e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_se587")
+shortcut = SubResource("Shortcut_mw2gk")
+text = "Run"
+
+[node name="SpellBook" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ioysa")]
+player = NodePath("..")
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("5_0238p")
+
+[connection signal="battle_lost" from="PlayerPanel/PlayerDisplay/PlayerHealthComponent" to="." method="_on_player_health_component_battle_lost"]
+[connection signal="pressed" from="PlayerPanel/PlayerDisplay/Run" to="." method="_on_run_pressed"]
+[connection signal="use_spell" from="SpellBook" to="." method="_on_spell_book_use_spell"]

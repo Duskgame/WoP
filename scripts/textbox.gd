@@ -1,22 +1,18 @@
 extends Panel
 
+class_name Textbox
+
 signal start
 
 @onready var textbox = $"."
 @onready var textboxtext = $TextboxText
 @onready var button = $AcceptButton
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-	
-
-func display_text(text):
+func display_text(text) -> void:
 	textbox.show()
 	textboxtext.text = text
 
-func battlestart(enemy_name: String):
+func battlestart(enemy_name: String) -> void:
 	display_text("A wild %s has appeared! \n 
 	Defend yourself! Or run away ... I'm not your boss" % enemy_name.to_upper())
 	await button.pressed

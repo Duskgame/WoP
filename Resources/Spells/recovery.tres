@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="SpellResource" load_steps=2 format=3 uid="uid://4t2422kal7i6"]
+[gd_resource type="Resource" script_class="HealSpellRecource" load_steps=2 format=3 uid="uid://dlf35jayags28"]
 
-[ext_resource type="Script" path="res://scripts/Spell.gd" id="1_w6dd1"]
+[ext_resource type="Script" path="res://scripts/heal_spell_resource.gd" id="1_yjnbh"]
 
 [resource]
-script = ExtResource("1_w6dd1")
-name = "recovery"
+script = ExtResource("1_yjnbh")
+name = "Recovery"
 type = 0

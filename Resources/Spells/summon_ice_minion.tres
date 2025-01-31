@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SummoningSpellResource" load_steps=3 format=3 uid="uid://c5yyyadyg4ouo"]
+
+[ext_resource type="Script" path="res://scripts/summoning_spell_resource.gd" id="1_dcnot"]
+[ext_resource type="Texture2D" uid="uid://ctywuei78l3ea" path="res://assets/sprites/summon.png" id="2_eqt0j"]
+
+[resource]
+script = ExtResource("1_dcnot")
+element = 2
+texture = ExtResource("2_eqt0j")
+health = 5
+damage = 1.0
+attack_cooldown = 2.0
+type = 2
+name = "Summon Ice Minion"
+proficiency_lvl = 1
+proficiency_exp = 0
+needed_exp = 10

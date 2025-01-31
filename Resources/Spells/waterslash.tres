@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="SpellResource" load_steps=2 format=3 uid="uid://t4pqfml48gog"]
+[gd_resource type="Resource" script_class="DamageSpellResource" load_steps=2 format=3 uid="uid://hte81bqqhfyr"]
 
-[ext_resource type="Script" path="res://scripts/Spell.gd" id="1_43lwy"]
+[ext_resource type="Script" path="res://scripts/damage_spell_resource.gd" id="1_v7m3i"]
 
 [resource]
-script = ExtResource("1_43lwy")
+script = ExtResource("1_v7m3i")
+element = 1
 name = "Waterslash"
 type = 1
-element = 2

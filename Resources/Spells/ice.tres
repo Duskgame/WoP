@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="SpellResource" load_steps=2 format=3 uid="uid://cd7w6orxusrgh"]
+[gd_resource type="Resource" script_class="DamageSpellResource" load_steps=2 format=3 uid="uid://c4ls2asdt68b7"]
 
-[ext_resource type="Script" path="res://scripts/Spell.gd" id="1_d0p31"]
+[ext_resource type="Script" path="res://scripts/damage_spell_resource.gd" id="1_s8ovl"]
 
 [resource]
-script = ExtResource("1_d0p31")
+script = ExtResource("1_s8ovl")
+element = 2
 name = "Ice"
 type = 1
-element = 3
