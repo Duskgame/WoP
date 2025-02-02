@@ -2,7 +2,7 @@ extends Panel
 
 @onready var spell_tree = $VBoxContainer/Tree  # Reference to the Tree node in the scene
 
-const SpellLineDisplayScene = preload("res://scenes/display_spell_line.tscn")  # Preload the SpellLineDisplay scene for instantiation
+const SpellLineDisplayScene = preload("res://scenes/battle/display_spell_line.tscn")  # Preload the SpellLineDisplay scene for instantiation
 
 # Called when the node is added to the scene tree
 func _ready():

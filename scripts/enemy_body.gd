@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 class_name EnemyBody
 
+signal battle_detected
+
+const BATTLE = preload("res://scenes/battle/battle2.0.tscn")
+
 @export var enemy_resource: EnemyResource 
 
 @onready var SPEED = enemy_resource.speed
@@ -13,6 +17,15 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		var body = collision.get_collider()
+		print("bam")
+		var battle = BATTLE.instantiate()
+		battle.enemy.enemy_resource = enemy_resource
+		battle_detected.emit()
+		add_child(battle)
+
 	move_and_slide()
 
 func get_collision_polygon():

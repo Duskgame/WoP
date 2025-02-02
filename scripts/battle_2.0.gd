@@ -2,17 +2,12 @@ extends Control
 
 class_name Battle
 
-const PLAYER = preload("res://scenes/battle/player.tscn")
-const ENEMY = preload("res://scenes/battle/enemy.tscn")
-
 @onready var textbox: Textbox = $Textbox
 @onready var player: Player = $Player
 @onready var enemy: Enemy = $Enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = PLAYER.instantiate()
-	enemy = ENEMY.instantiate()
 	assert(player)
 	assert(enemy)
 	textbox.battlestart(enemy.enemy_name)

@@ -74,6 +74,7 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
+tooltip_text = "Type to form Spells and press Enter to cast them"
 theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
