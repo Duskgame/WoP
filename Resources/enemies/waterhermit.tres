@@ -9,6 +9,7 @@ name = "Waterhermit"
 texture = ExtResource("2_3f1ue")
 health = 25
 damage = 1
+speed = 50
 attack_cooldown = 2.0
 regeneration = 3
 heal_cooldown = 2.0

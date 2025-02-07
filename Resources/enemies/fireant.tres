@@ -9,6 +9,7 @@ name = "Fireant"
 texture = ExtResource("2_c2b6u")
 health = 20
 damage = 1
+speed = 50
 attack_cooldown = 1.5
 regeneration = 1
 heal_cooldown = 1.5

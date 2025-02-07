@@ -11,15 +11,19 @@ script = ExtResource("1_hb66u")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(25, 60, 81, 683, 1026, 602, 987, 43, 1110, 73, 1161, 708, -17, 818, -127, -8, 1076, -72, 987, 43)
+polygon = PackedVector2Array(25, 60, 81, 683, 1026, 602, 987, 43, 1081, -72, 1161, 708, -17, 818, -127, -8, 1081, -73, 987, 43)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 script = ExtResource("1_hqven")
 
+[node name="EnemyBody3" parent="." instance=ExtResource("2_kxb44")]
+position = Vector2(177, 461)
+
+[node name="EnemyBody2" parent="." instance=ExtResource("2_kxb44")]
+position = Vector2(544, 458)
+
 [node name="EnemyBody" parent="." instance=ExtResource("2_kxb44")]
-position = Vector2(346, 340)
-collision_priority = 10.0
-motion_mode = 1
+position = Vector2(223, 226)
 
 [node name="PlayerBody" parent="." instance=ExtResource("1_7vwl5")]
 position = Vector2(549, 203)

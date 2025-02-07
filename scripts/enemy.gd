@@ -4,7 +4,7 @@ class_name Enemy
 signal battle_won
 
 @export var player: Player
-@onready var enemy_resource: EnemyResource
+@export var enemy_resource: EnemyResource
 
 @onready var health_component: EnemyHealthComponent = $EnemyContainer/EnemyHealthComponent
 @onready var enemy_texture: TextureRect = $EnemyContainer/Enemy

@@ -16,8 +16,6 @@ centered = false
 [node name="Area2D" type="Area2D" parent="Eli1"]
 scale = Vector2(1.24272, 1.20755)
 
-[node name="Polygon2D" type="Polygon2D" parent="Eli1/Area2D"]
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

@@ -9,6 +9,7 @@ name = "Icewolf"
 texture = ExtResource("2_n26qh")
 health = 25
 damage = 3
+speed = 50
 attack_cooldown = 2.0
 regeneration = 1
 heal_cooldown = 2.0

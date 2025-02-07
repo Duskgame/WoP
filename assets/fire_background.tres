@@ -1,0 +1,14 @@
+[gd_resource type="NoiseTexture2D" load_steps=3 format=3 uid="uid://cwwjid5ldwxdx"]
+
+[sub_resource type="Gradient" id="Gradient_hlc6g"]
+offsets = PackedFloat32Array(0.207254, 0.647668, 1)
+colors = PackedColorArray(0.454902, 0, 0, 1, 0.737255, 0.12549, 0.301961, 1, 0.960784, 0.388235, 0.2, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_us3gg"]
+noise_type = 4
+frequency = 0.0005
+metadata/_preview_in_3d_space_ = true
+
+[resource]
+color_ramp = SubResource("Gradient_hlc6g")
+noise = SubResource("FastNoiseLite_us3gg")

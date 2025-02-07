@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://tidw8epj6hco"]
+[gd_scene load_steps=7 format=3 uid="uid://tidw8epj6hco"]
 
 [ext_resource type="Script" path="res://scripts/battle_2.0.gd" id="1_p23nf"]
 [ext_resource type="PackedScene" uid="uid://cqnk3fok3i4bx" path="res://scenes/battle/textbox.tscn" id="1_sw8go"]
 [ext_resource type="PackedScene" uid="uid://bbnoa6cp5ucjw" path="res://scenes/battle/player.tscn" id="2_vwux2"]
+[ext_resource type="Script" path="res://scripts/texture_rect.gd" id="2_wt2lo"]
 [ext_resource type="PackedScene" uid="uid://do2ac5etua6pm" path="res://scenes/battle/enemy.tscn" id="4_csnmp"]
+[ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="6_sspjn"]
 
 [node name="Battlescene" type="Control"]
 layout_mode = 3
@@ -14,13 +16,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p23nf")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_wt2lo")
 
 [node name="Textbox" parent="." instance=ExtResource("1_sw8go")]
 layout_mode = 1
@@ -39,6 +42,7 @@ enemy = NodePath("../Enemy")
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_csnmp")]
 layout_mode = 1
 player = NodePath("../Player")
+enemy_resource = ExtResource("6_sspjn")
 
 [connection signal="start" from="Textbox" to="." method="_on_textbox_start"]
 [connection signal="battle_lost" from="Player" to="." method="_on_player_battle_lost"]

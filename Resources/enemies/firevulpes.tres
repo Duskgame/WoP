@@ -9,6 +9,7 @@ name = "Firevulpe"
 texture = ExtResource("2_o60pp")
 health = 25
 damage = 3
+speed = 50
 attack_cooldown = 2.0
 regeneration = 1
 heal_cooldown = 2.0

@@ -9,6 +9,7 @@ name = "Watercrab"
 texture = ExtResource("2_oyjed")
 health = 30
 damage = 2
+speed = 50
 attack_cooldown = 3.0
 regeneration = 2
 heal_cooldown = 3.0
