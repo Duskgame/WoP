@@ -15,6 +15,7 @@ const SPEED = 300.0
 
 
 func _ready() -> void:
+	add_to_group("Player")
 	get_collision_polygon()
 	#get_area()
 	

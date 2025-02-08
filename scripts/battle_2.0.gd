@@ -3,6 +3,7 @@ extends Control
 class_name Battle
 
 signal battle_ended
+signal player_won
 
 @onready var textbox: Textbox = $Textbox
 @onready var background: Background = $Background
@@ -11,6 +12,7 @@ signal battle_ended
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("active_battle")
 	assert(player)
 	assert(enemy)
 	background.set_backgound(enemy.element)
@@ -39,7 +41,7 @@ func _on_player_battle_lost() -> void:
 func _on_enemy_battle_won() -> void:
 	await end_of_battle("You have won!")
 	State.wins += 1
-	battle_ended.emit()
+	player_won.emit()
 	get_tree().current_scene.queue_free()
 
 
@@ -47,7 +49,4 @@ func _on_player_escape() -> void:
 	textbox.display_text("You have escaped")
 	await get_tree().create_timer(2).timeout
 	battle_ended.emit()
-	get_tree().current_scene.queue_free()
-	
-func setup_battle(enemy_resource: EnemyResource):
-	enemy.enemy_resource = enemy_resource
+	queue_free()

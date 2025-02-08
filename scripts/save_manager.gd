@@ -17,7 +17,7 @@ func save_game():
 	var result = ResourceSaver.save(save_spellbook, spellbook_path)
 	if result == OK:
 		print("Game saved successfully!")
-		print_spellbook_contents(save_spellbook)
+		#print_spellbook_contents(save_spellbook)
 	else:
 		print("Failed to save game. Error code: ", result)
 
@@ -28,7 +28,7 @@ func load_game():
 		if loaded_resource is SpellBookResource:
 			spellbook.spellbook = loaded_resource
 			spellbook.spells = loaded_resource.spells
-			print_spellbook_contents(spellbook.spellbook)
+			#print_spellbook_contents(spellbook.spellbook)
 		else:
 			print("Failed to load spellbook: Invalid resource type")
 	else:
