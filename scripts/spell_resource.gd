@@ -27,7 +27,7 @@ func increase_proficiency() -> void:
 		proficiency_lvl += 1
 		proficiency_exp = 0
 		needed_exp = calc_needed_exp()
-	emit_signal("proficiency_changed")
+	proficiency_changed.emit()
 
 func calc_needed_exp() -> int:
 	return (proficiency_lvl ** 2 + proficiency_lvl) * 5

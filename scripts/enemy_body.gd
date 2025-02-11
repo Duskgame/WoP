@@ -5,7 +5,7 @@ class_name EnemyBody
 signal battle_detected
 
 const BATTLE = preload("res://scenes/battle/battle2.0.tscn")
-const WORLD = "world"
+const ENEMIES = "enemies"
 
 @export var detection_radius: float = 400
 
@@ -13,7 +13,8 @@ const WORLD = "world"
 @onready var SPEED: float = 50
 @onready var wander_time: float = 3.0
 @onready var enemy_sprite: Sprite2D = $Sprite2D
-@onready var collision_polygon = $CollisionPolygon2D
+@onready var collision_polygon: CollisionPolygon2D = $CollisionPolygon2D
+@onready var collision_shape:CollisionShape2D = $CollisionShape2D
 
 var direction: Vector2 = Vector2.ZERO
 var player: PlayerBody = null
@@ -29,32 +30,21 @@ func _physics_process(delta: float) -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	if player and global_position.distance_to(player.global_position) <= detection_radius:
 		chase_player(delta)
+		#check_for_collision(delta)
 	else:
-		handle_movement(delta)
-	check_for_collision(delta)
+		random_movement(delta)
+		#check_for_collision(delta)
 
 
 func initialize_enemy():
-	add_to_group(WORLD)
+	add_to_group(ENEMIES)
 	if enemy_resource:
 		SPEED = enemy_resource.speed
 		enemy_sprite.texture = enemy_resource.texture
-		setup_collision_polygon()
+		collision_polygon.polygon = enemy_resource.get_texture_polygon()
 
 
-func setup_collision_polygon():
-	if not enemy_sprite.texture or collision_polygon.polygon.size() > 0:
-		return
-		
-	var bitmap = BitMap.new()
-	bitmap.create_from_image_alpha(enemy_sprite.texture.get_image())
-	var polygons = bitmap.opaque_to_polygons(Rect2(Vector2.ZERO, enemy_sprite.texture.get_size()))
-	
-	if polygons.size() > 0:
-		collision_polygon.polygon = polygons[0]  # Use the first generated polygon
-
-
-func handle_movement(delta):
+func random_movement(delta):
 	velocity = direction * SPEED
 	move_and_slide()
 	
@@ -77,7 +67,7 @@ func randomize_direction():
 	
 	
 func chase_player(delta):
-	velocity = global_position.direction_to(player.global_position) * SPEED
+	velocity = global_position.direction_to(player.global_position) * SPEED 
 	move_and_slide()
 	
 	
@@ -111,7 +101,8 @@ func handle_collision(collision: KinematicCollision2D):
 	var body = collision.get_collider()
 	if body is PlayerBody:
 		start_battle()
-		
+	elif body is EnemyBody:
+		return
 	else:
 		randomize_direction()
 
@@ -131,7 +122,7 @@ func start_battle():
 	
 	battle_detected.emit()
 	
-	set_pause_group(WORLD, true)
+	set_pause_group(ENEMIES, true)
 	set_pause_group("Player", true)
 	get_tree().root.add_child(battle)
 	get_tree().current_scene = battle
@@ -150,12 +141,14 @@ func set_pause_group(group_name: String, pause: bool):
 func _on_battle_ended():
 	set_pause_group("Player", false)
 	await get_tree().create_timer(1).timeout
-	set_pause_group(WORLD, false)
+	set_pause_group(ENEMIES, false)
 
 func _on_player_won():
+	enemy_sprite.queue_free()
+	collision_polygon.queue_free()
 	set_pause_group("Player", false)
 	await get_tree().create_timer(1).timeout
-	set_pause_group(WORLD, false)
+	set_pause_group(ENEMIES, false)
 	print("delete enemy")
 	queue_free()
 

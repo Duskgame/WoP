@@ -35,14 +35,14 @@ func _on_player_battle_lost() -> void:
 	State.losses += 1
 	State.current_health += round(State.max_health * 0.5)
 	battle_ended.emit()
-	get_tree().current_scene.queue_free()
+	queue_free()
 	
 
 func _on_enemy_battle_won() -> void:
 	await end_of_battle("You have won!")
 	State.wins += 1
 	player_won.emit()
-	get_tree().current_scene.queue_free()
+	queue_free()
 
 
 func _on_player_escape() -> void:

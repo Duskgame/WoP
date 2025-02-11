@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-State="*res://scripts/State.gd"
-Spells="*res://scripts/spells.gd"
+State="*res://scripts/state_autoload.gd"
+Spells="*res://scripts/spells_autoload.gd"
 
 [display]
 

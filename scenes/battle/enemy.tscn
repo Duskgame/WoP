@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://do2ac5etua6pm"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_kp8uo"]
+[ext_resource type="Script" path="res://scripts/enemy_battle.gd" id="1_kp8uo"]
 [ext_resource type="PackedScene" uid="uid://cf0dy1l0puenm" path="res://scenes/battle/enemy_health_component.tscn" id="3_5txmx"]
 [ext_resource type="Texture2D" uid="uid://r7a48iy7ynra" path="res://assets/sprites/feuersalamande.png" id="4_a6dbm"]
-[ext_resource type="Script" path="res://scripts/enemytexture.gd" id="5_unlcq"]
+[ext_resource type="Script" path="res://scripts/enemy_texture.gd" id="5_unlcq"]
 [ext_resource type="Script" path="res://scripts/damage_component.gd" id="6_levlm"]
 
 [node name="Enemy" type="Control"]

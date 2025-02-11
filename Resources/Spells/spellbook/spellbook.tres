@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SpellBookResource" load_steps=14 format=3 uid="uid://sa7p8d2726yw"]
 
 [ext_resource type="Script" path="res://scripts/spellbook_resource.gd" id="1_abu4q"]
-[ext_resource type="Script" path="res://scripts/Spell.gd" id="2_d77m5"]
+[ext_resource type="Script" path="res://scripts/spell_resource.gd" id="2_d77m5"]
 [ext_resource type="Resource" uid="uid://ce0icyb0wcftj" path="res://Resources/Spells/fire.tres" id="3_c15cb"]
 [ext_resource type="Resource" uid="uid://ijvb4dyo5vk8" path="res://Resources/Spells/fireball.tres" id="4_vq7v0"]
 [ext_resource type="Resource" uid="uid://2xngnu6lumb2" path="res://Resources/Spells/heal.tres" id="5_5h4k7"]

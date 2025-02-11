@@ -11,3 +11,11 @@ class_name EnemyResource
 @export var regeneration: int = 1
 @export var heal_cooldown: float = 1.5
 @export var element : Spells.ELEMENTS
+
+func get_texture_polygon():
+	var bitmap = BitMap.new()
+	bitmap.create_from_image_alpha(texture.get_image())
+	var polygons = bitmap.opaque_to_polygons(Rect2(Vector2.ZERO, texture.get_size()))
+	
+	if polygons.size() > 0:
+		return polygons[0]

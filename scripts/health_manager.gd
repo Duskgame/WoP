@@ -12,10 +12,10 @@ var max_health: float = 0
 var regeneration: float = 0
 	
 # takes input to set health variables
-func initialise_health(current: float, max: float, regen: float):
-	hpbar.set_health(current,max)
+func initialise_health(current: float, max_hp: float, regen: float):
+	hpbar.set_health(current,max_hp)
 	current_health = current
-	max_health = max
+	max_health = max_hp
 	regeneration = regen
 	
 
