@@ -10,9 +10,9 @@ const SPEED = 100.0
 
 @onready var sprite = $Eli1
 @onready var collision_polygon = $CollisionPolygon2D
-#@onready var polygon = $Eli1/Area2D/Polygon2D
-@onready var area = $Eli1/Area2D
 @onready var move: MovementComponent = $MovementComponent
+
+var enemy: EnemyBody = null
 
 
 func _ready() -> void:
@@ -23,12 +23,20 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	velocity = move.handle_movement(SPEED, velocity, sprite)
+	velocity = move.handle_movement(SPEED, velocity)
+	if velocity.x < 0:
+		sprite.flip_h = false
+			
+	elif velocity.x > 0:
+		sprite.flip_h = true
 	
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		var body = collision.get_collider()
-		battle_detected.emit(body)
+		if body == EnemyBody:
+			enemy = body
+			enemy.start_battle()
+			battle_detected.emit(body)
 
 	move_and_slide()
 

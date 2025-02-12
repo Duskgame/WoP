@@ -1,24 +1,27 @@
-[gd_scene load_steps=15 format=3 uid="uid://di6gvedk7q15d"]
+[gd_scene load_steps=19 format=3 uid="uid://di6gvedk7q15d"]
 
 [ext_resource type="Script" path="res://scripts/enemy_body.gd" id="1_dpsx4"]
 [ext_resource type="Script" path="res://scripts/random_enemy_spawner.gd" id="2_1tfk7"]
 [ext_resource type="Resource" uid="uid://ddnsqcchgngk4" path="res://Resources/enemies/icebear.tres" id="2_og4pr"]
 [ext_resource type="Texture2D" uid="uid://r7a48iy7ynra" path="res://assets/sprites/feuersalamande.png" id="2_yvx1i"]
+[ext_resource type="PackedScene" uid="uid://5qgww0v33and" path="res://scenes/enemy_initialization_component.tscn" id="3_qcocj"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="3_wyjlg"]
 [ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="4_5n6xs"]
 [ext_resource type="Resource" uid="uid://bxrndpp7vs0kx" path="res://Resources/enemies/firesalamander.tres" id="5_giqmy"]
 [ext_resource type="Resource" uid="uid://cj31375r1ngwg" path="res://Resources/enemies/firevulpes.tres" id="6_1lqxu"]
+[ext_resource type="PackedScene" uid="uid://cx3wi7p8otrib" path="res://scenes/battle_management_component.tscn" id="6_myese"]
+[ext_resource type="PackedScene" uid="uid://lmcw7ghonryy" path="res://scenes/player_detection_component.tscn" id="7_ogw7g"]
 [ext_resource type="Resource" uid="uid://bp6fa7yy8jejk" path="res://Resources/enemies/icebunny.tres" id="8_pegog"]
 [ext_resource type="Resource" uid="uid://bcm0mtrd6n1wl" path="res://Resources/enemies/icewolf.tres" id="9_y54aj"]
 [ext_resource type="Resource" uid="uid://btvq4efm5xmqo" path="res://Resources/enemies/watercrab.tres" id="10_v0d83"]
 [ext_resource type="Resource" uid="uid://v6cf32mib8pg" path="res://Resources/enemies/waterfrog.tres" id="11_j6mdb"]
 [ext_resource type="Resource" uid="uid://6d2ixkebi30a" path="res://Resources/enemies/waterhermit.tres" id="12_pmx5i"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4m4nm"]
-radius = 58.5235
+[ext_resource type="PackedScene" uid="uid://dank61oickkdi" path="res://scripts/enemy_movement_component.tscn" id="15_hs6vv"]
+[ext_resource type="PackedScene" uid="uid://di0cvp184uhti" path="res://scenes/enemy_collision_component.tscn" id="16_41qvk"]
 
 [node name="EnemyBody" type="CharacterBody2D"]
 disable_mode = 1
+collision_priority = 5.0
 script = ExtResource("1_dpsx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -33,7 +36,12 @@ visibility_layer = 3
 script = ExtResource("2_1tfk7")
 possible_enemies = Array[ExtResource("3_wyjlg")]([ExtResource("4_5n6xs"), ExtResource("5_giqmy"), ExtResource("6_1lqxu"), ExtResource("2_og4pr"), ExtResource("8_pegog"), ExtResource("9_y54aj"), ExtResource("10_v0d83"), ExtResource("11_j6mdb"), ExtResource("12_pmx5i")])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_4m4nm")
+[node name="EnemyInitializationComponent" parent="." instance=ExtResource("3_qcocj")]
 
-[connection signal="random_enemy" from="RandomEnemySpawner" to="." method="_on_random_enemy_spawner_random_enemy"]
+[node name="EnemyMovementComponent" parent="." instance=ExtResource("15_hs6vv")]
+
+[node name="EnemyCollisionComponent" parent="." instance=ExtResource("16_41qvk")]
+
+[node name="BattleManagementComponent" parent="." instance=ExtResource("6_myese")]
+
+[node name="PlayerDetectionComponent" parent="." instance=ExtResource("7_ogw7g")]

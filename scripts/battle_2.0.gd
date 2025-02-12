@@ -41,6 +41,7 @@ func _on_player_battle_lost() -> void:
 func _on_enemy_battle_won() -> void:
 	await end_of_battle("You have won!")
 	State.wins += 1
+	battle_ended.emit()
 	player_won.emit()
 	queue_free()
 

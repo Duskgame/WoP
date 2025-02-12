@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player_body.gd" id="1_22drr"]
 [ext_resource type="Texture2D" uid="uid://ctn0kvil5brgd" path="res://assets/sprites/eli1.png" id="1_kytdj"]
 [ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_yd58e"]
-[ext_resource type="PackedScene" uid="uid://csbqktfs7ncfc" path="res://scenes/movement_component.tscn" id="4_rhcu0"]
+[ext_resource type="PackedScene" uid="uid://bwi4w3de442ag" path="res://scenes/movement_component.tscn" id="4_rhcu0"]
 
 [node name="PlayerBody" type="CharacterBody2D"]
 disable_mode = 1
@@ -14,13 +14,6 @@ spellbook = ExtResource("2_yd58e")
 texture = ExtResource("1_kytdj")
 centered = false
 
-[node name="Area2D" type="Area2D" parent="Eli1"]
-scale = Vector2(1.24272, 1.20755)
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-
 [node name="MovementComponent" parent="." instance=ExtResource("4_rhcu0")]
-
-[connection signal="body_entered" from="Eli1/Area2D" to="." method="_on_area_2d_body_entered"]
