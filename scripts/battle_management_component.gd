@@ -2,6 +2,8 @@ extends Node
 
 class_name BattleManagementComponent
 
+signal battle_detected(battle: Battle)
+
 const BATTLE_SCENE_PATH = "res://scenes/battle/battle2.0.tscn"
 const ENEMIES_GROUP_NAME = "enemies"
 const PLAYER_GROUP_NAME = "Player"
@@ -24,6 +26,7 @@ func start_battle():
 		return
 	
 	var battle_instance: Battle = battle_scene.instantiate()
+	battle_detected.emit(battle_instance)
 	if battle_instance.has_node("Enemy"):
 		battle_instance.get_node("Enemy").enemy_resource = enemy_body.enemy_resource
 	

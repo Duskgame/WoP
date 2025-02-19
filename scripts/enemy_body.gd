@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name EnemyBody
 
+signal battle_detected(battle: Battle)
+
 const ENEMIES_GROUP_NAME = "enemies"
 
 @onready var enemy_resource: EnemyResource = null
@@ -25,6 +27,7 @@ func _ready() -> void:
 	movement_component.initialize(self, sprite)
 	collision_component.initialize(self, movement_component)
 	battle_component.initialize(self, sprite, collision_polygon)
+	battle_component.connect("battle_detected", _on_battle_detected)
 	detection_component.initialize(self)
 
 	movement_component.randomize_direction()
@@ -40,3 +43,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		movement_component.random_movement(delta)
 		collision_component.check_for_collision(delta)
+		
+
+func _on_battle_detected(battle: Battle):
+	battle_detected.emit(battle)
