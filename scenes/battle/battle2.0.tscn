@@ -45,6 +45,9 @@ layout_mode = 1
 player = NodePath("../Player")
 enemy_resource = ExtResource("6_sspjn")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
 [connection signal="start" from="Textbox" to="." method="_on_textbox_start"]
 [connection signal="battle_lost" from="Player" to="." method="_on_player_battle_lost"]
 [connection signal="escape" from="Player" to="." method="_on_player_escape"]

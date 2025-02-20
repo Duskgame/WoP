@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 	
 
 func _on_battle_detected(battle: Battle):
+	print("helloo", battle)
 	camera.global_position = battle.global_position
 
 func end_game():

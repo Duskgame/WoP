@@ -9,6 +9,7 @@ signal player_won
 @onready var background: Background = $Background
 @onready var player: Player = $Player
 @onready var enemy: Enemy = $Enemy
+@onready var camera: Camera2D = $Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +19,7 @@ func _ready() -> void:
 	background.set_backgound(enemy.element)
 	textbox.battlestart(enemy.enemy_name)
 	print("Wins: " + str(State.wins) + " / Losses: " + str(State.losses))
+	camera.make_current()
 	
 func _on_textbox_start() -> void:
 	enemy.battle_start()
