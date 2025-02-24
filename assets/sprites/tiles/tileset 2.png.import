@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci6rkwrclgsj"
-path="res://.godot/imported/feuerameise.png-8f9f40269e820832a7779dc21b6932ea.ctex"
+uid="uid://di1iyn6jhdoie"
+path="res://.godot/imported/tileset 2.png-cdabb35b0082cda1d092466f2c1ff9da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/feuerameise.png"
-dest_files=["res://.godot/imported/feuerameise.png-8f9f40269e820832a7779dc21b6932ea.ctex"]
+source_file="res://assets/sprites/tiles/tileset 2.png"
+dest_files=["res://.godot/imported/tileset 2.png-cdabb35b0082cda1d092466f2c1ff9da.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=0
+compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

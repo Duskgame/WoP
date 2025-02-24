@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/battle_words.gd" id="1_ty057"]
 [ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="2_1v47h"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="3_qnb8t"]
-[ext_resource type="Texture2D" uid="uid://ci6rkwrclgsj" path="res://assets/sprites/feuerameise.png" id="4_o0tjo"]
+[ext_resource type="Texture2D" uid="uid://ci6rkwrclgsj" path="res://assets/sprites/enemies/feuerameise.png" id="4_o0tjo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfgwy"]
 bg_color = Color(1, 1, 1, 0.470588)

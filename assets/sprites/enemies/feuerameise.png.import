@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt132osyudhlt"
-path="res://.godot/imported/wassersiedler.png-d12c03b782792e55f9cf67ed4541d929.ctex"
+uid="uid://ci6rkwrclgsj"
+path="res://.godot/imported/feuerameise.png-11450a34f532273453d5f64cb9b2f80e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/wassersiedler.png"
-dest_files=["res://.godot/imported/wassersiedler.png-d12c03b782792e55f9cf67ed4541d929.ctex"]
+source_file="res://assets/sprites/enemies/feuerameise.png"
+dest_files=["res://.godot/imported/feuerameise.png-11450a34f532273453d5f64cb9b2f80e.ctex"]
 
 [params]
 

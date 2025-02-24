@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c3rh6o4o4o4bu"]
+
+[ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_i5pfv"]
+
+[resource]
+default_font = ExtResource("1_i5pfv")
+default_font_size = 56

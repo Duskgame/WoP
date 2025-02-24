@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di1iyn6jhdoie"
-path="res://.godot/imported/tileset 2.png-354a286b2628b18d038bb218b2a00891.ctex"
+uid="uid://sfkjb4fxk0r6"
+path="res://.godot/imported/wasserkrabbe.png-75d2dd83b9e95484088560a31a1c884a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileset 2.png"
-dest_files=["res://.godot/imported/tileset 2.png-354a286b2628b18d038bb218b2a00891.ctex"]
+source_file="res://assets/sprites/enemies/wasserkrabbe.png"
+dest_files=["res://.godot/imported/wasserkrabbe.png-75d2dd83b9e95484088560a31a1c884a.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

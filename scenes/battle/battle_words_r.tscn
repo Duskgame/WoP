@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="2_3il58"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="3_i4gom"]
 [ext_resource type="Resource" uid="uid://dourjm8sinpdf" path="res://Resources/player.tres" id="3_utxyy"]
-[ext_resource type="Texture2D" uid="uid://ci6rkwrclgsj" path="res://assets/sprites/feuerameise.png" id="4_n0c63"]
+[ext_resource type="Texture2D" uid="uid://ci6rkwrclgsj" path="res://assets/sprites/enemies/feuerameise.png" id="4_n0c63"]
 [ext_resource type="Script" path="res://scripts/player_data.gd" id="6_cdtmh"]
 [ext_resource type="Script" path="res://scripts/spellbook.gd" id="6_h6mgk"]
 

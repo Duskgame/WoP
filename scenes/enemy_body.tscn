@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/enemy_body.gd" id="1_dpsx4"]
 [ext_resource type="Script" path="res://scripts/random_enemy_spawner.gd" id="2_1tfk7"]
 [ext_resource type="Resource" uid="uid://ddnsqcchgngk4" path="res://Resources/enemies/icebear.tres" id="2_og4pr"]
-[ext_resource type="Texture2D" uid="uid://r7a48iy7ynra" path="res://assets/sprites/feuersalamande.png" id="2_yvx1i"]
+[ext_resource type="Texture2D" uid="uid://r7a48iy7ynra" path="res://assets/sprites/enemies/feuersalamande.png" id="2_yvx1i"]
 [ext_resource type="PackedScene" uid="uid://5qgww0v33and" path="res://scenes/enemy_initialization_component.tscn" id="3_qcocj"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="3_wyjlg"]
 [ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="4_5n6xs"]
@@ -16,7 +16,7 @@
 [ext_resource type="Resource" uid="uid://btvq4efm5xmqo" path="res://Resources/enemies/watercrab.tres" id="10_v0d83"]
 [ext_resource type="Resource" uid="uid://v6cf32mib8pg" path="res://Resources/enemies/waterfrog.tres" id="11_j6mdb"]
 [ext_resource type="Resource" uid="uid://6d2ixkebi30a" path="res://Resources/enemies/waterhermit.tres" id="12_pmx5i"]
-[ext_resource type="PackedScene" uid="uid://dank61oickkdi" path="res://scripts/enemy_movement_component.tscn" id="15_hs6vv"]
+[ext_resource type="PackedScene" uid="uid://dank61oickkdi" path="res://scenes/enemy_movement_component.tscn" id="15_hs6vv"]
 [ext_resource type="PackedScene" uid="uid://di0cvp184uhti" path="res://scenes/enemy_collision_component.tscn" id="16_41qvk"]
 
 [node name="EnemyBody" type="CharacterBody2D"]

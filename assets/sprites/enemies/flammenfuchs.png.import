@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x2v76hnm465y"
-path="res://.godot/imported/icebear.png-deb406810c0b1e2adbf981fecb490057.ctex"
+uid="uid://bgih2l5s0pkf1"
+path="res://.godot/imported/flammenfuchs.png-24a183a28ad41f5bdb14789a8ab95869.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/icebear.png"
-dest_files=["res://.godot/imported/icebear.png-deb406810c0b1e2adbf981fecb490057.ctex"]
+source_file="res://assets/sprites/enemies/flammenfuchs.png"
+dest_files=["res://.godot/imported/flammenfuchs.png-24a183a28ad41f5bdb14789a8ab95869.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkmgkvjq0ntb7"
-path="res://.godot/imported/icewolf.png-b445512132d87d417bbe017e8b110788.ctex"
+uid="uid://cyhg4d7y4dcjb"
+path="res://.godot/imported/wasserfrosch.png-e0d8d9beb1aade30856a05760c8a480c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/icewolf.png"
-dest_files=["res://.godot/imported/icewolf.png-b445512132d87d417bbe017e8b110788.ctex"]
+source_file="res://assets/sprites/enemies/wasserfrosch.png"
+dest_files=["res://.godot/imported/wasserfrosch.png-e0d8d9beb1aade30856a05760c8a480c.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

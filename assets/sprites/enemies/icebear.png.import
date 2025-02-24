@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyhg4d7y4dcjb"
-path="res://.godot/imported/wasserfrosch.png-d0aaa9d3620595f50d9e5f183a11a15e.ctex"
+uid="uid://x2v76hnm465y"
+path="res://.godot/imported/icebear.png-a9e34189eb94869bc4726739681cad4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/wasserfrosch.png"
-dest_files=["res://.godot/imported/wasserfrosch.png-d0aaa9d3620595f50d9e5f183a11a15e.ctex"]
+source_file="res://assets/sprites/enemies/icebear.png"
+dest_files=["res://.godot/imported/icebear.png-a9e34189eb94869bc4726739681cad4c.ctex"]
 
 [params]
 

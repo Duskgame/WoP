@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfkjb4fxk0r6"
-path="res://.godot/imported/wasserkrabbe.png-46b7d8ffff8932ca21b9d8908d134483.ctex"
+uid="uid://r7a48iy7ynra"
+path="res://.godot/imported/feuersalamande.png-5e7cb90e02d8fb41e0fa93c4edef0b36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/wasserkrabbe.png"
-dest_files=["res://.godot/imported/wasserkrabbe.png-46b7d8ffff8932ca21b9d8908d134483.ctex"]
+source_file="res://assets/sprites/enemies/feuersalamande.png"
+dest_files=["res://.godot/imported/feuersalamande.png-5e7cb90e02d8fb41e0fa93c4edef0b36.ctex"]
 
 [params]
 

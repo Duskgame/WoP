@@ -2,9 +2,9 @@ extends TextureRect
 
 class_name Background
 
-var fire = preload("res://assets/fire_background.tres")
-var water =  preload("res://assets/water_background.tres")
-var ice = preload("res://assets/ice_background.tres")
+var fire = preload("res://assets/sprites/backgrounds/fire_background.tres")
+var water =  preload("res://assets/sprites/backgrounds/water_background.tres")
+var ice = preload("res://assets/sprites/backgrounds/ice_background.tres")
 
 func set_backgound(enemy_element):
 	if enemy_element == 0:

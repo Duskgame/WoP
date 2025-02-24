@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3dp0xd3ectvj"
-path="res://.godot/imported/Icebunny.png-6a69b8d75657d5443d8f0f454cdb7075.ctex"
+uid="uid://dt132osyudhlt"
+path="res://.godot/imported/wassersiedler.png-d46dc962d008128a8fd0c5df5bf21418.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Icebunny.png"
-dest_files=["res://.godot/imported/Icebunny.png-6a69b8d75657d5443d8f0f454cdb7075.ctex"]
+source_file="res://assets/sprites/enemies/wassersiedler.png"
+dest_files=["res://.godot/imported/wassersiedler.png-d46dc962d008128a8fd0c5df5bf21418.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

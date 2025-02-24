@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgih2l5s0pkf1"
-path="res://.godot/imported/flammenfuchs.png-e9c1cfd14b8d88dc97253f6e1e72629d.ctex"
+uid="uid://d286kqui0kjj0"
+path="res://.godot/imported/button.png-c2ece5f10f604f110c98b20040e68248.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/flammenfuchs.png"
-dest_files=["res://.godot/imported/flammenfuchs.png-e9c1cfd14b8d88dc97253f6e1e72629d.ctex"]
+source_file="res://assets/sprites/backgrounds/button.png"
+dest_files=["res://.godot/imported/button.png-c2ece5f10f604f110c98b20040e68248.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=0
+compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
