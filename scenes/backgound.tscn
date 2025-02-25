@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://crl0hkimg71p3"]
+[gd_scene load_steps=5 format=3 uid="uid://crl0hkimg71p3"]
 
 [ext_resource type="Script" path="res://scripts/menu_backgound.gd" id="1_yi5ux"]
+
+[sub_resource type="Gradient" id="Gradient_t5eke"]
+offsets = PackedFloat32Array(0, 0.512953, 1)
+colors = PackedColorArray(0.332881, 0.332881, 0.332881, 0.196078, 0.733005, 0.733005, 0.733005, 0.196078, 1, 1, 1, 0.196078)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ejkqb"]
+seed = 14
+frequency = 0.0042
+fractal_lacunarity = 1.735
+fractal_weighted_strength = 0.37
+domain_warp_amplitude = 28.475
+domain_warp_frequency = -0.305
+domain_warp_fractal_type = 2
+domain_warp_fractal_octaves = 10
+domain_warp_fractal_lacunarity = 4.035
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ynras"]
+in_3d_space = true
+seamless_blend_skirt = 0.95
+color_ramp = SubResource("Gradient_t5eke")
+noise = SubResource("FastNoiseLite_ejkqb")
 
 [node name="MenusBackgound" type="Control"]
 layout_mode = 3
@@ -10,8 +32,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yi5ux")
-mouse_attraction_strength = 20.0
-mouse_attraction_radius = 100.0
 separation_weight = 5.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -21,6 +41,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("NoiseTexture2D_ynras")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
