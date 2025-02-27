@@ -16,6 +16,9 @@ func _ready() -> void:
 	add_to_group("active_battle")
 	assert(player)
 	assert(enemy)
+	enemy.enemy_resource = SceneSystem.get_temp_data("enemy_resource")
+	player.spellbook.spellbook_resource = SceneSystem.get_temp_data("player_spellbook")
+	enemy.initialise_enemy()
 	background.set_backgound(enemy.element)
 	textbox.battlestart(enemy.enemy_name)
 	print("Wins: " + str(State.wins) + " / Losses: " + str(State.losses))
@@ -37,7 +40,7 @@ func _on_player_battle_lost() -> void:
 	State.losses += 1
 	State.current_health += round(State.max_health * 0.5)
 	battle_ended.emit()
-	queue_free()
+	SceneSystem.switch_scene("world")
 	
 
 func _on_enemy_battle_won() -> void:
@@ -45,11 +48,11 @@ func _on_enemy_battle_won() -> void:
 	State.wins += 1
 	battle_ended.emit()
 	player_won.emit()
-	queue_free()
+	SceneSystem.switch_scene("world")
 
 
 func _on_player_escape() -> void:
 	textbox.display_text("You have escaped")
 	await get_tree().create_timer(2).timeout
 	battle_ended.emit()
-	queue_free()
+	SceneSystem.switch_scene("world")

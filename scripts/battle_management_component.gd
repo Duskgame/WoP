@@ -25,19 +25,16 @@ func start_battle():
 		print("A battle is already active.")
 		return
 	
-	var battle_instance: Battle = battle_scene.instantiate()
-	battle_detected.emit(battle_instance)
-	if battle_instance.has_node("Enemy"):
-		battle_instance.get_node("Enemy").enemy_resource = enemy_body.enemy_resource
+	SceneSystem.set_temp_data("enemy_resource", enemy_body.enemy_resource)
+	SceneSystem.set_temp_data("player_spellbook", get_tree().get_first_node_in_group(PLAYER_GROUP_NAME).spellbook_resource)
+	
+	print(SceneSystem.temp_data)
 	
 	pause_group(ENEMIES_GROUP_NAME, true)
 	pause_group(PLAYER_GROUP_NAME, true)
 
-	get_tree().root.add_child(battle_instance)
-
-	battle_instance.connect("battle_ended", _on_battle_ended)
-	battle_instance.connect("player_won", _on_player_won)
-
+	SceneSystem.switch_scene("battle")
+	
 
 func pause_group(group_name: String, pause: bool):
 	for node in get_tree().get_nodes_in_group(group_name):

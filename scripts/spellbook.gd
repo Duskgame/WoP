@@ -6,11 +6,11 @@ signal use_spell(input: String)
 
 
 @onready var spell_input: LineEdit = $SpellPanel/LineEdit
-@export var spellbook: SpellBookResource
+@export var spellbook_resource: SpellBookResource
 @export var player: Player
 @onready var spell_dict = {}
 @onready var spell_panel = $SpellPanel
-@onready var spells = spellbook.spells
+@onready var spells: Array[SpellResource] = spellbook_resource.spells
 
 func instanciate_spellbook() -> void:
 	set_spell_array_names_to_lower()
@@ -19,7 +19,7 @@ func instanciate_spellbook() -> void:
 	update_spells()
 
 func update_spells():
-	for spell in spellbook.spells:
+	for spell in spellbook_resource.spells:
 		match spell.type:
 			Spells.TYPES.DAMAGE:
 				spell_dict[spell.name] = spell as DamageSpellResource
@@ -34,7 +34,7 @@ func get_spells_in_dict() -> void:
 
 
 func update_spell(updated_spell: SpellResource):
-	spellbook.update_spell(updated_spell)
+	spellbook_resource.update_spell(updated_spell)
 	update_spells()
 
 func set_spell_array_names_to_lower() -> void:

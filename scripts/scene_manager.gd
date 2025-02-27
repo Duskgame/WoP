@@ -4,6 +4,8 @@ class_name SceneManager
 
 @export var Scenes: Dictionary = {}
 
+var temp_data: Dictionary = {}
+
 var current_scene_name: String = ""
 
 
@@ -22,6 +24,14 @@ func remove_scene(scene_name: String) -> void:
 func switch_scene(scene_name: String) -> void:
 	get_tree().change_scene_to_file(Scenes[scene_name])
 	
+func set_temp_data(key: String, value: Variant) -> void:
+	temp_data[key] = value
+
+func get_temp_data(key: String) -> Variant:
+	var value = temp_data.get(key)
+	temp_data.erase(key)
+	return value
+
 func restart_scene() -> void:
 	get_tree().reload_current_scene()
 

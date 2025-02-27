@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbnoa6cp5ucjw"]
+[gd_scene load_steps=12 format=3 uid="uid://bbnoa6cp5ucjw"]
 
 [ext_resource type="Script" path="res://scripts/player_battle.gd" id="1_2di24"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_cqce4"]
 [ext_resource type="PackedScene" uid="uid://cyxg7vi3rrn5w" path="res://scenes/battle/spell_book.tscn" id="4_ioysa"]
 [ext_resource type="PackedScene" uid="uid://d14cfn23axeem" path="res://scenes/battle/player_health_component.tscn" id="5_6xhc7"]
 [ext_resource type="Script" path="res://scripts/save_manager.gd" id="5_0238p"]
+[ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="5_dfusn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8abae"]
 bg_color = Color(1, 1, 1, 1)
@@ -110,6 +111,7 @@ anchor_bottom = 0.738
 offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 1
+spellbook_resource = ExtResource("5_dfusn")
 player = NodePath("..")
 
 [node name="SaveManager" type="Node" parent="."]

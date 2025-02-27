@@ -6,7 +6,7 @@ signal battle_detected(enemy: EnemyBody)
 
 const SPEED = 100.0
 
-@export var spellbook: SpellBookResource
+@export var spellbook_resource: SpellBookResource
 
 @onready var sprite = $Eli1
 @onready var collision_polygon = $CollisionPolygon2D
