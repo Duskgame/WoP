@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WoP"
-run/main_scene="res://scenes/battle/battle2.0.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 State="*res://scripts/state_autoload.gd"
 Spells="*res://scripts/spells_autoload.gd"
+SceneSystem="*res://scenes/scene_manager.tscn"
 
 [display]
 
