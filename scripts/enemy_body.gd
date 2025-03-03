@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name EnemyBody
 
-signal battle_detected(battle: Battle)
+signal battle_detected(own_position)
 
 const ENEMIES_GROUP_NAME = "enemies"
 
@@ -46,4 +46,6 @@ func _physics_process(delta: float) -> void:
 		
 
 func _on_battle_detected(battle: Battle):
-	battle_detected.emit(battle)
+	SaveSystem.save_game()
+	SceneSystem.set_temp_data("enemy_position", self.global_position)
+	battle_detected.emit(self.global_position)

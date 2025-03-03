@@ -6,7 +6,7 @@ class_name SceneManager
 
 var temp_data: Dictionary = {}
 
-var current_scene_name: String = ""
+var current_scene_name: String = "world"
 
 
 func _ready() -> void:
@@ -22,7 +22,12 @@ func remove_scene(scene_name: String) -> void:
 	Scenes.erase(scene_name)
 
 func switch_scene(scene_name: String) -> void:
-	get_tree().change_scene_to_file(Scenes[scene_name])
+	if scene_name in Scenes:
+		current_scene_name = scene_name 
+		get_tree().change_scene_to_file(Scenes[scene_name])
+	else:
+		print("Error: Scene '", scene_name, "' not found in Scenes dictionary")
+	
 	
 func set_temp_data(key: String, value: Variant) -> void:
 	temp_data[key] = value
