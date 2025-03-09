@@ -12,9 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	await  get_tree().create_timer(1).timeout
-	SceneSystem.quit_game()
-
-
-func _on_start_button_pressed() -> void:
-	SceneSystem.switch_scene("world")
+	await  get_tree().create_timer(1.5).timeout
+	get_tree().quit()

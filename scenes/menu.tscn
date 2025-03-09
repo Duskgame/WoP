@@ -19,26 +19,10 @@ script = ExtResource("1_udovs")
 [node name="Backgound" parent="." instance=ExtResource("1_btr5k")]
 layout_mode = 1
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 154.0
-offset_top = 53.0
-offset_right = 558.0
-offset_bottom = 186.0
-theme = ExtResource("3_viwlj")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.355314, 0.355314, 0.355314, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = -3
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 130
-text = "Words"
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 154.0
-offset_top = 156.0
+offset_top = 60.0
 offset_right = 558.0
 offset_bottom = 249.0
 theme = ExtResource("3_viwlj")
@@ -48,8 +32,8 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = -3
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 90
-text = "of Power"
+text = "Words 
+of Power"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -66,7 +50,6 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_2os2p")
 theme_override_colors/font_color = Color(0.654232, 0.654232, 0.654232, 1)
-theme_override_font_sizes/font_size = 56
 theme_override_styles/hover_pressed = ExtResource("3_yncj0")
 theme_override_styles/hover = ExtResource("2_3v44c")
 theme_override_styles/pressed = ExtResource("3_yncj0")
@@ -78,7 +61,6 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_2os2p")
 theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
-theme_override_font_sizes/font_size = 56
 theme_override_styles/hover_pressed = ExtResource("3_yncj0")
 theme_override_styles/hover = ExtResource("2_3v44c")
 theme_override_styles/pressed = ExtResource("3_yncj0")
@@ -90,7 +72,6 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_2os2p")
 theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
-theme_override_font_sizes/font_size = 56
 theme_override_styles/hover_pressed = ExtResource("3_yncj0")
 theme_override_styles/hover = ExtResource("2_3v44c")
 theme_override_styles/pressed = ExtResource("3_yncj0")
@@ -102,12 +83,10 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_2os2p")
 theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
-theme_override_font_sizes/font_size = 56
 theme_override_styles/hover_pressed = ExtResource("3_yncj0")
 theme_override_styles/hover = ExtResource("2_3v44c")
 theme_override_styles/pressed = ExtResource("3_yncj0")
 theme_override_styles/normal = ExtResource("2_3v44c")
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
