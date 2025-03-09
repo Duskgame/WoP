@@ -222,3 +222,5 @@ tile_map_data = PackedByteArray("AAANAAkAAAAHAAcAAAANAAgAAAAHAAYAAAANAAcAAAAJAAY
 tile_set = SubResource("TileSet_vtes3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="battle_detected" from="PlayerBody" to="." method="_on_player_body_battle_detected"]

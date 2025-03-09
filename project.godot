@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 State="*res://scripts/state_autoload.gd"
 Spells="*res://scripts/spells_autoload.gd"
 SceneSystem="*res://scenes/scene_manager.tscn"
-SaveSystem="*res://scenes/save_manager_2.tscn"
 
 [display]
 

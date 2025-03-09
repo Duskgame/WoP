@@ -27,7 +27,6 @@ func start_battle():
 	
 	SceneSystem.set_temp_data("enemy_resource", enemy_body.enemy_resource)
 	SceneSystem.set_temp_data("player_spellbook", get_tree().get_first_node_in_group(PLAYER_GROUP_NAME).spellbook_resource)
-	SceneSystem.set_temp_data("enemy_position", enemy_body.global_position)
 	
 	print(SceneSystem.temp_data)
 	

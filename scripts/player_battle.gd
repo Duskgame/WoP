@@ -19,7 +19,6 @@ var minions: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("Player")
 	health_component.hpbar.set_health(State.current_health, State.max_health)
 	save_manager.load_game()
 	spellbook.instanciate_spellbook()

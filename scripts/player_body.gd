@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name PlayerBody
 
-signal collided_with_enemy(player: PlayerBody, enemy: EnemyBody)
+signal battle_detected(enemy: EnemyBody)
 
 const SPEED = 100.0
 
@@ -31,8 +31,12 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = true
 	
 	var collision = move_and_collide(velocity * delta)
-	if collision and collision.get_collider() is EnemyBody:
-		collided_with_enemy.emit(self, collision.get_collider())
+	if collision:
+		var body = collision.get_collider()
+		if body == EnemyBody:
+			enemy = body
+			enemy.start_battle()
+			battle_detected.emit(body)
 
 	move_and_slide()
 
@@ -55,3 +59,4 @@ func get_collision_polygon():
 
 func _on_area_2d_body_entered(body: EnemyBody) -> void:
 	print("bam")
+	battle_detected.emit(body)
