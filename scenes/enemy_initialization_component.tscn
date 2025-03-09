@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://5qgww0v33and"]
 
-[ext_resource type="Script" uid="uid://bb7vsvv76xmo5" path="res://scripts/enemy_initialization_component.gd" id="1_ykxcp"]
+[ext_resource type="Script" path="res://scripts/enemy_initialization_component.gd" id="1_ykxcp"]
 
 [node name="EnemyInitializationComponent" type="Node"]
 script = ExtResource("1_ykxcp")

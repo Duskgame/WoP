@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SummoningSpellResource" load_steps=3 format=3 uid="uid://b1l2p0nylauhh"]
 
-[ext_resource type="Script" uid="uid://56ijswyg2e3d" path="res://scripts/summoning_spell_resource.gd" id="1_bh51p"]
+[ext_resource type="Script" path="res://scripts/summoning_spell_resource.gd" id="1_bh51p"]
 [ext_resource type="Texture2D" uid="uid://cjijsjuk8dv3l" path="res://assets/sprites/fire minion.png" id="2_iltpc"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://ddnsqcchgngk4"]
 
-[ext_resource type="Script" uid="uid://vqvunlrbwnn6" path="res://scripts/enemy_resource.gd" id="1_77i10"]
+[ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="1_77i10"]
 [ext_resource type="Texture2D" uid="uid://x2v76hnm465y" path="res://assets/sprites/enemies/icebear.png" id="2_idqx0"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://6d2ixkebi30a"]
 
-[ext_resource type="Script" uid="uid://vqvunlrbwnn6" path="res://scripts/enemy_resource.gd" id="1_yebia"]
+[ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="1_yebia"]
 [ext_resource type="Texture2D" uid="uid://dt132osyudhlt" path="res://assets/sprites/enemies/wassersiedler.png" id="2_3f1ue"]
 
 [resource]
