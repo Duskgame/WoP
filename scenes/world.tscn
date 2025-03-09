@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://djcyj2dlav5y7"]
 
 [ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="1_7vwl5"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_hb66u"]
+[ext_resource type="Script" uid="uid://d13w26vnraxv6" path="res://scripts/world.gd" id="1_hb66u"]
 [ext_resource type="PackedScene" uid="uid://di6gvedk7q15d" path="res://scenes/enemy_body.tscn" id="2_kxb44"]
 [ext_resource type="Texture2D" uid="uid://biurr7ul0nlnb" path="res://assets/sprites/tiles/tileset 3.png" id="4_3yy7f"]
 

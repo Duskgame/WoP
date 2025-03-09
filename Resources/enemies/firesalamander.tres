@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://bxrndpp7vs0kx"]
 
-[ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="1_huso7"]
+[ext_resource type="Script" uid="uid://cs8kj21y0oyt2" path="res://scripts/enemy_resource.gd" id="1_huso7"]
 [ext_resource type="Texture2D" uid="uid://r7a48iy7ynra" path="res://assets/sprites/enemies/feuersalamande.png" id="2_ulgen"]
 
 [resource]

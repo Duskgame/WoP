@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="1_m507k"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="2_atrc2"]
-[ext_resource type="Script" path="res://scripts/key_particle.gd" id="2_m48rt"]
+[ext_resource type="Script" uid="uid://cy340xagi4wpt" path="res://scripts/key_particle.gd" id="2_m48rt"]
 
 [node name="KeyParticle" type="Label"]
 offset_right = 16.0

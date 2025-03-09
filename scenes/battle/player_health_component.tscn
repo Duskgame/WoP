@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d14cfn23axeem"]
 
-[ext_resource type="Script" path="res://scripts/player_health_component.gd" id="1_woh4i"]
+[ext_resource type="Script" uid="uid://kn2sivf5nodk" path="res://scripts/player_health_component.gd" id="1_woh4i"]
 [ext_resource type="PackedScene" uid="uid://byefvsu1bivqs" path="res://scenes/battle/hp_bar.tscn" id="2_1dyi5"]
 
 [node name="PlayerHealthComponent" type="Control"]

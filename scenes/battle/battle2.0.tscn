@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://tidw8epj6hco"]
+[gd_scene load_steps=8 format=3 uid="uid://tidw8epj6hco"]
 
-[ext_resource type="Script" path="res://scripts/battle_2.0.gd" id="1_p23nf"]
+[ext_resource type="Script" uid="uid://csjwjvs1tcfi1" path="res://scripts/battle_2.0.gd" id="1_p23nf"]
 [ext_resource type="PackedScene" uid="uid://cqnk3fok3i4bx" path="res://scenes/battle/textbox.tscn" id="1_sw8go"]
+[ext_resource type="Texture2D" uid="uid://cwwjid5ldwxdx" path="res://assets/sprites/backgrounds/fire_background.tres" id="2_c187d"]
 [ext_resource type="PackedScene" uid="uid://bbnoa6cp5ucjw" path="res://scenes/battle/player.tscn" id="2_vwux2"]
-[ext_resource type="Script" path="res://scripts/texture_rect.gd" id="2_wt2lo"]
+[ext_resource type="Script" uid="uid://mj5anx44mdeo" path="res://scripts/texture_rect.gd" id="2_wt2lo"]
 [ext_resource type="PackedScene" uid="uid://do2ac5etua6pm" path="res://scenes/battle/enemy.tscn" id="4_csnmp"]
 [ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="6_sspjn"]
 
@@ -15,7 +16,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p23nf")
-metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -24,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_c187d")
 script = ExtResource("2_wt2lo")
 
 [node name="Textbox" parent="." instance=ExtResource("1_sw8go")]

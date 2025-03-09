@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bye8g5i4n2f3w"]
 
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_qmvc7"]
-[ext_resource type="Script" path="res://scripts/expirience_bar.gd" id="2_yctth"]
+[ext_resource type="Script" uid="uid://b8iht1htewuvb" path="res://scripts/expirience_bar.gd" id="2_yctth"]
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="3_nlbhj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p23te"]

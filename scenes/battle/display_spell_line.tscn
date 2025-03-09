@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://hv4ks34prqut"]
 
-[ext_resource type="Script" path="res://scripts/display_spell_line.gd" id="1_ck8wo"]
+[ext_resource type="Script" uid="uid://52y85g570l4b" path="res://scripts/display_spell_line.gd" id="1_ck8wo"]
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="2_lfg2w"]
 [ext_resource type="PackedScene" uid="uid://bye8g5i4n2f3w" path="res://scenes/battle/expirience_bar.tscn" id="3_33k63"]
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://ca8garrofkp8a"]
 
-[ext_resource type="Script" path="res://scripts/spawned_minion.gd" id="1_wewc0"]
+[ext_resource type="Script" uid="uid://cpewc5takak3q" path="res://scripts/spawned_minion.gd" id="1_wewc0"]
 [ext_resource type="Resource" uid="uid://b1l2p0nylauhh" path="res://Resources/Spells/summon_fire_minion.tres" id="2_ww8wj"]
 [ext_resource type="Texture2D" uid="uid://ctywuei78l3ea" path="res://assets/sprites/summon.png" id="3_3v5fm"]
-[ext_resource type="Script" path="res://scripts/enemy_texture.gd" id="4_0rtyk"]
+[ext_resource type="Script" uid="uid://boh7p6mm27tnc" path="res://scripts/enemy_texture.gd" id="4_0rtyk"]
 [ext_resource type="PackedScene" uid="uid://bi6cchqqvrgrd" path="res://scenes/battle/minion_health_component.tscn" id="5_5hg8r"]
-[ext_resource type="Script" path="res://scripts/damage_component.gd" id="6_erime"]
+[ext_resource type="Script" uid="uid://bja8pn23rj2fa" path="res://scripts/damage_component.gd" id="6_erime"]
 
 [node name="SummonedsMinion" type="Control"]
 layout_mode = 3
