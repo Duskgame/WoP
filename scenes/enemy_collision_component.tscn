@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://di0cvp184uhti"]
 
-[ext_resource type="Script" path="res://scripts/enemy_collision_component.gd" id="1_f7bsu"]
+[ext_resource type="Script" uid="uid://b7t2yv5mqwpml" path="res://scripts/enemy_collision_component.gd" id="1_f7bsu"]
 
 [node name="EnemyCollisionComponent" type="Node"]
 script = ExtResource("1_f7bsu")

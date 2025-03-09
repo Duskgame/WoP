@@ -1,12 +1,11 @@
 [gd_scene load_steps=21 format=3 uid="uid://by6jvsnm38dh6"]
 
-[ext_resource type="Script" path="res://scripts/battle_words_r.gd" id="1_vwdor"]
+[ext_resource type="Script" uid="uid://bdeunkdf7idk5" path="res://scripts/battle_words_r.gd" id="1_vwdor"]
 [ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="2_3il58"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="3_i4gom"]
 [ext_resource type="Resource" uid="uid://dourjm8sinpdf" path="res://Resources/player.tres" id="3_utxyy"]
 [ext_resource type="Texture2D" uid="uid://ci6rkwrclgsj" path="res://assets/sprites/enemies/feuerameise.png" id="4_n0c63"]
-[ext_resource type="Script" path="res://scripts/player_data.gd" id="6_cdtmh"]
-[ext_resource type="Script" path="res://scripts/spellbook.gd" id="6_h6mgk"]
+[ext_resource type="Script" uid="uid://300kq6k2dmll" path="res://scripts/spellbook.gd" id="6_h6mgk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfgwy"]
 bg_color = Color(1, 1, 1, 0.470588)
@@ -46,6 +45,9 @@ expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhc7w"]
 bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+
+[sub_resource type="Resource" id="Resource_pip2u"]
+metadata/__load_path__ = "res://scripts/player_data.gd"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e6gh"]
 bg_color = Color(1, 1, 1, 1)
@@ -313,7 +315,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 45
 alignment = 1
-script = ExtResource("6_cdtmh")
+script = SubResource("Resource_pip2u")
 spellbook = NodePath("../../SpellBook")
 
 [node name="Label" type="Label" parent="PlayerPanel/PlayerData"]

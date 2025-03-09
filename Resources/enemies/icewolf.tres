@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://bcm0mtrd6n1wl"]
 
-[ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="1_sqh2g"]
+[ext_resource type="Script" uid="uid://vqvunlrbwnn6" path="res://scripts/enemy_resource.gd" id="1_sqh2g"]
 [ext_resource type="Texture2D" uid="uid://bkmgkvjq0ntb7" path="res://assets/sprites/enemies/icewolf.png" id="2_n26qh"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi6cchqqvrgrd"]
 
-[ext_resource type="Script" path="res://scripts/minion_health_component.gd" id="1_dyeqi"]
+[ext_resource type="Script" uid="uid://bq1w8wcl2t5td" path="res://scripts/minion_health_component.gd" id="1_dyeqi"]
 [ext_resource type="PackedScene" uid="uid://byefvsu1bivqs" path="res://scenes/battle/hp_bar.tscn" id="2_6166f"]
 
 [node name="MinionHealthComponent" type="Control"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cqnk3fok3i4bx"]
 
-[ext_resource type="Script" path="res://scripts/textbox.gd" id="1_648ys"]
+[ext_resource type="Script" uid="uid://lewlgsugqhj0" path="res://scripts/textbox.gd" id="1_648ys"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_q5o84"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmo1p"]

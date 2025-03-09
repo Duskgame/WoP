@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://d4ar7svh5n5co"]
 
-[ext_resource type="Script" path="res://scripts/battle_words.gd" id="1_ty057"]
+[ext_resource type="Script" uid="uid://bm6l7naoemarh" path="res://scripts/battle_words.gd" id="1_ty057"]
 [ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="2_1v47h"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="3_qnb8t"]
 [ext_resource type="Texture2D" uid="uid://ci6rkwrclgsj" path="res://assets/sprites/enemies/feuerameise.png" id="4_o0tjo"]

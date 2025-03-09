@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://tidw8epj6hco"]
 
-[ext_resource type="Script" path="res://scripts/battle_2.0.gd" id="1_p23nf"]
+[ext_resource type="Script" uid="uid://ubg6ln2n1p76" path="res://scripts/battle_2.0.gd" id="1_p23nf"]
 [ext_resource type="PackedScene" uid="uid://cqnk3fok3i4bx" path="res://scenes/battle/textbox.tscn" id="1_sw8go"]
 [ext_resource type="PackedScene" uid="uid://bbnoa6cp5ucjw" path="res://scenes/battle/player.tscn" id="2_vwux2"]
-[ext_resource type="Script" path="res://scripts/texture_rect.gd" id="2_wt2lo"]
+[ext_resource type="Script" uid="uid://b46tv51lw46wd" path="res://scripts/texture_rect.gd" id="2_wt2lo"]
 [ext_resource type="PackedScene" uid="uid://do2ac5etua6pm" path="res://scenes/battle/enemy.tscn" id="4_csnmp"]
 [ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="6_sspjn"]
 
