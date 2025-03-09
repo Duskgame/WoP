@@ -12,7 +12,7 @@ func save_game():
 	print("Save path: " + ProjectSettings.globalize_path(spellbook_path))
 
 	var save_spellbook: SpellBookResource = SpellBookResource.new()
-	save_spellbook.spells = spellbook.spellbook_resource.duplicate_spells()
+	save_spellbook.spells = spellbook.spellbook.duplicate_spells()
 	
 	var result = ResourceSaver.save(save_spellbook, spellbook_path)
 	if result == OK:
@@ -26,7 +26,7 @@ func load_game():
 		print("Save path: " + ProjectSettings.globalize_path(spellbook_path))
 		var loaded_resource = ResourceLoader.load(spellbook_path, "", ResourceLoader.CACHE_MODE_REPLACE)
 		if loaded_resource is SpellBookResource:
-			spellbook.spellbook_resource = loaded_resource
+			spellbook.spellbook = loaded_resource
 			spellbook.spells = loaded_resource.spells
 			#print_spellbook_contents(spellbook.spellbook)
 		else:

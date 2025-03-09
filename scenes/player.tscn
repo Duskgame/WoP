@@ -8,7 +8,7 @@
 [node name="PlayerBody" type="CharacterBody2D"]
 disable_mode = 1
 script = ExtResource("1_22drr")
-spellbook_resource = ExtResource("2_yd58e")
+spellbook = ExtResource("2_yd58e")
 
 [node name="Eli1" type="Sprite2D" parent="."]
 texture = ExtResource("1_kytdj")
