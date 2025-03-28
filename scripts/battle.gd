@@ -42,10 +42,10 @@ func _ready() -> void:
 	
 
 func set_attacktimer():
-	attacktimer.wait_time = attacktimer.wait_time - (State.wins * 0.05) + (State.losses * 0.05)
+	attacktimer.wait_time = attacktimer.wait_time - (State.wins * 0.1) + (State.losses * 0.10)
 	
 func set_healtimer():
-	healtimer.wait_time = attacktimer.wait_time * 2.5
+	healtimer.wait_time = attacktimer.wait_time * 2
 	
 func set_health(bar, health, max_health):
 	bar.value = health
@@ -118,8 +118,8 @@ func _on_ticker_pressed() -> void:
 		healtimer.start()
 
 func _on_run_pressed() -> void:
-	end_of_battle("You escaped")
-	get_tree().quit()
+	end_of_battle("See you soon")
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_won_battle() -> void:
 	await end_of_battle("You have won!")
