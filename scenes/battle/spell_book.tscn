@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cyxg7vi3rrn5w"]
 
-[ext_resource type="Script" uid="uid://bjvwhatwxv4k" path="res://scripts/spellbook.gd" id="1_ach15"]
+[ext_resource type="Script" path="res://scripts/spellbook.gd" id="1_ach15"]
 [ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_imj3r"]
-[ext_resource type="Script" uid="uid://cuylsk08b3wq7" path="res://scripts/spell_panel.gd" id="11_m21xa"]
+[ext_resource type="Script" path="res://scripts/spell_panel.gd" id="11_m21xa"]
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="12_iprwj"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="13_k46dk"]
 [ext_resource type="StyleBox" uid="uid://c2uct5l0mj500" path="res://assets/fonts/styleboxes/invisible_border_stylebox.tres" id="17_fr0lp"]

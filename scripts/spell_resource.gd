@@ -11,7 +11,7 @@ signal proficiency_changed
 @export var needed_exp: int = 10
 
 var name_len = func():
-	return float(len(name) * 0.5 * calc_proficiency_bonus())
+	return ((float(len(name) * 0.5) ** 1.2) * calc_proficiency_bonus())
 
 func calc_proficiency_bonus() -> float:
 	if proficiency_lvl == 1:

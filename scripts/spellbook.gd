@@ -18,7 +18,7 @@ func instanciate_spellbook() -> void:
 	get_spells_in_dict()
 	update_spells()
 
-func update_spells():
+func update_spells() -> void:
 	for spell in spellbook.spells:
 		match spell.type:
 			Spells.TYPES.DAMAGE:
