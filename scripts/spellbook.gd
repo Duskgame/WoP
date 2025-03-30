@@ -12,7 +12,9 @@ signal use_spell(input: String)
 @onready var spell_panel = $SpellPanel
 @onready var spells = spellbook.spells
 
-func instanciate_spellbook() -> void:
+func instanciate_spellbook(spellbook_resource: SpellBookResource) -> void:
+	spellbook = spellbook_resource
+	spells = spellbook_resource.spells
 	set_spell_array_names_to_lower()
 	spell_panel.display_spells(spells)
 	get_spells_in_dict()

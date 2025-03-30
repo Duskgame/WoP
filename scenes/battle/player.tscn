@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbnoa6cp5ucjw"]
+[gd_scene load_steps=12 format=3 uid="uid://bbnoa6cp5ucjw"]
 
 [ext_resource type="Script" path="res://scripts/player_battle.gd" id="1_2di24"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_cqce4"]
+[ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_wjifk"]
 [ext_resource type="PackedScene" uid="uid://cyxg7vi3rrn5w" path="res://scenes/battle/spell_book.tscn" id="4_ioysa"]
 [ext_resource type="PackedScene" uid="uid://d14cfn23axeem" path="res://scenes/battle/player_health_component.tscn" id="5_6xhc7"]
 [ext_resource type="Script" path="res://scripts/save_manager.gd" id="5_0238p"]
@@ -45,6 +46,7 @@ offset_top = -0.160019
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2di24")
+spellbook_resource = ExtResource("2_wjifk")
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayerPanel" type="Panel" parent="."]

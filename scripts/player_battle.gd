@@ -2,12 +2,13 @@ extends Control
 
 class_name Player
 
-const SPELLBOOK = preload("res://scenes/battle/spell_book.tscn")
+
 
 signal battle_lost
 signal escape
 
 @export var enemy: Enemy
+@export var spellbook_resource: SpellBookResource
 
 @onready var health_component: PlayerHealthComponent = $PlayerPanel/PlayerDisplay/PlayerHealthComponent
 @onready var spellbook: SpellBook = $SpellBook
@@ -20,8 +21,8 @@ var minions: Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health_component.hpbar.set_health(State.current_health, State.max_health)
-	save_manager.load_game()
-	spellbook.instanciate_spellbook()
+	spellbook_resource = save_manager.load_spellbook_resource()
+	spellbook.instanciate_spellbook(spellbook_resource)
 
 func battle_start():
 	spell_input.editable = true
@@ -33,10 +34,10 @@ func battle_end():
 	minions.clear()
 	spell_input.editable = false
 	spell_input.release_focus()
-	save_manager.save_game()
+	save_manager.save_spellbook_resource(spellbook_resource)
 
 func _on_run_pressed() -> void:
-	save_manager.save_game()
+	save_manager.save_spellbook_resource(spellbook_resource)
 	escape.emit()
 
 

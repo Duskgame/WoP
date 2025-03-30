@@ -3,6 +3,7 @@ extends Node
 class_name BattleManagementComponent
 
 signal battle_detected(battle: Battle)
+signal battle_ended
 
 const BATTLE_SCENE_PATH = "res://scenes/battle/battle2.0.tscn"
 const ENEMIES_GROUP_NAME = "enemies"
@@ -48,12 +49,14 @@ func pause_group(group_name: String, pause: bool):
 
 
 func _on_battle_ended():
+	battle_ended.emit()
 	pause_group(PLAYER_GROUP_NAME, false)
 	await get_tree().create_timer(1).timeout
 	pause_group(ENEMIES_GROUP_NAME, false)
 
 
 func _on_player_won():
+	battle_ended.emit()
 	sprite.queue_free()
 	collision_polygon.queue_free()
 	pause_group(PLAYER_GROUP_NAME, false)

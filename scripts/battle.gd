@@ -118,7 +118,7 @@ func _on_ticker_pressed() -> void:
 		healtimer.start()
 
 func _on_run_pressed() -> void:
-	end_of_battle("See you soon")
+	await end_of_battle("See you soon")
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_won_battle() -> void:

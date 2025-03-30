@@ -1,0 +1,12 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqx60qrv60b84"]
+
+[ext_resource type="PackedScene" uid="uid://di6gvedk7q15d" path="res://scenes/enemy_body.tscn" id="1_wx5lb"]
+[ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="2_11b0n"]
+[ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="3_drdo7"]
+[ext_resource type="Resource" uid="uid://bxrndpp7vs0kx" path="res://Resources/enemies/firesalamander.tres" id="4_no7yc"]
+[ext_resource type="Resource" uid="uid://cj31375r1ngwg" path="res://Resources/enemies/firevulpes.tres" id="5_rmusa"]
+
+[node name="RandomFireEnemy" instance=ExtResource("1_wx5lb")]
+
+[node name="RandomEnemySpawner" parent="." index="2"]
+possible_enemies = Array[ExtResource("2_11b0n")]([ExtResource("3_drdo7"), ExtResource("4_no7yc"), ExtResource("5_rmusa")])

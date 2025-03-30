@@ -11,14 +11,18 @@ const SPEED = 100.0
 @onready var sprite = $Eli1
 @onready var collision_polygon = $CollisionPolygon2D
 @onready var move: MovementComponent = $MovementComponent
+@onready var save_manager: SaveManager = $SaveManager
 
 var enemy: EnemyBody = null
 
 
 func _ready() -> void:
+	pass
+
+func instanciate_player_body():
 	add_to_group("Player")
 	get_collision_polygon()
-	#get_area()
+	save_spellbook_resource()
 	
 
 func _physics_process(delta: float) -> void:
@@ -34,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var body = collision.get_collider()
 		if body == EnemyBody:
+			save_spellbook_resource()
 			enemy = body
 			enemy.start_battle()
 			battle_detected.emit(body)
@@ -46,17 +51,9 @@ func get_collision_polygon():
 	bitmap.create_from_image_alpha(sprite.texture.get_image())
 	var polygons = bitmap.opaque_to_polygons(Rect2(Vector2.ZERO, sprite.texture.get_size()))
 	collision_polygon.polygon = polygons[0] 
-	
-	
-#func get_area():
-	#var bitmap = BitMap.new()
-	#bitmap.create_from_image_alpha(sprite.texture.get_image())
-	#var polygons = bitmap.opaque_to_polygons(Rect2(Vector2.ZERO, (sprite.texture.get_size()) * 1.1))
-	#polygon.polygon = polygons[0]  # Use the first generated polygon
-	#area.global_position.x = self.global_position.x - (sprite.texture.get_width() * 0.1)
-	#area.global_position.y = self.global_position.y - (sprite.texture.get_height() * 0.1)
 
-
-func _on_area_2d_body_entered(body: EnemyBody) -> void:
-	print("bam")
-	battle_detected.emit(body)
+func save_spellbook_resource():
+	save_manager.save_spellbook_resource(spellbook)
+	
+func load_spellbook_resource():
+	spellbook = save_manager.load_spellbook_resource()

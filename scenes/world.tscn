@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://djcyj2dlav5y7"]
+[gd_scene load_steps=9 format=4 uid="uid://djcyj2dlav5y7"]
 
 [ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="1_7vwl5"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_hb66u"]
-[ext_resource type="PackedScene" uid="uid://di6gvedk7q15d" path="res://scenes/enemy_body.tscn" id="2_kxb44"]
 [ext_resource type="Texture2D" uid="uid://biurr7ul0nlnb" path="res://assets/sprites/tiles/tileset 3.png" id="4_3yy7f"]
+[ext_resource type="PackedScene" uid="uid://bqx60qrv60b84" path="res://scenes/random_fire_enemy.tscn" id="4_6qywt"]
+[ext_resource type="PackedScene" uid="uid://d4mmn1w88m7k0" path="res://scenes/random_ice_enemy.tscn" id="5_opux0"]
+[ext_resource type="PackedScene" uid="uid://cjjmlqflat4w4" path="res://scenes/random_water_enemy.tscn" id="6_f0xmb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bca7m"]
 resource_name = "Cave"
@@ -203,15 +205,6 @@ sources/0 = SubResource("TileSetAtlasSource_bca7m")
 [node name="World" type="Node2D"]
 script = ExtResource("1_hb66u")
 
-[node name="EnemyBody3" parent="." instance=ExtResource("2_kxb44")]
-position = Vector2(177, 461)
-
-[node name="EnemyBody2" parent="." instance=ExtResource("2_kxb44")]
-position = Vector2(544, 458)
-
-[node name="EnemyBody" parent="." instance=ExtResource("2_kxb44")]
-position = Vector2(223, 226)
-
 [node name="PlayerBody" parent="." instance=ExtResource("1_7vwl5")]
 position = Vector2(549, 203)
 
@@ -222,5 +215,32 @@ tile_map_data = PackedByteArray("AAANAAkAAAAHAAcAAAANAAgAAAAHAAYAAAANAAcAAAAJAAY
 tile_set = SubResource("TileSet_vtes3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RandomFireEnemy" parent="." instance=ExtResource("4_6qywt")]
+position = Vector2(-768, 215)
+
+[node name="RandomFireEnemy2" parent="." instance=ExtResource("4_6qywt")]
+position = Vector2(-1452, 386)
+
+[node name="RandomFireEnemy3" parent="." instance=ExtResource("4_6qywt")]
+position = Vector2(-1457, 151)
+
+[node name="RandomIceEnemy" parent="." instance=ExtResource("5_opux0")]
+position = Vector2(-1334, -399)
+
+[node name="RandomIceEnemy2" parent="." instance=ExtResource("5_opux0")]
+position = Vector2(-1067, -709)
+
+[node name="RandomIceEnemy3" parent="." instance=ExtResource("5_opux0")]
+position = Vector2(-1372, -928)
+
+[node name="RandomWaterEnemy" parent="." instance=ExtResource("6_f0xmb")]
+position = Vector2(-389, -1393)
+
+[node name="RandomWaterEnemy2" parent="." instance=ExtResource("6_f0xmb")]
+position = Vector2(-281, -1171)
+
+[node name="RandomWaterEnemy3" parent="." instance=ExtResource("6_f0xmb")]
+position = Vector2(89, -1353)
 
 [connection signal="battle_detected" from="PlayerBody" to="." method="_on_player_body_battle_detected"]
