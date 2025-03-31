@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b76ooyqr5uj8h"]
+[gd_scene load_steps=21 format=3 uid="uid://b76ooyqr5uj8h"]
 
 [ext_resource type="Resource" uid="uid://dllxikmt4ldra" path="res://Resources/enemies/fireant.tres" id="1_3huwi"]
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_bsgb1"]
@@ -63,6 +63,13 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 
+[sub_resource type="InputEventKey" id="InputEventKey_0svoi"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_p1dtr"]
+events = [SubResource("InputEventKey_0svoi")]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bvbh"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 5
@@ -79,6 +86,13 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehkh6"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_e5n0e"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_siemh"]
+events = [SubResource("InputEventKey_e5n0e")]
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -291,6 +305,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_3e6gh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3uul3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vy5li")
+shortcut = SubResource("Shortcut_p1dtr")
 text = "Back to Menu"
 
 [node name="Textbox" type="Panel" parent="."]
@@ -339,6 +354,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_8h7vs")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vg5so")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ehkh6")
+shortcut = SubResource("Shortcut_siemh")
 text = "x"
 icon_alignment = 1
 

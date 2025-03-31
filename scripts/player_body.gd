@@ -22,8 +22,6 @@ func _ready() -> void:
 func instanciate_player_body():
 	add_to_group("Player")
 	get_collision_polygon()
-	save_spellbook_resource()
-	
 
 func _physics_process(delta: float) -> void:
 	

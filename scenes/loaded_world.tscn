@@ -1,15 +1,15 @@
-[gd_scene load_steps=9 format=4 uid="uid://djcyj2dlav5y7"]
+[gd_scene load_steps=9 format=4 uid="uid://d35nc560f5y8"]
 
-[ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="1_7vwl5"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_hb66u"]
-[ext_resource type="Texture2D" uid="uid://biurr7ul0nlnb" path="res://assets/sprites/tiles/tileset 3.png" id="4_3yy7f"]
-[ext_resource type="PackedScene" uid="uid://bqx60qrv60b84" path="res://scenes/random_fire_enemy.tscn" id="4_6qywt"]
-[ext_resource type="PackedScene" uid="uid://d4mmn1w88m7k0" path="res://scenes/random_ice_enemy.tscn" id="5_opux0"]
-[ext_resource type="PackedScene" uid="uid://cjjmlqflat4w4" path="res://scenes/random_water_enemy.tscn" id="6_f0xmb"]
+[ext_resource type="Script" path="res://scripts/load_world.gd" id="1_gsotn"]
+[ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="2_3aqlm"]
+[ext_resource type="Texture2D" uid="uid://biurr7ul0nlnb" path="res://assets/sprites/tiles/tileset 3.png" id="3_poft1"]
+[ext_resource type="PackedScene" uid="uid://bqx60qrv60b84" path="res://scenes/random_fire_enemy.tscn" id="4_ibgou"]
+[ext_resource type="PackedScene" uid="uid://d4mmn1w88m7k0" path="res://scenes/random_ice_enemy.tscn" id="5_ypomq"]
+[ext_resource type="PackedScene" uid="uid://cjjmlqflat4w4" path="res://scenes/random_water_enemy.tscn" id="6_jdwsu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bca7m"]
 resource_name = "Cave"
-texture = ExtResource("4_3yy7f")
+texture = ExtResource("3_poft1")
 5:5/0 = 0
 5:5/0/terrain_set = 0
 5:5/0/terrain = 0
@@ -202,11 +202,12 @@ terrain_set_0/terrain_0/name = "CaveFloor"
 terrain_set_0/terrain_0/color = Color(0.752617, 0.556278, 0.440191, 1)
 sources/0 = SubResource("TileSetAtlasSource_bca7m")
 
-[node name="World" type="Node2D"]
-script = ExtResource("1_hb66u")
+[node name="LoadedWorld" type="Node2D"]
+script = ExtResource("1_gsotn")
 
-[node name="PlayerBody" parent="." instance=ExtResource("1_7vwl5")]
+[node name="PlayerBody" parent="." instance=ExtResource("2_3aqlm")]
 position = Vector2(280, 295)
+spellbook = null
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -216,31 +217,31 @@ tile_set = SubResource("TileSet_vtes3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="RandomFireEnemy" parent="." instance=ExtResource("4_6qywt")]
+[node name="RandomFireEnemy" parent="." instance=ExtResource("4_ibgou")]
 position = Vector2(-768, 215)
 
-[node name="RandomFireEnemy2" parent="." instance=ExtResource("4_6qywt")]
+[node name="RandomFireEnemy2" parent="." instance=ExtResource("4_ibgou")]
 position = Vector2(-1452, 386)
 
-[node name="RandomFireEnemy3" parent="." instance=ExtResource("4_6qywt")]
+[node name="RandomFireEnemy3" parent="." instance=ExtResource("4_ibgou")]
 position = Vector2(-1457, 151)
 
-[node name="RandomIceEnemy" parent="." instance=ExtResource("5_opux0")]
+[node name="RandomIceEnemy" parent="." instance=ExtResource("5_ypomq")]
 position = Vector2(-1334, -399)
 
-[node name="RandomIceEnemy2" parent="." instance=ExtResource("5_opux0")]
+[node name="RandomIceEnemy2" parent="." instance=ExtResource("5_ypomq")]
 position = Vector2(685, 283)
 
-[node name="RandomIceEnemy3" parent="." instance=ExtResource("5_opux0")]
+[node name="RandomIceEnemy3" parent="." instance=ExtResource("5_ypomq")]
 position = Vector2(-1372, -928)
 
-[node name="RandomWaterEnemy" parent="." instance=ExtResource("6_f0xmb")]
+[node name="RandomWaterEnemy" parent="." instance=ExtResource("6_jdwsu")]
 position = Vector2(-389, -1393)
 
-[node name="RandomWaterEnemy2" parent="." instance=ExtResource("6_f0xmb")]
+[node name="RandomWaterEnemy2" parent="." instance=ExtResource("6_jdwsu")]
 position = Vector2(-281, -1171)
 
-[node name="RandomWaterEnemy3" parent="." instance=ExtResource("6_f0xmb")]
+[node name="RandomWaterEnemy3" parent="." instance=ExtResource("6_jdwsu")]
 position = Vector2(89, -1353)
 
 [connection signal="battle_detected" from="PlayerBody" to="." method="_on_player_body_battle_detected"]
