@@ -6,7 +6,7 @@ var spellbook_path : String = "user://current_spellbook.tres"
 
 
 func save_spellbook_resource(spellbook_resource: SpellBookResource):
-	print("Attempting to save game...")
+	print("Attempting to save spellbook...")
 	#print("Save path: " + ProjectSettings.globalize_path(spellbook_path))
 
 	var save_spellbook: SpellBookResource = SpellBookResource.new()
@@ -14,10 +14,10 @@ func save_spellbook_resource(spellbook_resource: SpellBookResource):
 	
 	var result = ResourceSaver.save(save_spellbook, spellbook_path)
 	if result == OK:
-		print("Game saved successfully!")
+		print("spellbook saved successfully!")
 		#print_spellbook_contents(save_spellbook)
 	else:
-		print("Failed to save game. Error code: ", result)
+		print("Failed to save spellbook. Error code: ", result)
 
 func load_spellbook_resource():
 	if ResourceLoader.exists(spellbook_path):

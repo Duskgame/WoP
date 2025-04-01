@@ -6,7 +6,7 @@ signal battle_detected(battle: Battle)
 signal battle_ended
 
 const BATTLE_SCENE_PATH = "res://scenes/battle/battle2.0.tscn"
-const ENEMIES_GROUP_NAME = "enemies"
+const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
 
 var enemy_body: EnemyBody

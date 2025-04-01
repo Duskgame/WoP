@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt5pppo6bbsco"]
+
+[ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="1_jpctp"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_sbciv"]
+[ext_resource type="StyleBox" uid="uid://cysqklup1v1ve" path="res://assets/fonts/styleboxes/button_pressed.tres" id="2_32heg"]
+[ext_resource type="StyleBox" uid="uid://df2xcacdd4svj" path="res://assets/fonts/styleboxes/button_normal.tres" id="3_yp1oi"]
+[ext_resource type="Shortcut" uid="uid://0ckqs6sqhd83" path="res://assets/button_shortcuts/escape_shortcut.tres" id="5_yd5i0"]
+
+[node name="Pause" type="Control"]
+custom_minimum_size = Vector2(1080, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbciv")
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 943.0
+offset_top = 564.0
+offset_right = 1014.0
+offset_bottom = 654.0
+focus_mode = 0
+theme = ExtResource("1_jpctp")
+theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_styles/hover_pressed = ExtResource("2_32heg")
+theme_override_styles/hover = ExtResource("3_yp1oi")
+theme_override_styles/pressed = ExtResource("2_32heg")
+theme_override_styles/normal = ExtResource("3_yp1oi")
+shortcut = ExtResource("5_yd5i0")
+shortcut_feedback = false
+text = "II"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

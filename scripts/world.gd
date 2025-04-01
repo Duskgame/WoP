@@ -2,7 +2,7 @@ extends Node2D
 
 class_name world
 
-const ENEMIES_GROUP_NAME = "enemies"
+const ENEMIES_GROUP_NAME = "Enemies"
 
 @onready var player: PlayerBody = $PlayerBody
 @onready var camera: Camera2D = $Camera2D
@@ -16,7 +16,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	camera.global_position = player.global_position
 	
-
 func _on_battle_detected(battle: Battle):
 	camera.global_position = battle.global_position
 	

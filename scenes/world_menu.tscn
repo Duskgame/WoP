@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpb2ewvt5407n"]
+
+[ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="1_xmf4e"]
+[ext_resource type="Script" path="res://scripts/world_menu.gd" id="1_yj5xx"]
+[ext_resource type="StyleBox" uid="uid://cysqklup1v1ve" path="res://assets/fonts/styleboxes/button_pressed.tres" id="2_123vl"]
+[ext_resource type="StyleBox" uid="uid://df2xcacdd4svj" path="res://assets/fonts/styleboxes/button_normal.tres" id="3_yiqwf"]
+[ext_resource type="Shortcut" uid="uid://0ckqs6sqhd83" path="res://assets/button_shortcuts/escape_shortcut.tres" id="5_m75aj"]
+
+[sub_resource type="Gradient" id="Gradient_lipfx"]
+colors = PackedColorArray(0, 0, 0, 0.392157, 0.741385, 0.741385, 0.741385, 0.392157)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qlhfb"]
+frequency = 0.0005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_en0jt"]
+color_ramp = SubResource("Gradient_lipfx")
+noise = SubResource("FastNoiseLite_qlhfb")
+
+[node name="WorldMenu" type="Control"]
+custom_minimum_size = Vector2(1080, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yj5xx")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_en0jt")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.366667
+anchor_top = 0.225
+anchor_right = 0.633333
+anchor_bottom = 0.775
+offset_left = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_xmf4e")
+theme_override_colors/font_color = Color(0.654232, 0.654232, 0.654232, 1)
+theme_override_styles/hover_pressed = ExtResource("2_123vl")
+theme_override_styles/hover = ExtResource("3_yiqwf")
+theme_override_styles/pressed = ExtResource("2_123vl")
+theme_override_styles/normal = ExtResource("3_yiqwf")
+text = "Main Menu"
+
+[node name="Spellbook" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_xmf4e")
+theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_styles/hover_pressed = ExtResource("2_123vl")
+theme_override_styles/hover = ExtResource("3_yiqwf")
+theme_override_styles/pressed = ExtResource("2_123vl")
+theme_override_styles/normal = ExtResource("3_yiqwf")
+text = "Spellbook"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_xmf4e")
+theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_styles/hover_pressed = ExtResource("2_123vl")
+theme_override_styles/hover = ExtResource("3_yiqwf")
+theme_override_styles/pressed = ExtResource("2_123vl")
+theme_override_styles/normal = ExtResource("3_yiqwf")
+text = "Options"
+
+[node name="BackToGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_xmf4e")
+theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_styles/hover_pressed = ExtResource("2_123vl")
+theme_override_styles/hover = ExtResource("3_yiqwf")
+theme_override_styles/pressed = ExtResource("2_123vl")
+theme_override_styles/normal = ExtResource("3_yiqwf")
+shortcut = ExtResource("5_m75aj")
+shortcut_feedback = false
+text = "Back to Game"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_xmf4e")
+theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_styles/hover_pressed = ExtResource("2_123vl")
+theme_override_styles/hover = ExtResource("3_yiqwf")
+theme_override_styles/pressed = ExtResource("2_123vl")
+theme_override_styles/normal = ExtResource("3_yiqwf")
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackToGame" to="." method="_on_back_to_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

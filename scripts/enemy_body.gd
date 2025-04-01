@@ -5,7 +5,7 @@ class_name EnemyBody
 signal battle_detected(battle: Battle)
 signal battle_ended
 
-const ENEMIES_GROUP_NAME = "enemies"
+const ENEMIES_GROUP_NAME = "Enemies"
 
 @onready var enemy_resource: EnemyResource = null
 @onready var sprite: Sprite2D = $Sprite2D

@@ -77,6 +77,17 @@ theme_override_styles/pressed = ExtResource("3_yncj0")
 theme_override_styles/normal = ExtResource("2_3v44c")
 text = "Start"
 
+[node name="LoadButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_2os2p")
+theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_styles/hover_pressed = ExtResource("3_yncj0")
+theme_override_styles/hover = ExtResource("2_3v44c")
+theme_override_styles/pressed = ExtResource("3_yncj0")
+theme_override_styles/normal = ExtResource("2_3v44c")
+text = "Continue"
+
 [node name="Warmup" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
@@ -87,17 +98,6 @@ theme_override_styles/hover = ExtResource("2_3v44c")
 theme_override_styles/pressed = ExtResource("3_yncj0")
 theme_override_styles/normal = ExtResource("2_3v44c")
 text = "Warmup"
-
-[node name="LoadButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-theme = ExtResource("1_2os2p")
-theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
-theme_override_styles/hover_pressed = ExtResource("3_yncj0")
-theme_override_styles/hover = ExtResource("2_3v44c")
-theme_override_styles/pressed = ExtResource("3_yncj0")
-theme_override_styles/normal = ExtResource("2_3v44c")
-text = "Load"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -122,6 +122,6 @@ theme_override_styles/normal = ExtResource("2_3v44c")
 text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Warmup" to="." method="_on_warmup_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Warmup" to="." method="_on_warmup_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
