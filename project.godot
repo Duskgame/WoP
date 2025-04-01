@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 State="*res://scripts/state_autoload.gd"
 Spells="*res://scripts/spells_autoload.gd"
+SaveSpellbook="*res://scripts/save_manager.gd"
 
 [display]
 

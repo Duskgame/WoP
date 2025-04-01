@@ -7,7 +7,7 @@ var spellbook_path : String = "user://current_spellbook.tres"
 
 func save_spellbook_resource(spellbook_resource: SpellBookResource):
 	print("Attempting to save game...")
-	print("Save path: " + ProjectSettings.globalize_path(spellbook_path))
+	#print("Save path: " + ProjectSettings.globalize_path(spellbook_path))
 
 	var save_spellbook: SpellBookResource = SpellBookResource.new()
 	save_spellbook.spells = spellbook_resource.duplicate_spells()
@@ -21,7 +21,7 @@ func save_spellbook_resource(spellbook_resource: SpellBookResource):
 
 func load_spellbook_resource():
 	if ResourceLoader.exists(spellbook_path):
-		print("Save path: " + ProjectSettings.globalize_path(spellbook_path))
+		#print("Save path: " + ProjectSettings.globalize_path(spellbook_path))
 		var loaded_resource = ResourceLoader.load(spellbook_path, "", ResourceLoader.CACHE_MODE_REPLACE)
 		if loaded_resource is SpellBookResource:
 			var loaded_spellbook_resource: SpellBookResource

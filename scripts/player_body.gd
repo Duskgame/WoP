@@ -11,7 +11,6 @@ const SPEED = 100.0
 @onready var sprite = $Eli1
 @onready var collision_polygon = $CollisionPolygon2D
 @onready var move: MovementComponent = $MovementComponent
-@onready var save_manager: SaveManager = $SaveManager
 
 var enemy: EnemyBody = null
 
@@ -51,7 +50,7 @@ func get_collision_polygon():
 	collision_polygon.polygon = polygons[0] 
 
 func save_spellbook_resource():
-	save_manager.save_spellbook_resource(spellbook)
+	SaveSpellbook.save_spellbook_resource(spellbook)
 	
 func load_spellbook_resource():
-	spellbook = save_manager.load_spellbook_resource()
+	spellbook = SaveSpellbook.load_spellbook_resource()

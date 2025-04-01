@@ -1,8 +1,8 @@
 extends Control
 
 const world_scene = preload("res://scenes/world.tscn")
-const load_world_scene = preload("res://scenes/loaded_world.tscn")
 const warmup = preload("res://scenes/battle/battle.tscn")
+const test_spellbook = preload("res://Resources/Spells/spellbook/spellbook.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,10 +20,11 @@ func _on_exit_button_pressed() -> void:
 
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_packed(world_scene)
+	SaveSpellbook.save_spellbook_resource(test_spellbook)
 
 
 func _on_load_button_pressed() -> void:
-	get_tree().change_scene_to_packed(load_world_scene)
+	get_tree().change_scene_to_packed(world_scene)
 
 
 func _on_warmup_pressed() -> void:

@@ -9,7 +9,6 @@ const ENEMIES_GROUP_NAME = "enemies"
 
 func _ready() -> void:
 	player.instanciate_player_body()
-	player.save_spellbook_resource()
 	for enemy in get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME):
 		enemy.connect("battle_detected", _on_battle_detected)
 		enemy.connect("battle_ended", load_player_spellbook_resource)
