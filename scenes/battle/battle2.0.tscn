@@ -34,6 +34,11 @@ anchor_bottom = 0.2
 offset_bottom = 16.0
 grow_vertical = 0
 
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_csnmp")]
+layout_mode = 1
+player = NodePath("../Player")
+enemy_resource = ExtResource("6_sspjn")
+
 [node name="Player" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("2_vwux2")]
 layout_mode = 1
 anchors_preset = 15
@@ -41,15 +46,10 @@ anchor_top = 0.0
 offset_top = 200.0
 enemy = NodePath("../Enemy")
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_csnmp")]
-layout_mode = 1
-player = NodePath("../Player")
-enemy_resource = ExtResource("6_sspjn")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
 [connection signal="start" from="Textbox" to="." method="_on_textbox_start"]
+[connection signal="battle_won" from="Enemy" to="." method="_on_enemy_battle_won"]
 [connection signal="battle_lost" from="Player" to="." method="_on_player_battle_lost"]
 [connection signal="escape" from="Player" to="." method="_on_player_escape"]
-[connection signal="battle_won" from="Enemy" to="." method="_on_enemy_battle_won"]

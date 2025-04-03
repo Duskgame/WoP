@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name PlayerBody
+class_name player_body
 
 signal battle_detected(enemy: EnemyBody)
 

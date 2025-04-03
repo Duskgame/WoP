@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="SummoningSpellResource" load_steps=3 format=3 uid="uid://rg3iew1osxg8"]
 
-[ext_resource type="Script" uid="uid://56ijswyg2e3d" path="res://scripts/summoning_spell_resource.gd" id="1_j2ttu"]
-[ext_resource type="Texture2D" uid="uid://ctywuei78l3ea" path="res://assets/sprites/summon.png" id="2_mvxh5"]
+[ext_resource type="Script" path="res://scripts/summoning_spell_resource.gd" id="1_j2ttu"]
+[ext_resource type="Texture2D" uid="uid://14tp6mh81yqx" path="res://assets/sprites/water minion.png" id="2_uq4a3"]
 
 [resource]
 script = ExtResource("1_j2ttu")
 element = 1
-texture = ExtResource("2_mvxh5")
+texture = ExtResource("2_uq4a3")
 health = 10
 damage = 1.0
 attack_cooldown = 3.0

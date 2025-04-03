@@ -4,7 +4,7 @@ class_name world
 
 const ENEMIES_GROUP_NAME = "Enemies"
 
-@onready var player: PlayerBody = $PlayerBody
+@onready var player: player_body = $PlayerBody
 @onready var camera: Camera2D = $Camera2D
 
 func _ready() -> void:

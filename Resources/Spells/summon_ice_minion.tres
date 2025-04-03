@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="SummoningSpellResource" load_steps=3 format=3 uid="uid://c5yyyadyg4ouo"]
 
-[ext_resource type="Script" uid="uid://56ijswyg2e3d" path="res://scripts/summoning_spell_resource.gd" id="1_dcnot"]
-[ext_resource type="Texture2D" uid="uid://ctywuei78l3ea" path="res://assets/sprites/summon.png" id="2_eqt0j"]
+[ext_resource type="Script" path="res://scripts/summoning_spell_resource.gd" id="1_dcnot"]
+[ext_resource type="Texture2D" uid="uid://enf822ua03uu" path="res://assets/sprites/Ice Minion.png" id="2_d2sh0"]
 
 [resource]
 script = ExtResource("1_dcnot")
 element = 2
-texture = ExtResource("2_eqt0j")
+texture = ExtResource("2_d2sh0")
 health = 5
 damage = 1.0
 attack_cooldown = 2.0
