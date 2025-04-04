@@ -18,3 +18,4 @@ centered = false
 [node name="MovementComponent" parent="." instance=ExtResource("4_rhcu0")]
 
 [node name="Pause" parent="." instance=ExtResource("4_bhsou")]
+z_index = 20
