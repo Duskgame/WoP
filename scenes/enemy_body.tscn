@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://di6gvedk7q15d"]
+[gd_scene load_steps=20 format=3 uid="uid://di6gvedk7q15d"]
 
 [ext_resource type="Script" path="res://scripts/enemy_body.gd" id="1_dpsx4"]
 [ext_resource type="Script" path="res://scripts/random_enemy_spawner.gd" id="2_1tfk7"]
@@ -19,18 +19,18 @@
 [ext_resource type="PackedScene" uid="uid://dank61oickkdi" path="res://scenes/enemy_movement_component.tscn" id="15_hs6vv"]
 [ext_resource type="PackedScene" uid="uid://di0cvp184uhti" path="res://scenes/enemy_collision_component.tscn" id="16_41qvk"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8kme"]
+radius = 47.1699
+
 [node name="EnemyBody" type="CharacterBody2D"]
 disable_mode = 1
-collision_priority = 5.0
 script = ExtResource("1_dpsx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_yvx1i")
-centered = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-top_level = true
-visibility_layer = 3
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u8kme")
 
 [node name="RandomEnemySpawner" type="Node" parent="."]
 script = ExtResource("2_1tfk7")

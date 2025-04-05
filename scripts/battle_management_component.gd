@@ -12,14 +12,14 @@ const PLAYER_GROUP_NAME = "Player"
 var enemy_body: EnemyBody
 var battle_scene: PackedScene
 var sprite: Sprite2D
-var collision_polygon: CollisionPolygon2D
+var collision_shape: CollisionShape2D
 
-func initialize(body: EnemyBody, enemy_sprite: Sprite2D, enemy_collision_polygon: CollisionPolygon2D):
+func initialize(body: EnemyBody, enemy_sprite: Sprite2D, enemy_collision_shape: CollisionShape2D):
 	self.enemy_body = body
 	self.battle_scene = preload(BATTLE_SCENE_PATH)
 	self.sprite = enemy_sprite
-	self.collision_polygon = enemy_collision_polygon
-
+	self.collision_shape = enemy_collision_shape
+	
 
 func start_battle():
 	if get_tree().get_nodes_in_group("active_battle").size() > 0:
@@ -58,7 +58,7 @@ func _on_battle_ended():
 func _on_player_won():
 	battle_ended.emit()
 	sprite.queue_free()
-	collision_polygon.queue_free()
+	collision_shape.queue_free()
 	pause_group(PLAYER_GROUP_NAME, false)
 	await get_tree().create_timer(1).timeout
 	pause_group(ENEMIES_GROUP_NAME, false)

@@ -9,7 +9,6 @@ const SPEED = 100.0
 @export var spellbook: SpellBookResource
 
 @onready var sprite = $Eli1
-@onready var collision_polygon = $CollisionPolygon2D
 @onready var move: MovementComponent = $MovementComponent
 @onready var ui: Pause = $Pause
 
@@ -21,7 +20,6 @@ func _ready() -> void:
 
 func instanciate_player_body():
 	add_to_group("Player")
-	get_collision_polygon()
 
 func _physics_process(delta: float) -> void:
 	
@@ -35,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		var body = collision.get_collider()
+		print(body)
 		if body == EnemyBody:
 			save_spellbook_resource()
 			enemy = body
@@ -43,12 +42,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
-func get_collision_polygon():
-	var bitmap = BitMap.new()
-	bitmap.create_from_image_alpha(sprite.texture.get_image())
-	var polygons = bitmap.opaque_to_polygons(Rect2(Vector2.ZERO, sprite.texture.get_size()))
-	collision_polygon.polygon = polygons[0] 
 
 func save_spellbook_resource():
 	SaveSpellbook.save_spellbook_resource(spellbook)

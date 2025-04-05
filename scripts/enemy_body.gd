@@ -9,7 +9,7 @@ const ENEMIES_GROUP_NAME = "Enemies"
 
 @onready var enemy_resource: EnemyResource = null
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var collision_polygon: CollisionPolygon2D = $CollisionPolygon2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var initialization_component: EnemyInitializationComponent = $EnemyInitializationComponent
 @onready var movement_component: EnemyMovementComponent = $EnemyMovementComponent
 @onready var collision_component: EnemyCollisionComponent = $EnemyCollisionComponent
@@ -24,10 +24,10 @@ func _ready() -> void:
 	
 	add_to_group(ENEMIES_GROUP_NAME)
 	enemy_resource = random_enemy.get_random_enemy()
-	initialization_component.initialize(self, sprite, collision_polygon)
+	initialization_component.initialize(self, sprite, collision_shape)
 	movement_component.initialize(self, sprite)
 	collision_component.initialize(self, movement_component)
-	battle_component.initialize(self, sprite, collision_polygon)
+	battle_component.initialize(self, sprite, collision_shape)
 	battle_component.connect("battle_detected", _on_battle_detected)
 	battle_component.connect("battle_ended", _on_battle_ended)
 	detection_component.initialize(self)

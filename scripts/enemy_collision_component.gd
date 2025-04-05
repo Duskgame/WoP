@@ -20,6 +20,7 @@ func check_for_collision(delta):
 
 func handle_collision(collision: KinematicCollision2D):
 	var body = collision.get_collider()
+	print(body)
 	
 	if body is player_body:
 		enemy_body.battle_component.start_battle()
