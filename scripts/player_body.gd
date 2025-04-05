@@ -11,6 +11,7 @@ const SPEED = 100.0
 @onready var sprite = $Eli1
 @onready var collision_polygon = $CollisionPolygon2D
 @onready var move: MovementComponent = $MovementComponent
+@onready var ui: Pause = $Pause
 
 var enemy: EnemyBody = null
 

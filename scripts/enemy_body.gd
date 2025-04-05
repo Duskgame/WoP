@@ -18,7 +18,7 @@ const ENEMIES_GROUP_NAME = "Enemies"
 @onready var random_enemy: RandomEnemySpawner = $RandomEnemySpawner
 @onready var speed: float = 0
 
-var player: PlayerBody = null
+var player: player_body = null
 
 func _ready() -> void:
 	

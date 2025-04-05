@@ -10,10 +10,10 @@ func initialize(body: CharacterBody2D):
 	self.enemy_body = body
 
 
-func detect_player() -> PlayerBody:
+func detect_player() -> player_body:
 	var player_node = get_tree().get_first_node_in_group("Player")
 	
 	if player_node and enemy_body.global_position.distance_to(player_node.global_position) <= detection_radius:
-		return player_node as PlayerBody
+		return player_node as player_body
 	
 	return null

@@ -12,12 +12,17 @@ func _ready() -> void:
 	for enemy in get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME):
 		enemy.connect("battle_detected", _on_battle_detected)
 		enemy.connect("battle_ended", load_player_spellbook_resource)
+		enemy.connect("battle_ended", _on_battle_ended)
 
 func _process(delta: float) -> void:
 	camera.global_position = player.global_position
 	
 func _on_battle_detected(battle: Battle):
 	camera.global_position = battle.global_position
+	player.ui.hide()
+	
+func _on_battle_ended() -> void:
+	player.ui.show()
 	
 func load_player_spellbook_resource():
 	player.load_spellbook_resource()
