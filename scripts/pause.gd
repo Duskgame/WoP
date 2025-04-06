@@ -15,6 +15,7 @@ func pause_group(group_name: String, pause: bool):
 		node.set_physics_process(!pause)
 		node.set_physics_process_internal(!pause)
 		node.set_process_unhandled_input(!pause)
+		get_tree().paused = !pause
 
 func _on_pause_button_pressed() -> void:
 	if self.has_node("WorldMenu"):

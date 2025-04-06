@@ -6,6 +6,7 @@ const ENEMIES_GROUP_NAME = "Enemies"
 
 @onready var player: player_body = $PlayerBody
 @onready var camera: Camera2D = $Camera2D
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
 	player.instanciate_player_body()

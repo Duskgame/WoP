@@ -46,6 +46,12 @@ font_data_dynamic={
 texture={
 "compress/channel_pack": 1
 }
+mp3={
+"loop": true
+}
+wav={
+"edit/loop_mode": 2
+}
 
 [input]
 

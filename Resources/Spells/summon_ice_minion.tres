@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SummoningSpellResource" load_steps=3 format=3 uid="uid://c5yyyadyg4ouo"]
 
 [ext_resource type="Script" path="res://scripts/summoning_spell_resource.gd" id="1_dcnot"]
-[ext_resource type="Texture2D" uid="uid://enf822ua03uu" path="res://assets/sprites/Ice Minion.png" id="2_d2sh0"]
+[ext_resource type="Texture2D" uid="uid://enf822ua03uu" path="res://assets/sprites/Player/Ice Minion.png" id="2_d2sh0"]
 
 [resource]
 script = ExtResource("1_dcnot")

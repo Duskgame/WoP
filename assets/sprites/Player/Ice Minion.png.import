@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://14tp6mh81yqx"
-path="res://.godot/imported/water minion.png-6e415b8a174c9716c0b0827d9f31d9bd.ctex"
+uid="uid://enf822ua03uu"
+path="res://.godot/imported/Ice Minion.png-cdd45f06c3bb8c534699d3011e355114.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/water minion.png"
-dest_files=["res://.godot/imported/water minion.png-6e415b8a174c9716c0b0827d9f31d9bd.ctex"]
+source_file="res://assets/sprites/Player/Ice Minion.png"
+dest_files=["res://.godot/imported/Ice Minion.png-cdd45f06c3bb8c534699d3011e355114.ctex"]
 
 [params]
 
