@@ -8,7 +8,7 @@ const SPEED = 100.0
 
 @export var spellbook: SpellBookResource
 
-@onready var sprite = $Eli1
+@onready var animated_sprite = $AnimatedSprite2D
 @onready var move: MovementComponent = $MovementComponent
 @onready var ui: Pause = $Pause
 
@@ -18,25 +18,25 @@ var enemy: EnemyBody = null
 func _ready() -> void:
 	pass
 
-func instanciate_player_body():
+func instanciate_player_body() -> void:
 	add_to_group("Player")
 
 func _physics_process(delta: float) -> void:
 	
 	velocity = move.handle_movement(SPEED, velocity)
-	if velocity.x < 0:
-		sprite.flip_h = false
+	if velocity.y < 0:
+		animated_sprite.play("up")
 			
-	elif velocity.x > 0:
-		sprite.flip_h = true
+	elif velocity.y > 0:
+		animated_sprite.play("down")
+
+	else:
+		animated_sprite.stop()
 	
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		var body = collision.get_collider()
-		print(body)
 		if body is EnemyBody:
-			print("yes")
-			
 			save_spellbook_resource()
 			enemy = body
 			enemy.battle_component.start_battle()
@@ -45,8 +45,8 @@ func _physics_process(delta: float) -> void:
 	move_and_collide(velocity * delta)
 
 
-func save_spellbook_resource():
+func save_spellbook_resource() -> void:
 	SaveSpellbook.save_spellbook_resource(spellbook)
 	
-func load_spellbook_resource():
+func load_spellbook_resource() -> void:
 	spellbook = SaveSpellbook.load_spellbook_resource()
