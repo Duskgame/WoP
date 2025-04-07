@@ -1,16 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://e6e2u6r6uayw"]
+[gd_scene load_steps=7 format=3 uid="uid://e6e2u6r6uayw"]
 
 [ext_resource type="Script" path="res://scripts/player_body.gd" id="1_22drr"]
 [ext_resource type="Texture2D" uid="uid://ctn0kvil5brgd" path="res://assets/sprites/Player/eli1.png" id="1_kytdj"]
+[ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_er16n"]
 [ext_resource type="PackedScene" uid="uid://dt5pppo6bbsco" path="res://scenes/pause.tscn" id="4_bhsou"]
 [ext_resource type="PackedScene" uid="uid://bwi4w3de442ag" path="res://scenes/movement_component.tscn" id="4_rhcu0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_taxps"]
-size = Vector2(38, 90)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iwhd7"]
+custom_solver_bias = 0.5
+radius = 27.0
+height = 80.0
 
 [node name="PlayerBody" type="CharacterBody2D"]
 disable_mode = 1
 script = ExtResource("1_22drr")
+spellbook = ExtResource("2_er16n")
 
 [node name="Eli1" type="Sprite2D" parent="."]
 position = Vector2(-62, -110)
@@ -19,9 +23,11 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -60)
-shape = SubResource("RectangleShape2D_taxps")
+shape = SubResource("CapsuleShape2D_iwhd7")
 
 [node name="MovementComponent" parent="." instance=ExtResource("4_rhcu0")]
 
 [node name="Pause" parent="." instance=ExtResource("4_bhsou")]
 z_index = 20
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

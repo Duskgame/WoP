@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://cj31375r1ngwg"]
 
-[ext_resource type="Script" uid="uid://cs8kj21y0oyt2" path="res://scripts/enemy_resource.gd" id="1_bf02r"]
+[ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="1_bf02r"]
 [ext_resource type="Texture2D" uid="uid://bgih2l5s0pkf1" path="res://assets/sprites/enemies/flammenfuchs.png" id="2_o60pp"]
 
 [resource]

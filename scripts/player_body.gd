@@ -34,13 +34,15 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var body = collision.get_collider()
 		print(body)
-		if body == EnemyBody:
+		if body is EnemyBody:
+			print("yes")
+			
 			save_spellbook_resource()
 			enemy = body
-			enemy.start_battle()
+			enemy.battle_component.start_battle()
 			battle_detected.emit(body)
 
-	move_and_slide()
+	move_and_collide(velocity * delta)
 
 
 func save_spellbook_resource():

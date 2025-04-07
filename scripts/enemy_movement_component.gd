@@ -31,7 +31,7 @@ func randomize_direction():
 func random_movement(delta):
 	var velocity = direction * speed
 	enemy_body.velocity = velocity  # Update parent velocity for collisions
-	enemy_body.move_and_slide()
+	enemy_body.move_and_collide(velocity * delta)
 
 	wander_time -= delta
 	if wander_time <= 0:
@@ -39,8 +39,8 @@ func random_movement(delta):
 		wander_time = randf_range(2.0, 4.0)
 
 
-func chase_player(player_position: Vector2, _delta):
+func chase_player(player_position: Vector2, delta):
 	direction = enemy_body.global_position.direction_to(player_position).normalized()
 	var velocity = direction * speed
 	enemy_body.velocity = velocity  # Update parent velocity for collisions
-	enemy_body.move_and_slide()
+	enemy_body.move_and_collide(velocity * delta)

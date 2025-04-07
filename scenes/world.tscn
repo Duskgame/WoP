@@ -1180,11 +1180,11 @@ tile_set = SubResource("TileSet_vtes3")
 
 [node name="PlayerBody" parent="." instance=ExtResource("1_7vwl5")]
 y_sort_enabled = true
-position = Vector2(2802.55, 1543.24)
+position = Vector2(2759.5, 1740.23)
 spellbook = SubResource("Resource_tkyun")
 
 [node name="RandomFireEnemy" parent="." instance=ExtResource("4_6qywt")]
-position = Vector2(2978.21, 1521.72)
+position = Vector2(3031.78, 1786.22)
 collision_priority = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

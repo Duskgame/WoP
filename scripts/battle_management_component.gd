@@ -22,6 +22,7 @@ func initialize(body: EnemyBody, enemy_sprite: Sprite2D, enemy_collision_shape: 
 	
 
 func start_battle():
+	collision_shape.set_deferred("disabled", true)
 	if get_tree().get_nodes_in_group("active_battle").size() > 0:
 		print("A battle is already active.")
 		return
@@ -53,6 +54,7 @@ func _on_battle_ended():
 	pause_group(PLAYER_GROUP_NAME, false)
 	await get_tree().create_timer(1).timeout
 	pause_group(ENEMIES_GROUP_NAME, false)
+	collision_shape.set_deferred("disabled", false)
 
 
 func _on_player_won():
