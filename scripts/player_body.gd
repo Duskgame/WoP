@@ -10,7 +10,6 @@ const SPEED = 100.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var move: MovementComponent = $MovementComponent
-@onready var ui: Pause = $Pause
 
 var enemy: EnemyBody = null
 
@@ -29,6 +28,12 @@ func _physics_process(delta: float) -> void:
 			
 	elif velocity.y > 0:
 		animated_sprite.play("down")
+	
+	elif velocity.x < 0:
+		animated_sprite.play("left")
+		
+	elif velocity.x > 0:
+		animated_sprite.play("right")
 
 	else:
 		animated_sprite.stop()
