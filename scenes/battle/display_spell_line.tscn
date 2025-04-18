@@ -17,8 +17,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_stretch_ratio = 3.69
 script = ExtResource("1_ck8wo")
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
 
 [node name="Label" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(10, 10)
@@ -31,6 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_lfg2w")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "[color=#FF0000]Red text[/color]"

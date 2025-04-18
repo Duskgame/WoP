@@ -28,6 +28,7 @@ shape = SubResource("RectangleShape2D_fqxso")
 shape = SubResource("CircleShape2D_y5488")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 2
 offset_left = -64.0
 offset_top = -71.0

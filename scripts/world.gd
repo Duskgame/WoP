@@ -17,8 +17,8 @@ func _ready() -> void:
 		enemy.connect("battle_detected", _on_battle_detected)
 		enemy.connect("battle_ended", load_player_spellbook_resource)
 		enemy.connect("battle_ended", _on_battle_ended)
-	for spell in get_tree().get_nodes_in_group(COLLECTABLE_SPELLS):
-		spell.connect("spell_learned", _on_spell_to_collect_spell_learned)
+	for spell: SpellToCollect in get_tree().get_nodes_in_group(COLLECTABLE_SPELLS):
+		spell.spell_learned.connect(_on_spell_to_collect_spell_learned)
 
 func _process(delta: float) -> void:
 	camera.global_position = player.global_position

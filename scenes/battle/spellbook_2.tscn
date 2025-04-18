@@ -1,0 +1,153 @@
+[gd_scene load_steps=15 format=3 uid="uid://cchqbxuseqkus"]
+
+[ext_resource type="Script" path="res://scripts/spellbook_2.gd" id="1_ebjl2"]
+[ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="1_jttrd"]
+[ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_vnc3o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsu7y"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(1620, 0, 540, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drh2n"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2160, 0, 540, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mpmg"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2700, 0, 540, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suc1o"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(1620, 360, 540, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6d8k"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2160, 360, 540, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru4dy"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2700, 360, 540, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdnpp"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(1620, 720, 540, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3npk"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2160, 720, 540, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8mdl"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2700, 720, 540, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0iru"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(1620, 1080, 540, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iif7j"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_wsu7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drh2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mpmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suc1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6d8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru4dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdnpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3npk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8mdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0iru")
+}],
+"loop": true,
+"name": &"opening",
+"speed": 5.0
+}]
+
+[node name="Spellbook2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ebjl2")
+test_spellbook = ExtResource("2_vnc3o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(540, 360)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_iif7j")
+animation = &"opening"
+frame = 9
+speed_scale = 1.5
+
+[node name="Pages" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.193519
+anchor_top = 0.265278
+anchor_right = 0.807407
+anchor_bottom = 0.838889
+offset_right = -6.10352e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Pages"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="LeftPage" type="VBoxContainer" parent="Pages/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Pages"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RightPage" type="VBoxContainer" parent="Pages/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 760.0
+offset_top = 563.0
+offset_right = 863.0
+offset_bottom = 594.0
+text = "next"
+
+[node name="PreviousButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 211.0
+offset_top = 564.0
+offset_right = 314.0
+offset_bottom = 595.0
+text = "previous"
