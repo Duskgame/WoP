@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwm521hc0gch2"]
+
+[ext_resource type="Script" path="res://scripts/left_page_container.gd" id="1_hkaql"]
+
+[node name="LeftPage" type="VBoxContainer"]
+clip_contents = true
+size_flags_horizontal = 3
+script = ExtResource("1_hkaql")

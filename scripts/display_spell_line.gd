@@ -19,7 +19,7 @@ func _on_spell_proficiency_changed():
 
 func update_display() -> void:
 	
-	var spell_name = Spells.get_spell_name_color_by_element(spell)
+	var spell_name: String = Spells.get_spell_name_color_by_element(spell)
 	
 	label.text = (
 	spell_name 

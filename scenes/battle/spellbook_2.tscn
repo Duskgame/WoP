@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cchqbxuseqkus"]
+[gd_scene load_steps=17 format=3 uid="uid://cchqbxuseqkus"]
 
 [ext_resource type="Script" path="res://scripts/spellbook_2.gd" id="1_ebjl2"]
 [ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="1_jttrd"]
 [ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_vnc3o"]
+[ext_resource type="PackedScene" uid="uid://dwm521hc0gch2" path="res://scenes/left_page_container.tscn" id="4_neudn"]
+[ext_resource type="PackedScene" uid="uid://damlkq8b86g50" path="res://scenes/right_page_container.tscn" id="5_isa5p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsu7y"]
 atlas = ExtResource("1_jttrd")
@@ -117,10 +119,8 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="LeftPage" type="VBoxContainer" parent="Pages/MarginContainer"]
-clip_contents = true
+[node name="LeftPage" parent="Pages/MarginContainer" instance=ExtResource("4_neudn")]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="Pages"]
 layout_mode = 2
@@ -130,9 +130,8 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="RightPage" type="VBoxContainer" parent="Pages/MarginContainer2"]
+[node name="RightPage" parent="Pages/MarginContainer2" instance=ExtResource("5_isa5p")]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="NextButton" type="Button" parent="."]
 top_level = true

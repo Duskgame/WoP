@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbnoa6cp5ucjw"]
+[gd_scene load_steps=12 format=3 uid="uid://bbnoa6cp5ucjw"]
 
 [ext_resource type="Script" path="res://scripts/player_battle.gd" id="1_2di24"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_cqce4"]
 [ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_wjifk"]
 [ext_resource type="PackedScene" uid="uid://cyxg7vi3rrn5w" path="res://scenes/battle/spell_book.tscn" id="4_ioysa"]
 [ext_resource type="PackedScene" uid="uid://d14cfn23axeem" path="res://scenes/battle/player_health_component.tscn" id="5_6xhc7"]
+[ext_resource type="PackedScene" uid="uid://cchqbxuseqkus" path="res://scenes/battle/spellbook_2.tscn" id="6_al8lu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8abae"]
 bg_color = Color(1, 1, 1, 1)
@@ -38,15 +39,13 @@ events = [SubResource("InputEventKey_0io23")]
 
 [node name="Player" type="Control"]
 layout_mode = 3
-anchor_top = 0.278
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -0.160019
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2di24")
 spellbook_resource = ExtResource("2_wjifk")
-metadata/_edit_use_anchors_ = true
 
 [node name="PlayerPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 100)
@@ -114,6 +113,9 @@ offset_right = 18.68
 offset_bottom = 0.240021
 grow_horizontal = 1
 player = NodePath("..")
+
+[node name="Spellbook2" parent="." instance=ExtResource("6_al8lu")]
+layout_mode = 1
 
 [connection signal="battle_lost" from="PlayerPanel/PlayerDisplay/PlayerHealthComponent" to="." method="_on_player_health_component_battle_lost"]
 [connection signal="pressed" from="PlayerPanel/PlayerDisplay/Run" to="." method="_on_run_pressed"]

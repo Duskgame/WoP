@@ -32,7 +32,7 @@ theme = ExtResource("2_lfg2w")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
-text = "[color=#FF0000]Red text[/color]"
+text = "[color=#FF0000]Red text haloooooooooooooooooooooooooooooooooooooooooooooooooooooooooo[/color]"
 metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" parent="." instance=ExtResource("3_33k63")]
