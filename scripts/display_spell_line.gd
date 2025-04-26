@@ -25,7 +25,7 @@ func update_display() -> void:
 	spell_name 
 	+ " Lvl " 
 	+ str(spell.proficiency_lvl)
-	+ "\n Current " 
+	+ "\nCurrent " 
 	+ str(Spells.TYPES.find_key(spell.type).to_pascal_case()) 
 	+ ": " + str(snapped(spell.name_len.call(),0.1))
 	) 

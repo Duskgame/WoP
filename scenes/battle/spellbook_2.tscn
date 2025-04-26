@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/spellbook_2.gd" id="1_ebjl2"]
 [ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="1_jttrd"]
-[ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_vnc3o"]
+[ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_n3iub"]
 [ext_resource type="PackedScene" uid="uid://dwm521hc0gch2" path="res://scenes/left_page_container.tscn" id="4_neudn"]
 [ext_resource type="PackedScene" uid="uid://damlkq8b86g50" path="res://scenes/right_page_container.tscn" id="5_isa5p"]
 
@@ -92,7 +92,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ebjl2")
-test_spellbook = ExtResource("2_vnc3o")
+test_spellbook = ExtResource("2_n3iub")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(540, 360)
@@ -144,9 +144,11 @@ text = "next"
 
 [node name="PreviousButton" type="Button" parent="."]
 top_level = true
-layout_mode = 0
-offset_left = 211.0
-offset_top = 564.0
-offset_right = 314.0
-offset_bottom = 595.0
+offset_left = 212.0
+offset_top = 562.0
+offset_right = 315.0
+offset_bottom = 593.0
 text = "previous"
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="PreviousButton" to="." method="_on_previous_button_pressed"]
