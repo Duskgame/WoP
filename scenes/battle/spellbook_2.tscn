@@ -1,10 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://cchqbxuseqkus"]
+[gd_scene load_steps=30 format=3 uid="uid://cchqbxuseqkus"]
 
 [ext_resource type="Script" path="res://scripts/spellbook_2.gd" id="1_ebjl2"]
 [ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="1_jttrd"]
-[ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_n3iub"]
+[ext_resource type="Resource" uid="uid://b3xlbbrgbeckw" path="res://Resources/Spells/spellbook/test_spellbook_full.tres" id="2_dqj62"]
 [ext_resource type="PackedScene" uid="uid://dwm521hc0gch2" path="res://scenes/left_page_container.tscn" id="4_neudn"]
 [ext_resource type="PackedScene" uid="uid://damlkq8b86g50" path="res://scenes/right_page_container.tscn" id="5_isa5p"]
+[ext_resource type="StyleBox" uid="uid://cr11ysb55fg63" path="res://assets/fonts/styleboxes/invisible.tres" id="6_nw6gd"]
+[ext_resource type="Texture2D" uid="uid://cputkmmrcoe8a" path="res://assets/sprites/Player/next_button_hover.png" id="6_on6tk"]
+[ext_resource type="Texture2D" uid="uid://cobe4rhf68s3w" path="res://assets/sprites/Player/next_botton.png" id="7_nm0vn"]
+[ext_resource type="Texture2D" uid="uid://df7b71h04jvkm" path="res://assets/sprites/Player/previous_button_hover.png" id="9_8pued"]
+[ext_resource type="Texture2D" uid="uid://boynqypuon4dm" path="res://assets/sprites/Player/previous_botton.png" id="10_kydne"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsu7y"]
 atlas = ExtResource("1_jttrd")
@@ -84,6 +89,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qy4q5"]
+texture = ExtResource("6_on6tk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7l74"]
+texture = ExtResource("6_on6tk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ge6is"]
+texture = ExtResource("6_on6tk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ka8ia"]
+texture = ExtResource("7_nm0vn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kmogs"]
+texture = ExtResource("9_8pued")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbqy7"]
+texture = ExtResource("9_8pued")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jetel"]
+texture = ExtResource("9_8pued")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_437m5"]
+texture = ExtResource("10_kydne")
+
 [node name="Spellbook2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -92,7 +121,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ebjl2")
-test_spellbook = ExtResource("2_n3iub")
+test_spellbook = ExtResource("2_dqj62")
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(540, 360)
@@ -103,7 +133,8 @@ frame = 9
 speed_scale = 1.5
 
 [node name="Pages" type="HBoxContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.193519
 anchor_top = 0.265278
 anchor_right = 0.807407
@@ -135,20 +166,45 @@ layout_mode = 2
 
 [node name="NextButton" type="Button" parent="."]
 top_level = true
-layout_mode = 0
-offset_left = 760.0
-offset_top = 563.0
-offset_right = 863.0
-offset_bottom = 594.0
+layout_mode = 1
+offset_left = 737.0
+offset_top = 546.0
+offset_right = 865.0
+offset_bottom = 610.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("6_nw6gd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_qy4q5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q7l74")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ge6is")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ka8ia")
 text = "next"
+metadata/_edit_use_anchors_ = true
 
 [node name="PreviousButton" type="Button" parent="."]
 top_level = true
-offset_left = 212.0
-offset_top = 562.0
-offset_right = 315.0
-offset_bottom = 593.0
+layout_mode = 1
+offset_left = 200.0
+offset_top = 544.0
+offset_right = 328.0
+offset_bottom = 608.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("6_nw6gd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_kmogs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kbqy7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jetel")
+theme_override_styles/normal = SubResource("StyleBoxTexture_437m5")
 text = "previous"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="PreviousButton" to="." method="_on_previous_button_pressed"]

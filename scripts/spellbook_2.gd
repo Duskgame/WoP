@@ -23,6 +23,8 @@ func _ready() -> void:
 	
 func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> void:
 	opening_animation.frame = 0
+	previous_button.visible = false
+	next_button.visible = false
 	play_opening()
 	await opening_animation.animation_finished
 	spellbook_resource = current_spellbook_resource
@@ -123,9 +125,12 @@ func play_opening() -> void:
 		opening_animation.play("opening")
 
 func display_spells() -> void:
-	display_pages(current_page)
+	display_both_pages(current_page)
+	if len(spell_page_array) > 2:
+		next_button.visible = true
+		display_next_button_type()
 	
-func display_pages(current_page: int):
+func display_both_pages(current_page: int):
 	left_page.add_child(spell_page_array[current_page -1])
 	right_page.add_child(spell_page_array[current_page])
 	
@@ -184,7 +189,13 @@ func _on_next_button_pressed() -> void:
 		current_page += 2
 		print(current_page)
 		remove_both_pages()
-		display_pages(current_page)
+		display_both_pages(current_page)
+	if current_page + 1 == len(spell_page_array):
+		next_button.visible = false
+	else:
+		display_next_button_type()
+	previous_button.visible = true
+	display_previous_button_type()
 
 
 func _on_previous_button_pressed() -> void:
@@ -192,4 +203,22 @@ func _on_previous_button_pressed() -> void:
 		current_page -= 2
 		print(current_page)
 		remove_both_pages()
-		display_pages(current_page)
+		display_both_pages(current_page)
+	if current_page == 1:
+		previous_button.visible = false
+	else:
+		display_previous_button_type()
+	next_button.visible = true
+	display_next_button_type()
+
+func display_next_button_type():
+	var next_spell_array: Array = spell_array[current_page + 1]
+	var next_spell: SpellResource = next_spell_array[0]
+	var next_type: String = Spells.TYPES.find_key(next_spell.type)
+	next_button.text = next_type.to_pascal_case()
+	
+func display_previous_button_type():
+	var previous_spell_array: Array = spell_array[current_page - 2]
+	var previous_spell: SpellResource = previous_spell_array[0]
+	var previous_type: String = Spells.TYPES.find_key(previous_spell.type)
+	previous_button.text = previous_type.to_pascal_case()
