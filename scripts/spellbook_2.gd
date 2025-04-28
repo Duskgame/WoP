@@ -19,7 +19,7 @@ var current_page: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	instanciate_spellbook(test_spellbook)
+	pass
 	
 func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> void:
 	opening_animation.frame = 0
@@ -34,13 +34,14 @@ func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> voi
 	set_spell_array_to_lower()
 	put_spells_in_dict()
 	put_pages_in_spell_page_array()
-	print(spell_dict)
+	#print(spell_dict)
 	display_spells()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
 
 #dict for easy access to spells
 func put_spells_in_dict() -> void:
@@ -125,6 +126,7 @@ func play_opening() -> void:
 		opening_animation.play("opening")
 
 func display_spells() -> void:
+	remove_both_pages()
 	display_both_pages(current_page)
 	if len(spell_page_array) > 2:
 		next_button.visible = true
@@ -150,7 +152,7 @@ func put_pages_in_spell_page_array():
 		spell_page_array.append(display_spell_page(new_page,type_array))
 	if len(spell_array) % 2 != 0:
 		spell_page_array.append(VBoxContainer.new())
-	print(spell_page_array)
+	#print(spell_page_array)
 
 
 
@@ -187,7 +189,7 @@ func display_spell_page(page: VBoxContainer, array: Array) -> VBoxContainer:
 func _on_next_button_pressed() -> void:
 	if current_page + 2 < len(spell_page_array):
 		current_page += 2
-		print(current_page)
+		#print(current_page)
 		remove_both_pages()
 		display_both_pages(current_page)
 	if current_page + 1 == len(spell_page_array):

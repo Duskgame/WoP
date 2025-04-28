@@ -11,8 +11,8 @@ signal escape
 @export var spellbook_resource: SpellBookResource
 
 @onready var health_component: PlayerHealthComponent = $PlayerPanel/PlayerDisplay/PlayerHealthComponent
-@onready var spellbook: SpellBook = $SpellBook
-@onready var spell_input: LineEdit = $SpellBook/SpellPanel/LineEdit
+@onready var spellbook: Spellbook = $Spellbook2
+@onready var spell_input: LineEdit = $LineEdit
 
 
 var minions: Array = []
@@ -70,7 +70,29 @@ func _on_spell_book_use_spell(input: String) -> void:
 	var spell: SpellResource = spellbook.spell_dict[input]
 	get_spell_proficiency(spell)
 	use_spell(spell)
+	spellbook.display_spells()
+
+
+
 
 func get_spell_proficiency(spell: SpellResource):
 	spell.increase_proficiency()
 	print(spell.name + " proficiency " + str(spell.proficiency_exp))
+
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
+	new_text = new_text.to_lower()
+	if is_in_book(new_text):
+		_on_spell_book_use_spell(new_text)
+	spell_input.clear()
+
+func get_spell(input: String):
+	for spell in spellbook_resource.spells:
+		if spell.name == input.to_lower():
+			return spell
+
+func is_in_book(input: String) -> bool:
+	for spell in spellbook_resource.spells:
+		if spell.name == input.to_lower():
+			return true
+	return false

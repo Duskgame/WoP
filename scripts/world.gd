@@ -9,10 +9,12 @@ const COLLECTABLE_SPELLS = "CollectableSpells"
 @onready var camera: Camera2D = $Camera2D
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var ui: Pause = $Camera2D/Pause
+@onready var collectable_spells:CollectableSpells = $CollectableSpells
 
 
 func _ready() -> void:
 	player.instanciate_player_body()
+	collectable_spells.remove_learned_spells(player.spellbook)
 	for enemy in get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME):
 		enemy.connect("battle_detected", _on_battle_detected)
 		enemy.connect("battle_ended", load_player_spellbook_resource)

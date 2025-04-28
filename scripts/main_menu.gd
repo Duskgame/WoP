@@ -2,7 +2,7 @@ extends Control
 
 const world_scene = preload("res://scenes/world.tscn")
 const warmup = preload("res://scenes/battle/battle.tscn")
-const test_spellbook = preload("res://Resources/Spells/spellbook/spellbook.tres")
+const test_spellbook = preload("res://Resources/Spells/spellbook/empty_spellbook.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

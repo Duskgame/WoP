@@ -50,7 +50,7 @@ func set_timer(timer: Timer , base_time: float) -> void:
 
 func _on_attack_timer_timeout() -> void:
 	enemy_texture.attack_animation()
-	print(player.minions)
+	#print(player.minions)
 	if player.minions.size() > 0:
 		var target_minion = player.minions[0]
 		target_minion.take_damage(dmg)

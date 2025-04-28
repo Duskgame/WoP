@@ -4,7 +4,6 @@ class_name SpellToCollect
 
 signal spell_learned(spell: SpellResource)
 
-const COLLECTABLE_SPELLS = "CollectableSpells"
 
 #Needs to have Collectable Spells Scene as a parent
 
@@ -19,6 +18,8 @@ var player: player_body
 func _ready() -> void:
 	add_to_group(COLLECTABLE_SPELLS)
 	assert(collectable_spells, "Needs collectable spells as parent node")
+	
+func instanciate_spell_to_collect():
 	spell_to_collect = get_spell_to_collct()
 	print(spell_to_collect.name)
 
@@ -40,6 +41,8 @@ func collect_spell():
 			print(player.spellbook.spells)
 			spell_learned.emit(spell_to_collect)
 			queue_free()
+
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is player_body:
