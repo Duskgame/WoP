@@ -18,10 +18,15 @@ var player: player_body
 func _ready() -> void:
 	add_to_group(COLLECTABLE_SPELLS)
 	assert(collectable_spells, "Needs collectable spells as parent node")
+
 	
 func instanciate_spell_to_collect():
-	spell_to_collect = get_spell_to_collct()
-	print(spell_to_collect.name)
+	if len(collectable_spells.possible_spells) < 1:
+		print("no valid spells to learn ... deleting spell to collect")
+		queue_free()
+	else:
+		spell_to_collect = get_spell_to_collct()
+		print(spell_to_collect.name)
 
 func _process(delta: float) -> void:
 	collect_spell()

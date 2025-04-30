@@ -155,8 +155,7 @@ spellbook = ExtResource("2_er16n")
 position = Vector2(1, -38)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qgbb1")
-animation = &"up"
-frame_progress = 0.0538385
+animation = &"down"
 speed_scale = 0.75
 script = ExtResource("4_djbhj")
 

@@ -1,4 +1,15 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dge7ho0fm7ui5"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://dge7ho0fm7ui5"]
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_damir"]
+resource_name = "Compressor"
+gain = -7.0
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_6hntx"]
+resource_name = "Amplify"
 
 [resource]
 bus/0/volume_db = -0.130497
+bus/0/effect/0/effect = SubResource("AudioEffectCompressor_damir")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectAmplify_6hntx")
+bus/0/effect/1/enabled = false

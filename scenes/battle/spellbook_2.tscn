@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cchqbxuseqkus"]
+[gd_scene load_steps=41 format=3 uid="uid://cchqbxuseqkus"]
 
 [ext_resource type="Script" path="res://scripts/spellbook_2.gd" id="1_ebjl2"]
 [ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="1_jttrd"]
@@ -10,6 +10,46 @@
 [ext_resource type="Texture2D" uid="uid://cobe4rhf68s3w" path="res://assets/sprites/Player/next_botton.png" id="7_nm0vn"]
 [ext_resource type="Texture2D" uid="uid://df7b71h04jvkm" path="res://assets/sprites/Player/previous_button_hover.png" id="9_8pued"]
 [ext_resource type="Texture2D" uid="uid://boynqypuon4dm" path="res://assets/sprites/Player/previous_botton.png" id="10_kydne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jufg"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(1623, 1086, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34wqx"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2705, 724, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyj7b"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2164, 724, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpu8g"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(1623, 724, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1tcd"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2705, 362, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ie4n"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2164, 362, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8nu0"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(1623, 362, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb354"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2705, 0, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpoxy"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(2164, 0, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maatk"]
+atlas = ExtResource("1_jttrd")
+region = Rect2(1623, 0, 531, 352)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47kpr"]
 atlas = ExtResource("1_jttrd")
@@ -53,6 +93,41 @@ region = Rect2(1623, 1086, 531, 352)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iif7j"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jufg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34wqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyj7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpu8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1tcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ie4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8nu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb354")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpoxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maatk")
+}],
+"loop": true,
+"name": &"closing",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_47kpr")
@@ -132,7 +207,6 @@ position = Vector2(540, 360)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_iif7j")
 animation = &"opening"
-frame = 9
 speed_scale = 1.5
 
 [node name="Pages" type="HBoxContainer" parent="."]

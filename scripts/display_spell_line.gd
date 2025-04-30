@@ -15,7 +15,6 @@ func _ready():
 		update_display()
 
 func _on_spell_proficiency_changed():
-	print("hello")
 	update_display()
 
 func update_display() -> void:

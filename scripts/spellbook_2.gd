@@ -121,9 +121,16 @@ func set_spell_array_to_lower() -> void:
 			#print(spell.name)
 
 func play_opening() -> void:
-		opening_animation.stop()
-		opening_animation.sprite_frames.set_animation_loop("opening", false)
-		opening_animation.play("opening")
+	opening_animation.stop()
+	opening_animation.sprite_frames.set_animation_loop("opening", false)
+	opening_animation.play("opening")
+	
+func play_closing():
+	previous_button.visible = false
+	next_button.visible = false
+	opening_animation.stop()
+	opening_animation.sprite_frames.set_animation_loop("opening", false)
+	opening_animation.play("closing")
 
 func display_spells() -> void:
 	remove_both_pages()

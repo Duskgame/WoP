@@ -5,7 +5,9 @@ class_name WorldMenu
 const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
 
-var spellbook = preload("res://scenes/battle/spellbook_2.tscn")
+var spellbook = preload("res://scenes/world_spellbook.tscn")
+
+@onready var button_container: VBoxContainer = $VBoxContainer
 
 func _ready() -> void:
 	pause_group(ENEMIES_GROUP_NAME, true)
@@ -37,6 +39,8 @@ func _on_back_to_game_pressed() -> void:
 
 func _on_spellbook_pressed() -> void:
 	var player: player_body = get_tree().get_first_node_in_group(PLAYER_GROUP_NAME)
-	var spellbook_instance: Spellbook = spellbook.instantiate()
+	var spellbook_instance: WorldSpellbook = spellbook.instantiate()
 	add_child(spellbook_instance)
-	spellbook_instance.instanciate_spellbook(player.spellbook)
+	spellbook_instance.instanciate_world_spellbook(player.spellbook)
+	button_container.modulate = "#ffffff00"
+	

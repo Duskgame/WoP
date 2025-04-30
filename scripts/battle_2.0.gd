@@ -17,6 +17,7 @@ func _ready() -> void:
 	assert(player)
 	assert(enemy)
 	background.set_backgound(enemy.element)
+	await player.spellbook.opening_animation.animation_finished
 	textbox.battlestart(enemy.enemy_name)
 	print("Wins: " + str(State.wins) + " / Losses: " + str(State.losses))
 	camera.make_current()
