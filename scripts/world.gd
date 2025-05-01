@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	
 func _on_battle_detected(battle: Battle):
 	camera.global_position = battle.global_position
-	audio.pitch_scale = 1.95  - (State.current_health / State.max_health)
+	audio.pitch_scale = 1.75 - (State.current_health / State.max_health)
 	ui.hide()
 	
 func _on_battle_ended() -> void:

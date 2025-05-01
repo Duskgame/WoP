@@ -1,11 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlsw04s66fdgc"]
+[gd_scene load_steps=12 format=3 uid="uid://dlsw04s66fdgc"]
 
 [ext_resource type="Script" path="res://scripts/world_spellbook.gd" id="1_45a18"]
 [ext_resource type="PackedScene" uid="uid://cchqbxuseqkus" path="res://scenes/battle/spellbook_2.tscn" id="2_ixnu5"]
 [ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="3_3dge4"]
 [ext_resource type="StyleBox" uid="uid://cysqklup1v1ve" path="res://assets/fonts/styleboxes/button_pressed.tres" id="4_sa5cs"]
 [ext_resource type="StyleBox" uid="uid://df2xcacdd4svj" path="res://assets/fonts/styleboxes/button_normal.tres" id="5_0by84"]
-[ext_resource type="Shortcut" uid="uid://0ckqs6sqhd83" path="res://assets/button_shortcuts/escape_shortcut.tres" id="6_3y3v2"]
+
+[sub_resource type="Gradient" id="Gradient_lipfx"]
+colors = PackedColorArray(0, 0, 0, 0.392157, 0.741385, 0.741385, 0.741385, 0.392157)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qlhfb"]
+frequency = 0.0005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7407c"]
+color_ramp = SubResource("Gradient_lipfx")
+noise = SubResource("FastNoiseLite_qlhfb")
+
+[sub_resource type="InputEventKey" id="InputEventKey_k0ij2"]
+device = -1
+keycode = 66
+unicode = 98
+
+[sub_resource type="InputEventKey" id="InputEventKey_gyaj4"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_w6dgw"]
+events = [SubResource("InputEventKey_k0ij2"), SubResource("InputEventKey_gyaj4")]
 
 [node name="WorldSpellbook" type="Control"]
 layout_mode = 3
@@ -15,6 +36,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_45a18")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_7407c")
+metadata/_edit_use_anchors_ = true
 
 [node name="Spellbook2" parent="." instance=ExtResource("2_ixnu5")]
 layout_mode = 1
@@ -26,10 +57,10 @@ scale = Vector2(0.9, 0.9)
 
 [node name="BackToGame" type="Button" parent="."]
 layout_mode = 0
-offset_left = 709.0
-offset_top = 613.0
-offset_right = 1071.0
-offset_bottom = 703.0
+offset_left = 954.0
+offset_top = 54.0
+offset_right = 1029.0
+offset_bottom = 144.0
 focus_mode = 0
 theme = ExtResource("3_3dge4")
 theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
@@ -37,8 +68,8 @@ theme_override_styles/hover_pressed = ExtResource("4_sa5cs")
 theme_override_styles/hover = ExtResource("5_0by84")
 theme_override_styles/pressed = ExtResource("4_sa5cs")
 theme_override_styles/normal = ExtResource("5_0by84")
-shortcut = ExtResource("6_3y3v2")
+shortcut = SubResource("Shortcut_w6dgw")
 shortcut_feedback = false
-text = "Back to Menu"
+text = "x"
 
 [connection signal="pressed" from="BackToGame" to="." method="_on_back_to_game_pressed"]

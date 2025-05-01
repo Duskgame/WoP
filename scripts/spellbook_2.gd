@@ -128,8 +128,10 @@ func play_opening() -> void:
 func play_closing():
 	previous_button.visible = false
 	next_button.visible = false
+	left_page.visible = false
+	right_page.visible = false
 	opening_animation.stop()
-	opening_animation.sprite_frames.set_animation_loop("opening", false)
+	opening_animation.sprite_frames.set_animation_loop("closing", false)
 	opening_animation.play("closing")
 
 func display_spells() -> void:

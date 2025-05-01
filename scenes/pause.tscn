@@ -1,10 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt5pppo6bbsco"]
+[gd_scene load_steps=13 format=3 uid="uid://dt5pppo6bbsco"]
 
 [ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="1_jpctp"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_sbciv"]
 [ext_resource type="StyleBox" uid="uid://cysqklup1v1ve" path="res://assets/fonts/styleboxes/button_pressed.tres" id="2_32heg"]
 [ext_resource type="StyleBox" uid="uid://df2xcacdd4svj" path="res://assets/fonts/styleboxes/button_normal.tres" id="3_yp1oi"]
 [ext_resource type="Shortcut" uid="uid://0ckqs6sqhd83" path="res://assets/button_shortcuts/escape_shortcut.tres" id="5_yd5i0"]
+[ext_resource type="StyleBox" uid="uid://cr11ysb55fg63" path="res://assets/fonts/styleboxes/invisible.tres" id="6_6cxik"]
+[ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="6_618x4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s6rnq"]
+texture = ExtResource("6_618x4")
+region_rect = Rect2(2785.67, 736.974, 364.41, 318.616)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1bhja"]
+texture = ExtResource("6_618x4")
+region_rect = Rect2(2858.79, 5.17716, 363.753, 340.14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kkuxv"]
+texture = ExtResource("6_618x4")
+region_rect = Rect2(1833.41, 58.0806, 273.345, 299.555)
+
+[sub_resource type="InputEventKey" id="InputEventKey_i5g7p"]
+device = -1
+keycode = 66
+unicode = 98
+
+[sub_resource type="Shortcut" id="Shortcut_ggkwu"]
+events = [SubResource("InputEventKey_i5g7p")]
 
 [node name="Pause" type="Control"]
 custom_minimum_size = Vector2(1080, 720)
@@ -21,7 +43,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 0
 offset_left = 943.0
 offset_top = 564.0
-offset_right = 1014.0
+offset_right = 1033.0
 offset_bottom = 654.0
 focus_mode = 0
 theme = ExtResource("1_jpctp")
@@ -34,4 +56,20 @@ shortcut = ExtResource("5_yd5i0")
 shortcut_feedback = false
 text = "II"
 
+[node name="Spellbook_Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 564.0
+offset_right = 173.0
+offset_bottom = 654.0
+theme = ExtResource("1_jpctp")
+theme_override_styles/focus = ExtResource("6_6cxik")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_s6rnq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_s6rnq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1bhja")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s6rnq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kkuxv")
+shortcut = SubResource("Shortcut_ggkwu")
+
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Spellbook_Button" to="." method="_on_spellbook_pressed"]

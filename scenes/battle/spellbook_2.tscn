@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cchqbxuseqkus"]
+[gd_scene load_steps=47 format=3 uid="uid://cchqbxuseqkus"]
 
 [ext_resource type="Script" path="res://scripts/spellbook_2.gd" id="1_ebjl2"]
 [ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="1_jttrd"]
@@ -179,6 +179,18 @@ texture = ExtResource("6_on6tk")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1i1u"]
 texture = ExtResource("7_nm0vn")
 
+[sub_resource type="InputEventKey" id="InputEventKey_b8tem"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_bka2o"]
+device = -1
+keycode = 4194321
+
+[sub_resource type="Shortcut" id="Shortcut_8227u"]
+events = [SubResource("InputEventKey_b8tem"), SubResource("InputEventKey_bka2o")]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mgisy"]
 texture = ExtResource("9_8pued")
 
@@ -190,6 +202,18 @@ texture = ExtResource("9_8pued")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xo72g"]
 texture = ExtResource("10_kydne")
+
+[sub_resource type="InputEventKey" id="InputEventKey_y7ify"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_3ojmp"]
+device = -1
+keycode = 4194319
+
+[sub_resource type="Shortcut" id="Shortcut_3o4eo"]
+events = [SubResource("InputEventKey_y7ify"), SubResource("InputEventKey_3ojmp")]
 
 [node name="Spellbook2" type="Control"]
 layout_mode = 3
@@ -265,6 +289,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_c25gs")
 theme_override_styles/hover = SubResource("StyleBoxTexture_r8idu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f1yc2")
 theme_override_styles/normal = SubResource("StyleBoxTexture_r1i1u")
+shortcut = SubResource("Shortcut_8227u")
 text = "next"
 
 [node name="PreviousButton" type="Button" parent="."]
@@ -289,6 +314,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_mgisy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_fuwyn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0xykc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_xo72g")
+shortcut = SubResource("Shortcut_3o4eo")
 text = "previous"
 
 [connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]

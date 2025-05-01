@@ -2,7 +2,7 @@ extends Control
 
 class_name WorldSpellbook
 
-signal back_to_menu
+signal book_closed
 
 @onready var spellbook: Spellbook = $Spellbook2
 
@@ -15,5 +15,6 @@ func instanciate_world_spellbook(spellbook_resource: SpellBookResource):
 
 func _on_back_to_game_pressed() -> void:
 	spellbook.play_closing()
-	back_to_menu.emit()
+	await spellbook.opening_animation.animation_finished
+	book_closed.emit()
 	queue_free()
