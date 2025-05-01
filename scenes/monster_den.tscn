@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://clpjm2jx3knbw"]
+
+[ext_resource type="Script" path="res://scripts/monster_den.gd" id="1_jucnb"]
+[ext_resource type="Texture2D" uid="uid://bct5qk4sp6dvm" path="res://assets/sprites/tiles/monster_den.png" id="1_ooevw"]
+[ext_resource type="PackedScene" uid="uid://bqx60qrv60b84" path="res://scenes/random_fire_enemy.tscn" id="2_p103r"]
+[ext_resource type="PackedScene" uid="uid://d4mmn1w88m7k0" path="res://scenes/random_ice_enemy.tscn" id="3_frrhg"]
+[ext_resource type="PackedScene" uid="uid://cjjmlqflat4w4" path="res://scenes/random_water_enemy.tscn" id="4_yobns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pv43l"]
+size = Vector2(102, 77)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pafw2"]
+radius = 69.4622
+
+[node name="MonsterDen" type="StaticBody2D"]
+z_as_relative = false
+script = ExtResource("1_jucnb")
+possible_monster_to_spawn = Array[PackedScene]([ExtResource("2_p103r"), ExtResource("3_frrhg"), ExtResource("4_yobns")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_ooevw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_pv43l")
+
+[node name="SpawnArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
+position = Vector2(-1, 145)
+shape = SubResource("CircleShape2D_pafw2")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, 145)
+
+[connection signal="body_entered" from="SpawnArea" to="." method="_on_spawn_area_body_entered"]
+[connection signal="body_exited" from="SpawnArea" to="." method="_on_spawn_area_body_exited"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

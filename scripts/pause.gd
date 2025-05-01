@@ -17,24 +17,35 @@ func pause_group(group_name: String, pause: bool):
 		node.set_physics_process_internal(!pause)
 		node.set_process_unhandled_input(!pause)
 
+
+func pause_everything():
+	pause_group(ENEMIES_GROUP_NAME, true)
+	pause_group(PLAYER_GROUP_NAME, true)
+	State.paused = true
+	print(str(State.paused))
+	
+
+func unpause_everything():
+	pause_group(ENEMIES_GROUP_NAME, false)
+	pause_group(PLAYER_GROUP_NAME, false)
+	State.paused = false
+	print(str(State.paused))
+
+
 func _on_pause_button_pressed() -> void:
 	if self.has_node("WorldMenu"):
-		pause_group(ENEMIES_GROUP_NAME, false)
-		pause_group(PLAYER_GROUP_NAME, false)
+		unpause_everything()
 	else:
-		pause_group(ENEMIES_GROUP_NAME, true)
-		pause_group(PLAYER_GROUP_NAME, true)
+		pause_everything()
 		var menu_instannce = world_menu.instantiate()
 		add_child(menu_instannce)
 
 
 func _on_spellbook_pressed() -> void:
 	if self.has_node("WorldSpellbook"):
-		pause_group(ENEMIES_GROUP_NAME, false)
-		pause_group(PLAYER_GROUP_NAME, false)
+		unpause_everything()
 	else:
-		pause_group(ENEMIES_GROUP_NAME, true)
-		pause_group(PLAYER_GROUP_NAME, true)
+		pause_everything()
 		var player: player_body = get_tree().get_first_node_in_group(PLAYER_GROUP_NAME)
 		var spellbook_instance: WorldSpellbook = WORLD_SPELLBOOK.instantiate()
 		add_child(spellbook_instance)
@@ -42,6 +53,5 @@ func _on_spellbook_pressed() -> void:
 		spellbook_instance.connect("book_closed", _on_spellbook_closed)
 
 func _on_spellbook_closed() -> void:
-	pause_group(ENEMIES_GROUP_NAME, false)
-	pause_group(PLAYER_GROUP_NAME, false)
+	unpause_everything()
 	

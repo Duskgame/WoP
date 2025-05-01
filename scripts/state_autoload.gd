@@ -6,3 +6,5 @@ var max_health = 10
 var wins = 0
 var losses = 0
 var damage = 1
+
+var paused: bool = false

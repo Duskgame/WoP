@@ -1,36 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbnoa6cp5ucjw"]
+[gd_scene load_steps=14 format=3 uid="uid://bbnoa6cp5ucjw"]
 
 [ext_resource type="Script" path="res://scripts/player_battle.gd" id="1_2di24"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_cqce4"]
 [ext_resource type="Resource" uid="uid://sa7p8d2726yw" path="res://Resources/Spells/spellbook/spellbook.tres" id="2_wjifk"]
 [ext_resource type="PackedScene" uid="uid://d14cfn23axeem" path="res://scenes/battle/player_health_component.tscn" id="5_6xhc7"]
 [ext_resource type="PackedScene" uid="uid://cchqbxuseqkus" path="res://scenes/battle/spellbook_2.tscn" id="6_al8lu"]
+[ext_resource type="StyleBox" uid="uid://df2xcacdd4svj" path="res://assets/fonts/styleboxes/button_normal.tres" id="7_mdywm"]
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="7_wanvv"]
 [ext_resource type="StyleBox" uid="uid://cr11ysb55fg63" path="res://assets/fonts/styleboxes/invisible.tres" id="8_k3hjw"]
 [ext_resource type="Texture2D" uid="uid://bw5m31iqslksj" path="res://assets/sprites/Player/Strip.png" id="8_sf708"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8abae"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exf7e"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se587"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
 
 [sub_resource type="InputEventKey" id="InputEventKey_0io23"]
 device = -1
@@ -99,15 +77,14 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_cqce4")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxFlat_8abae")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_exf7e")
-theme_override_styles/normal = SubResource("StyleBoxFlat_se587")
+theme_override_styles/focus = ExtResource("8_k3hjw")
+theme_override_styles/hover = ExtResource("7_mdywm")
+theme_override_styles/pressed = ExtResource("7_mdywm")
+theme_override_styles/normal = ExtResource("7_mdywm")
 shortcut = SubResource("Shortcut_mw2gk")
 text = "Run"
 

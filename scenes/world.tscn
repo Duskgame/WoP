@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://djcyj2dlav5y7"]
+[gd_scene load_steps=24 format=4 uid="uid://djcyj2dlav5y7"]
 
 [ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="1_7vwl5"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_hb66u"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cutev5csljtgg" path="res://scenes/spell_to_collect.tscn" id="11_6iyac"]
 [ext_resource type="PackedScene" uid="uid://wu8xj4ku1q5p" path="res://scenes/collectable_spells.tscn" id="11_teu57"]
 [ext_resource type="PackedScene" uid="uid://d4mmn1w88m7k0" path="res://scenes/random_ice_enemy.tscn" id="13_ahnto"]
+[ext_resource type="PackedScene" uid="uid://clpjm2jx3knbw" path="res://scenes/monster_den.tscn" id="14_m2ywl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piuwp"]
 resource_name = "grasspath"
@@ -1216,13 +1217,16 @@ y_sort_enabled = true
 position = Vector2(531, 3569)
 spellbook = ExtResource("8_xmyak")
 
+[node name="MonsterDen" parent="." instance=ExtResource("14_m2ywl")]
+position = Vector2(1043, 3373)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Pause" parent="Camera2D" instance=ExtResource("9_k2hv0")]
 z_index = 20
 
 [node name="RandomFireEnemy" parent="." instance=ExtResource("4_6qywt")]
-position = Vector2(2484.56, 3462.43)
+position = Vector2(2542, 3522)
 collision_priority = 5.0
 
 [node name="RandomFireEnemy2" parent="." instance=ExtResource("4_6qywt")]
