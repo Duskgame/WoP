@@ -126,7 +126,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"closing",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 5.0,
@@ -231,6 +231,8 @@ position = Vector2(540, 360)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_iif7j")
 animation = &"opening"
+frame = 4
+frame_progress = 0.481572
 speed_scale = 1.5
 
 [node name="Pages" type="HBoxContainer" parent="."]

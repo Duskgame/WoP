@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cutev5csljtgg"]
+[gd_scene load_steps=5 format=3 uid="uid://cutev5csljtgg"]
 
 [ext_resource type="Script" path="res://scripts/spell_to_collect.gd" id="1_sia6v"]
 [ext_resource type="Texture2D" uid="uid://bwtx06vkp5k0r" path="res://assets/sprites/spellbook.png" id="2_p8p8o"]
 [ext_resource type="LabelSettings" uid="uid://782lfjthxeo4" path="res://assets/fonts/standard_label_settings.tres" id="3_kmhil"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqxso"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_y5488"]
-radius = 101.0
+radius = 50.0
 
 [node name="SpellToCollect" type="Node2D"]
 script = ExtResource("1_sia6v")
@@ -16,11 +14,6 @@ script = ExtResource("1_sia6v")
 position = Vector2(0, 4)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_p8p8o")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_fqxso")
 
 [node name="Area2D" type="Area2D" parent="."]
 

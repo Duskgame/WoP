@@ -23,14 +23,16 @@ func _ready() -> void:
 		spell.spell_learned.connect(_on_spell_to_collect_spell_learned)
 
 func _process(delta: float) -> void:
-	camera.global_position = player.global_position
+	camera.global_position = player.global_position 
 	
 func _on_battle_detected(battle: Battle):
+	State.paused = true
 	camera.global_position = battle.global_position
 	audio.pitch_scale = 1.75 - (State.current_health / State.max_health)
 	ui.hide()
 	
 func _on_battle_ended() -> void:
+	State.paused = false
 	audio.pitch_scale = 0.75
 	ui.show()
 	
@@ -48,3 +50,13 @@ func _on_spell_to_collect_spell_learned(spell: SpellResource) -> void:
 	var message_instance = message.instantiate()
 	camera.add_child(message_instance)
 	message_instance.set_text(spell)
+
+
+func _on_monster_den_monster_spawned(monster: EnemyBody) -> void:
+		monster.connect("battle_detected", _on_battle_detected)
+		monster.connect("battle_ended", load_player_spellbook_resource)
+		monster.connect("battle_ended", _on_battle_ended)
+
+
+func _on_monster_den_collectable_spell_spawned(collectable: SpellToCollect) -> void:
+	collectable.spell_learned.connect(_on_spell_to_collect_spell_learned)

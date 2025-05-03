@@ -18,6 +18,13 @@ func battlestart(enemy_name: String) -> void:
 	await button.pressed
 	start.emit()
 
+func boss_battle_start(enemy_name: String) -> void:
+	display_text("You have entered the monster den 
+	But this time there is no turning back.
+	You have to fight the Alpha %s to survive" % enemy_name.to_upper())
+	await button.pressed
+	start.emit()
+
 func _on_accept_button_pressed() -> void:
 	textbox.hide()
 	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqnk3fok3i4bx"]
+[gd_scene load_steps=11 format=3 uid="uid://cqnk3fok3i4bx"]
 
 [ext_resource type="Script" path="res://scripts/textbox.gd" id="1_648ys"]
 [ext_resource type="StyleBox" uid="uid://df2xcacdd4svj" path="res://assets/fonts/styleboxes/button_normal.tres" id="1_fxaqv"]
 [ext_resource type="Texture2D" uid="uid://d286kqui0kjj0" path="res://assets/sprites/backgrounds/button.png" id="1_jvb2v"]
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_q5o84"]
+[ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="3_8peq2"]
 [ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="4_uupgv"]
 [ext_resource type="StyleBox" uid="uid://cr11ysb55fg63" path="res://assets/fonts/styleboxes/invisible.tres" id="5_qmmh1"]
 
@@ -27,6 +28,7 @@ offset_top = 16.0
 offset_right = -37.0
 offset_bottom = 138.0
 grow_horizontal = 2
+theme = ExtResource("3_8peq2")
 theme_override_styles/panel = SubResource("StyleBoxTexture_gtvfk")
 script = ExtResource("1_648ys")
 
@@ -35,17 +37,19 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
+offset_left = 56.0
 offset_top = 16.0
-offset_right = -16.0
+offset_right = -70.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_8peq2")
 theme_override_fonts/font = ExtResource("1_q5o84")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 25
 text = "A wild Monster has appeared 
 Defend youself!"
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="AcceptButton" type="Button" parent="."]
 layout_mode = 1

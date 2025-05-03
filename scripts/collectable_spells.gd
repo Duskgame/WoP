@@ -2,8 +2,12 @@ extends Node2D
 
 class_name CollectableSpells
 
+const POSSIBLE_SPELLS = "PossibleSpells"
 const COLLECTABLE_SPELLS = "CollectableSpells"
 @export var possible_spells: Array[SpellResource]
+
+func free() -> void:
+	add_to_group(POSSIBLE_SPELLS)
 
 func remove_learned_spells(spellbook_resource: SpellBookResource):
 	for spell in spellbook_resource.spells:

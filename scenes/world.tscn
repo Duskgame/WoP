@@ -1242,3 +1242,6 @@ position = Vector2(2846, 1370)
 
 [node name="RandomIceEnemy" parent="." instance=ExtResource("13_ahnto")]
 position = Vector2(2832, 2674)
+
+[connection signal="collectable_spell_spawned" from="MonsterDen" to="." method="_on_monster_den_collectable_spell_spawned"]
+[connection signal="monster_spawned" from="MonsterDen" to="." method="_on_monster_den_monster_spawned"]

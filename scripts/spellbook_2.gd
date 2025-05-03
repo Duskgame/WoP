@@ -137,7 +137,7 @@ func play_closing():
 func display_spells() -> void:
 	remove_both_pages()
 	display_both_pages(current_page)
-	if len(spell_page_array) > 2:
+	if current_page < len(spell_page_array):
 		next_button.visible = true
 		display_next_button_type()
 	
@@ -223,10 +223,11 @@ func _on_previous_button_pressed() -> void:
 	display_next_button_type()
 
 func display_next_button_type():
-	var next_spell_array: Array = spell_array[current_page + 1]
-	var next_spell: SpellResource = next_spell_array[0]
-	var next_type: String = Spells.TYPES.find_key(next_spell.type)
-	next_button.text = next_type.to_pascal_case()
+	if current_page + 1 < len(spell_page_array):
+		var next_spell_array: Array = spell_array[current_page + 1]
+		var next_spell: SpellResource = next_spell_array[0]
+		var next_type: String = Spells.TYPES.find_key(next_spell.type)
+		next_button.text = next_type.to_pascal_case()
 	
 func display_previous_button_type():
 	var previous_spell_array: Array = spell_array[current_page - 2]

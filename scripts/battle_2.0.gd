@@ -13,20 +13,34 @@ signal player_won
 
 
 func _ready() -> void:
+	State.paused = true
 	add_to_group("active_battle")
 	assert(player)
 	assert(enemy)
 	background.set_backgound(enemy.element)
 	camera.make_current()
+	
+func start_battle() -> void:
 	await player.spellbook.opening_animation.animation_finished
 	textbox.battlestart(enemy.enemy_name)
-	print("Wins: " + str(State.wins) + " / Losses: " + str(State.losses))
+	
+func start_boss_battle() -> void:
+	player.run_button.hide()
+	enemy.enemy_resource.health *= 3
+	enemy.enemy_resource.damage *= round(1.5)
+	enemy.initialise_enemy()
+	enemy.initialise_enemy()
+	enemy.enemy_resource.health /= 3
+	enemy.enemy_resource.damage /= round(1.5)
+	await player.spellbook.opening_animation.animation_finished
+	textbox.boss_battle_start(enemy.enemy_name)
 	
 func _on_textbox_start() -> void:
 	enemy.battle_start()
 	player.battle_start()
 	
 func end_of_battle(textbox_message:String) -> void:
+	State.paused = false
 	player.battle_end()
 	textbox.display_text(textbox_message)
 	await textbox.button.pressed

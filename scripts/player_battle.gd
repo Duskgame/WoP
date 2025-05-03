@@ -13,6 +13,7 @@ signal escape
 @onready var health_component: PlayerHealthComponent = $PlayerPanel/PlayerDisplay/PlayerHealthComponent
 @onready var spellbook: Spellbook = $Spellbook2
 @onready var spell_input: LineEdit = $LineEdit
+@onready var run_button: Button = $PlayerPanel/PlayerDisplay/Run
 
 
 var minions: Array = []
