@@ -1226,10 +1226,12 @@ position = Vector2(1043, 3373)
 z_index = 20
 
 [node name="RandomFireEnemy" parent="." instance=ExtResource("4_6qywt")]
+y_sort_enabled = false
 position = Vector2(2542, 3522)
 collision_priority = 5.0
 
 [node name="RandomFireEnemy2" parent="." instance=ExtResource("4_6qywt")]
+y_sort_enabled = false
 position = Vector2(2850.56, 3434.43)
 
 [node name="CollectableSpells" parent="." instance=ExtResource("11_teu57")]
@@ -1241,7 +1243,14 @@ position = Vector2(836, 3534)
 position = Vector2(2846, 1370)
 
 [node name="RandomIceEnemy" parent="." instance=ExtResource("13_ahnto")]
+y_sort_enabled = false
 position = Vector2(2832, 2674)
+
+[node name="MonsterDen2" parent="." instance=ExtResource("14_m2ywl")]
+position = Vector2(2001, 3374)
+
+[node name="MonsterDen3" parent="." instance=ExtResource("14_m2ywl")]
+position = Vector2(3032, 3283)
 
 [connection signal="collectable_spell_spawned" from="MonsterDen" to="." method="_on_monster_den_collectable_spell_spawned"]
 [connection signal="monster_spawned" from="MonsterDen" to="." method="_on_monster_den_monster_spawned"]

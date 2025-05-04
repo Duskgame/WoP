@@ -20,17 +20,28 @@ const collectable_spells = preload("res://scenes/collectable_spells.tscn")
 @onready var SpawnTimer: Timer = $SpawnTimer
 @onready var label: Label = $Label
 @onready var parent = $"../"
+@onready var enemy_group_size: int = len(get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME))
 
 var bodies_inside: Array
 var player_inside: bool = false
 var monster_to_spawn: PackedScene
 var boss_monster: EnemyBody
+var enemy_group_max: int = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.hide()
 	monster_to_spawn = possible_monster_to_spawn.pick_random()
+	SpawnTimer.wait_time = get_relative_wait_time()
+	print(enemy_group_size)
+	print(enemy_group_max)
+	print(max(enemy_group_size, 1) / enemy_group_max)
+	SpawnTimer.start((max(enemy_group_size, 1) / enemy_group_max) * 600)
+	print("wait_time ", SpawnTimer.wait_time)
 
+
+func get_relative_wait_time() -> float:
+	return (float(max(enemy_group_size, 1)) / float(enemy_group_max)) * float(60)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -62,6 +73,7 @@ func boss_battle_won():
 		new_possible_spells.remove_learned_spells(player.spellbook)
 		drop_spell_to_learn(new_possible_spells)
 	await get_tree().create_timer(0.005).timeout
+	State.unpause_everything()
 	if boss_monster:
 		boss_monster.queue_free()
 	queue_free()
@@ -77,17 +89,21 @@ func boss_battle_lost():
 		await get_tree().create_timer(0.005).timeout
 		if boss_monster:
 			boss_monster.queue_free()
+		State.unpause_everything()
 		#print(State.paused)
 	
 
 func _on_spawn_timer_timeout() -> void:
 	if len(bodies_inside) == 0:
-		if len(get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME)) < 20:
+		if enemy_group_size < enemy_group_max:
 			var monster_instance: EnemyBody = monster_to_spawn.instantiate()
 			add_child(monster_instance)
+			enemy_group_size = len(get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME))
 			monster_spawned.emit(monster_instance)
 			monster_instance.global_position = SpawnPoint.global_position
-
+			SpawnTimer.wait_time = get_relative_wait_time()
+			print(enemy_group_size)
+			print(SpawnTimer.wait_time)
 
 func _on_spawn_area_body_entered(body: Node2D) -> void:
 	if body is EnemyBody or body is player_body:
