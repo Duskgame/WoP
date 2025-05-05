@@ -21,16 +21,17 @@ func _ready() -> void:
 	camera.make_current()
 	
 func start_battle() -> void:
+	State.pause_everything()
 	await player.spellbook.opening_animation.animation_finished
 	textbox.battlestart(enemy.enemy_name)
 	
 func start_boss_battle() -> void:
 	player.run_button.hide()
-	enemy.enemy_resource.health *= 3
+	enemy.enemy_resource.health /= 3
 	enemy.enemy_resource.damage *= round(1.5)
 	enemy.initialise_enemy()
 	enemy.initialise_enemy()
-	enemy.enemy_resource.health /= 3
+	enemy.enemy_resource.health *= 3
 	enemy.enemy_resource.damage /= round(1.5)
 	await player.spellbook.opening_animation.animation_finished
 	textbox.boss_battle_start(enemy.enemy_name)
@@ -40,10 +41,10 @@ func _on_textbox_start() -> void:
 	player.battle_start()
 	
 func end_of_battle(textbox_message:String) -> void:
-	State.paused = false
 	player.battle_end()
 	textbox.display_text(textbox_message)
 	await textbox.button.pressed
+	State.paused = false
 	await get_tree().create_timer(1).timeout
 	
 func _on_player_battle_lost() -> void:

@@ -9,6 +9,7 @@ const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
 const COLLECTABLE_SPELLS = "CollectableSpells"
 const POSSIBLE_SPELLS = "PossibleSpells"
+const MONSTER_DEN = "MonsterDens"
 const spell_to_learn = preload("res://scenes/spell_to_collect.tscn")
 const collectable_spells = preload("res://scenes/collectable_spells.tscn")
 
@@ -30,6 +31,7 @@ var enemy_group_max: int = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group(MONSTER_DEN)
 	label.hide()
 	monster_to_spawn = possible_monster_to_spawn.pick_random()
 	SpawnTimer.wait_time = get_relative_wait_time()
@@ -53,7 +55,7 @@ func start_boss_battle():
 	if Input.is_physical_key_pressed(KEY_E):
 		if get_tree().get_node_count_in_group("active_battle") == 0:
 			var monster_instance: EnemyBody = monster_to_spawn.instantiate()
-			add_child(monster_instance)
+			parent.add_child(monster_instance)
 			boss_monster = monster_instance
 			monster_spawned.emit(monster_instance)
 			monster_instance.battle_component.start_boss_battle()
@@ -81,8 +83,8 @@ func boss_battle_won():
 func drop_spell_to_learn(collectable_parent: CollectableSpells):
 	var collectable_instance: SpellToCollect = spell_to_learn.instantiate()
 	collectable_parent.add_child(collectable_instance)
-	collectable_spell_spawned.emit(collectable_instance)
 	collectable_instance.instanciate_spell_to_collect()
+	collectable_spell_spawned.emit(collectable_instance)
 	collectable_instance.global_position = global_position
 
 func boss_battle_lost():

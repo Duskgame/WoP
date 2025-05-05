@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealSpellRecource" load_steps=2 format=3 uid="uid://c0im5e66bq5v8"]
+
+[ext_resource type="Script" path="res://scripts/heal_spell_resource.gd" id="1_5wobr"]
+
+[resource]
+script = ExtResource("1_5wobr")
+type = 0
+name = "Life"
+proficiency_lvl = 1
+proficiency_exp = 0
+needed_exp = 10

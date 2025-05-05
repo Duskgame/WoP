@@ -4,6 +4,8 @@ class_name world
 
 const ENEMIES_GROUP_NAME = "Enemies"
 const COLLECTABLE_SPELLS = "CollectableSpells"
+const POSSIBLE_SPELLS = "PossibleSpells"
+const MONSTER_DEN = "MonsterDens"
 
 @onready var player: player_body = $PlayerBody
 @onready var camera: Camera2D = $Camera2D
@@ -15,6 +17,10 @@ const COLLECTABLE_SPELLS = "CollectableSpells"
 func _ready() -> void:
 	player.instanciate_player_body()
 	collectable_spells.remove_learned_spells(player.spellbook)
+	if len(get_tree().get_nodes_in_group(MONSTER_DEN)) > 0:
+		for den: MonsterDen in get_tree().get_nodes_in_group(MONSTER_DEN):
+			den.monster_spawned.connect(_on_monster_den_monster_spawned)
+			den.collectable_spell_spawned.connect(_on_monster_den_collectable_spell_spawned)
 	for enemy in get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME):
 		enemy.connect("battle_detected", _on_battle_detected)
 		enemy.connect("battle_ended", load_player_spellbook_resource)
@@ -60,3 +66,4 @@ func _on_monster_den_monster_spawned(monster: EnemyBody) -> void:
 
 func _on_monster_den_collectable_spell_spawned(collectable: SpellToCollect) -> void:
 	collectable.spell_learned.connect(_on_spell_to_collect_spell_learned)
+	print("ping")
