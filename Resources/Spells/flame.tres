@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DamageSpellResource" load_steps=2 format=3 uid="uid://8p2m07xi7bix"]
+
+[ext_resource type="Script" path="res://scripts/damage_spell_resource.gd" id="1_i41qp"]
+
+[resource]
+script = ExtResource("1_i41qp")
+element = 0
+type = 1
+name = "Flame"
+proficiency_lvl = 1
+proficiency_exp = 0
+needed_exp = 10

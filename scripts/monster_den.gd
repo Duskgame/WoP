@@ -64,8 +64,8 @@ func start_boss_battle():
 func boss_battle_won():
 	
 	if get_tree().get_nodes_in_group(POSSIBLE_SPELLS):
-		var collectable_spells: CollectableSpells = get_tree().get_first_node_in_group(POSSIBLE_SPELLS)
-		drop_spell_to_learn(collectable_spells)
+		var possible_spells: CollectableSpells = get_tree().get_first_node_in_group(POSSIBLE_SPELLS)
+		drop_spell_to_learn(possible_spells)
 	else:
 		var new_possible_spells: CollectableSpells = collectable_spells.instantiate()
 		parent.add_child(new_possible_spells)

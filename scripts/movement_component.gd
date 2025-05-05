@@ -6,6 +6,9 @@ func handle_movement(speed: float, velocity: Vector2) -> Vector2:
 	
 	var vertical_direction := Input.get_axis("ui_left", "ui_right")
 	
+	if Input.is_physical_key_pressed(KEY_SHIFT):
+		speed *= 2
+	
 	if vertical_direction:
 		velocity.x = vertical_direction * speed
 	else:
