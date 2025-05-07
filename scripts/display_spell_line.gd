@@ -22,7 +22,7 @@ func update_display() -> void:
 	var spell_name: String = Spells.get_spell_name_color_by_element(spell)
 	
 	label.text = (
-	spell_name 
+	spell_name
 	+ " Lvl " 
 	+ str(spell.proficiency_lvl)
 	+ "\nCurrent " 

@@ -27,11 +27,11 @@ func start_battle() -> void:
 	
 func start_boss_battle() -> void:
 	player.run_button.hide()
-	enemy.enemy_resource.health /= 3
+	enemy.enemy_resource.health *= 3
 	enemy.enemy_resource.damage *= round(1.5)
 	enemy.initialise_enemy()
 	enemy.initialise_enemy()
-	enemy.enemy_resource.health *= 3
+	enemy.enemy_resource.health /= 3
 	enemy.enemy_resource.damage /= round(1.5)
 	await player.spellbook.opening_animation.animation_finished
 	textbox.boss_battle_start(enemy.enemy_name)
