@@ -75,7 +75,7 @@ func pause_group(group_name: String, pause: bool):
 func _on_battle_ended():
 	battle_ended.emit()
 	pause_group(PLAYER_GROUP_NAME, false)
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	pause_group(ENEMIES_GROUP_NAME, false)
 	if collision_shape != null:
 		collision_shape.set_deferred("disabled", false)

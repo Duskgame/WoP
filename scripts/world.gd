@@ -31,6 +31,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	camera.global_position = player.global_position 
 	
+	
 func _on_battle_detected(battle: Battle):
 	State.paused = true
 	camera.global_position = battle.global_position
@@ -67,3 +68,17 @@ func _on_monster_den_monster_spawned(monster: EnemyBody) -> void:
 func _on_monster_den_collectable_spell_spawned(collectable: SpellToCollect) -> void:
 	collectable.spell_learned.connect(_on_spell_to_collect_spell_learned)
 	print("ping")
+
+
+func _input(event: InputEvent) -> void:
+	const zoom_change:= Vector2(0.03, 0.03)
+	const scale_change:= Vector2(0.04, 0.04)
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			if camera.zoom > Vector2(1, 1) - zoom_change * 10:
+				camera.zoom -= zoom_change
+				camera.scale = Vector2(1,1) / camera.zoom
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			if camera.zoom < Vector2(1, 1) + zoom_change * 10:
+				camera.zoom += zoom_change
+				camera.scale = Vector2(1,1) / camera.zoom

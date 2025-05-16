@@ -24,7 +24,6 @@ radius = 47.1699
 
 [node name="EnemyBody" type="CharacterBody2D"]
 y_sort_enabled = true
-disable_mode = 1
 script = ExtResource("1_dpsx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -224,7 +224,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ebjl2")
 test_spellbook = ExtResource("2_dqj62")
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(540, 360)

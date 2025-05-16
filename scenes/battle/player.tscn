@@ -90,12 +90,12 @@ text = "Run"
 
 [node name="Spellbook2" parent="." instance=ExtResource("6_al8lu")]
 layout_mode = 1
-anchors_preset = -1
 offset_left = -60.0
 offset_top = -160.0
 offset_right = -60.0
 offset_bottom = 50.0
 scale = Vector2(0.8, 0.8)
+metadata/_edit_use_anchors_ = true
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 0

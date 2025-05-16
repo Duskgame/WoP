@@ -35,11 +35,11 @@ func _ready() -> void:
 	label.hide()
 	monster_to_spawn = possible_monster_to_spawn.pick_random()
 	SpawnTimer.wait_time = get_relative_wait_time()
-	print(enemy_group_size)
-	print(enemy_group_max)
-	print(max(enemy_group_size, 1) / enemy_group_max)
+	#print(enemy_group_size)
+	#print(enemy_group_max)
+	#print(max(enemy_group_size, 1) / enemy_group_max)
 	SpawnTimer.start((max(enemy_group_size, 1) / enemy_group_max) * 600)
-	print("wait_time ", SpawnTimer.wait_time)
+	#print("wait_time ", SpawnTimer.wait_time)
 
 
 func get_relative_wait_time() -> float:
@@ -104,8 +104,8 @@ func _on_spawn_timer_timeout() -> void:
 			monster_spawned.emit(monster_instance)
 			monster_instance.global_position = SpawnPoint.global_position
 			SpawnTimer.wait_time = get_relative_wait_time()
-			print(enemy_group_size)
-			print(SpawnTimer.wait_time)
+			#print(enemy_group_size)
+			#print(SpawnTimer.wait_time)
 
 func _on_spawn_area_body_entered(body: Node2D) -> void:
 	if body is EnemyBody or body is player_body:
@@ -113,7 +113,7 @@ func _on_spawn_area_body_entered(body: Node2D) -> void:
 	if body is player_body:
 		label.show()
 		player_inside = true
-	print(bodies_inside)
+	#print(bodies_inside)
 
 
 func _on_spawn_area_body_exited(body: Node2D) -> void:
