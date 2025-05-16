@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ElementSpellResource" load_steps=2 format=3 uid="uid://dd6t6k1m6i43t"]
+
+[ext_resource type="Script" path="res://scripts/spell_resources/element_spell_component.gd" id="1_y32g2"]
+
+[resource]
+script = ExtResource("1_y32g2")
+type = 3
+element = 2
+name = "kry"
+proficiency_lvl = 1
+proficiency_exp = 0
+needed_exp = 10
+proficiency_bonus = 1.0

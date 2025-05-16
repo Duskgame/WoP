@@ -9,9 +9,10 @@ signal proficiency_changed
 @export var proficiency_lvl: int = 1
 @export var proficiency_exp: int = 0
 @export var needed_exp: int = 10
+@export var proficiency_bonus: float = 1
 
 var name_len = func():
-	return ((get_char_worth(name) ** 1.2) * 0.5 * calc_proficiency_bonus())
+	return ((get_char_worth(name) ** 1.2) * 0.5 * proficiency_bonus)
 
 func calc_proficiency_bonus() -> float:
 	if proficiency_lvl == 1:
@@ -25,6 +26,7 @@ func increase_proficiency() -> void:
 	proficiency_exp += 1
 	if proficiency_exp >= needed_exp:
 		proficiency_lvl += 1
+		proficiency_bonus = calc_proficiency_bonus()
 		proficiency_exp = 0
 		needed_exp = calc_needed_exp()
 	proficiency_changed.emit()
@@ -35,7 +37,7 @@ func calc_needed_exp() -> int:
 
 func get_char_worth(string: String):
 	string = string.to_lower()
-	var worth: float
+	var worth: float = 0
 	for character in string:
 		const very_low_use = 1.5
 		const low_use = 1.2

@@ -50,9 +50,15 @@ func put_spells_in_dict() -> void:
 			Spells.TYPES.DAMAGE:
 				spell_dict[spell.name] = spell as DamageSpellResource
 			Spells.TYPES.HEALING:
-				spell_dict[spell.name] = spell as HealSpellRecource
+				spell_dict[spell.name] = spell as HealSpellResource
 			Spells.TYPES.SUMMONING:
 				spell_dict[spell.name] = spell as SummoningSpellResource
+			Spells.TYPES.ELEMENT:
+				spell_dict[spell.name] = spell as ElementSpellResource
+			Spells.TYPES.BASEDAMAGE:
+				spell_dict[spell.name] = spell as BaseDamageSpellResource
+			Spells.TYPES.BASEHEAL:
+				spell_dict[spell.name] = spell as BaseHealSpellResource
 
 
 #sort every spell into categorys
@@ -62,6 +68,9 @@ func sort_spells_in_arrays():
 	var Water_Array: Array = []
 	var Ice_Array: Array = []
 	var Summoning_Array: Array = []
+	var Element_Array: Array = []
+	var Base_Damage_Array: Array = []
+	var Base_Heal_Array: Array = []
 	for spell: SpellResource in spellbook_resource.spells:
 		match spell.type:
 			Spells.TYPES.HEALING:
@@ -77,6 +86,12 @@ func sort_spells_in_arrays():
 						Ice_Array.append(spell)
 			Spells.TYPES.SUMMONING:
 				Summoning_Array.append(spell)
+			Spells.TYPES.ELEMENT:
+				Element_Array.append(spell)
+			Spells.TYPES.BASEDAMAGE:
+				Base_Damage_Array.append(spell)
+			Spells.TYPES.BASEHEAL:
+				Base_Heal_Array.append(spell)
 	if Heal_Array.size() > 0:
 		spell_array.append(Heal_Array)
 	if Fire_Array.size() > 0:
@@ -87,6 +102,13 @@ func sort_spells_in_arrays():
 		spell_array.append(Ice_Array)
 	if Summoning_Array.size() > 0:
 		spell_array.append(Summoning_Array)
+	if Element_Array.size() > 0:
+		spell_array.append(Element_Array)
+	if Base_Damage_Array.size() > 0:
+		spell_array.append(Base_Damage_Array)
+	if Base_Heal_Array.size() > 0:
+		spell_array.append(Base_Heal_Array)
+
 
 func slice_spell_array_in_chunks():
 	var new_spell_array: Array = [] 

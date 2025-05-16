@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ElementSpellResource" load_steps=2 format=3 uid="uid://brwm1mh8t2g1n"]
+
+[ext_resource type="Script" path="res://scripts/spell_resources/element_spell_component.gd" id="1_k0b4g"]
+
+[resource]
+script = ExtResource("1_k0b4g")
+type = 3
+element = 0
+name = "pyr"
+proficiency_lvl = 1
+proficiency_exp = 0
+needed_exp = 10

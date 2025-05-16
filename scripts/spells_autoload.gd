@@ -21,7 +21,10 @@ enum ELEMENTS {
 enum TYPES {
 	HEALING = 0,
 	DAMAGE = 1,
-	SUMMONING = 2
+	SUMMONING = 2,
+	ELEMENT = 3,
+	BASEDAMAGE = 4,
+	BASEHEAL = 5
 }
 
 func get_spell_name_color_by_element(spell: SpellResource) -> String:
@@ -39,6 +42,22 @@ func get_spell_name_color_by_element(spell: SpellResource) -> String:
 			var foo:
 				printerr("Unexpected State \"", foo, "\" is not in Spells Element")
 				return ""
+	elif spell.type == Spells.TYPES.ELEMENT:
+		match spell.element:
+			Spells.ELEMENTS.FIRE:
+				return COLOR_FIRE_RED + name + BBCODE_END_COLOR
+			Spells.ELEMENTS.WATER:
+				return COLOR_WATER_BLUE + name + BBCODE_END_COLOR
+			Spells.ELEMENTS.ICE:
+				return COLOR_ICE_BLUE + name + BBCODE_END_COLOR
+			var foo:
+				printerr("Unexpected State \"", foo, "\" is not in Spells Element")
+				return ""
+	elif spell.type == Spells.TYPES.BASEDAMAGE:
+		return COLOR_DAMAGE_RED + name + BBCODE_END_COLOR
+	elif spell.type == Spells.TYPES.BASEHEAL:
+		return COLOR_HEALING_GREEN + name + BBCODE_END_COLOR
+			
 	else:
 		printerr("Unexpected Spell Type", spell.type)
 		return ""
@@ -51,6 +70,12 @@ func get_spell_type_color_name(spell: SpellResource) -> String:
 		return COLOR_DAMAGE_RED + type + BBCODE_END_COLOR
 	elif spell.type == Spells.TYPES.SUMMONING:
 		return COLOR_SUMMONING_PURPLE + type + BBCODE_END_COLOR
+	elif spell.type == Spells.TYPES.ELEMENT:
+		return COLOR_SUMMONING_PURPLE + type + BBCODE_END_COLOR
+	elif spell.type == Spells.TYPES.BASEDAMAGE:
+		return COLOR_DAMAGE_RED + type + BBCODE_END_COLOR
+	elif spell.type == Spells.TYPES.BASEHEAL:
+		return COLOR_HEALING_GREEN + type + BBCODE_END_COLOR
 	else:
 		printerr("Unexpected Spell Type", spell.type)
 		return ""

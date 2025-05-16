@@ -18,6 +18,7 @@ func duplicate_spell() -> SummoningSpellResource:
 	new_spell.proficiency_lvl = self.proficiency_lvl
 	new_spell.proficiency_exp = self.proficiency_exp
 	new_spell.needed_exp = self.needed_exp
+	new_spell.proficiency_bonus = self.proficiency_bonus
 	new_spell.element = self.element
 	new_spell.texture = self.texture
 	new_spell.health = self.health

@@ -72,7 +72,6 @@ func _on_monster_den_collectable_spell_spawned(collectable: SpellToCollect) -> v
 
 func _input(event: InputEvent) -> void:
 	const zoom_change:= Vector2(0.03, 0.03)
-	const scale_change:= Vector2(0.04, 0.04)
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			if camera.zoom > Vector2(1, 1) - zoom_change * 10:

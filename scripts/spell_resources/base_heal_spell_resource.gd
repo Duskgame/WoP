@@ -1,18 +1,18 @@
 extends SpellResource
 
-class_name DamageSpellResource
+class_name BaseHealSpellResource
 
-@export var element : Spells.ELEMENTS
+@export var type = Spells.TYPES.HEALING
 
-@export var type = Spells.TYPES.DAMAGE
-
-func duplicate_spell() -> DamageSpellResource:
-	var new_spell = DamageSpellResource.new()
+func duplicate_spell() -> BaseHealSpellResource:
+	var new_spell = BaseHealSpellResource.new()
 	new_spell.name = self.name
 	new_spell.proficiency_lvl = self.proficiency_lvl
 	new_spell.proficiency_exp = self.proficiency_exp
 	new_spell.needed_exp = self.needed_exp
 	new_spell.proficiency_bonus = self.proficiency_bonus
-	new_spell.element = self.element
 	new_spell.type = self.type
 	return new_spell
+
+func get_base_heal():
+	return name_len.call()
