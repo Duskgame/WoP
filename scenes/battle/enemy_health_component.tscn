@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cf0dy1l0puenm"]
 
-[ext_resource type="Script" uid="uid://bx12jo5r5lhij" path="res://scripts/health_manager.gd" id="1_owfqn"]
+[ext_resource type="Script" path="res://scripts/health_manager.gd" id="1_owfqn"]
 [ext_resource type="PackedScene" uid="uid://byefvsu1bivqs" path="res://scenes/battle/hp_bar.tscn" id="2_3jhnr"]
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="3_qymx6"]
 

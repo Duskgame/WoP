@@ -84,18 +84,17 @@ func get_spell_proficiency(spell: SpellResource):
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	new_text = new_text.to_lower()
 	var word_array = new_text.split(" ")
+	var spell_array: Array[SpellResource]
 	for word in word_array:
-		var spell_array: Array[SpellResource]
 		if is_in_book(word):
 			_on_spell_book_use_spell(word)
 			spell_array.append(get_spell(word))
-		if len(spell_array) > 0:
-			var temporary_spell: TemporarySpell = TemporarySpell.new()
-			temporary_spell.calculate_final_spell_effect(spell_array,enemy.element)
-			health_component.heal_health(temporary_spell.final_heal)
-			enemy.player_deal_calculated_damage(temporary_spell.final_damage)
-		else:
-			continue
+	if len(spell_array) > 0:
+		print(spell_array)
+		var temporary_spell: TemporarySpell = TemporarySpell.new()
+		temporary_spell.calculate_final_spell_effect(spell_array,enemy.element)
+		health_component.heal_health(temporary_spell.final_heal)
+		enemy.player_deal_calculated_damage(temporary_spell.final_damage)
 	spell_input.clear()
 
 

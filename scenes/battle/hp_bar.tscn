@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://byefvsu1bivqs"]
 
 [ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="1_8lfgj"]
-[ext_resource type="Script" uid="uid://blnr5plbb6xta" path="res://scripts/hp_bar.gd" id="1_tjr8a"]
+[ext_resource type="Script" path="res://scripts/hp_bar.gd" id="1_tjr8a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea361"]
 bg_color = Color(0.596663, 0, 0.0811091, 1)
@@ -44,6 +44,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ea361")
 theme_override_styles/fill = SubResource("StyleBoxFlat_iuhs4")
 step = 1.0
 value = 50.0
+rounded = true
 show_percentage = false
 script = ExtResource("1_tjr8a")
 

@@ -1,15 +1,15 @@
 extends Node
 
-var current_health = 10
-var max_health = 10
+var current_health = 25
+var max_health = 25
 
 var wins = 0
 var losses = 0
 var damage = 1
 
-var enemy_damage_modifyer: float = 1
-var enemy_speed_modifyer: float = 1
-var enemy_health_modifyer: float = 1
+var enemy_damage_modifyer: float = 0.5
+var enemy_speed_modifyer: float = 1.5
+var enemy_health_modifyer: float = 0.5
 
 var paused: bool = false
 

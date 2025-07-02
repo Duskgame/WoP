@@ -11,11 +11,20 @@ func sort_spells(spells: Array[SpellResource]):
 	for spell: SpellResource in spells:
 		match spell.type:
 			Spells.TYPES.ELEMENT:
-				elements.append(spell)
+				if spell in elements:
+					continue
+				else:
+					elements.append(spell)
 			Spells.TYPES.BASEDAMAGE:
-				base_damage.append(spell)
+				if spell in base_damage:
+					continue
+				else:
+					base_damage.append(spell)
 			Spells.TYPES.BASEHEAL:
-				base_heal.append(spell)
+				if spell in base_heal:
+					continue
+				else:
+					base_heal.append(spell)
 
 func calculate_multiplyer(enemy_element: int) -> float:
 	var multiplyer: float = 1
@@ -50,5 +59,7 @@ func calculate_final_spell_effect(spells: Array[SpellResource], enemy_element: i
 	var damage: float = calculate_damage()
 	var heal: float = calculate_heal()
 	final_damage = multiplyer * damage
+	print("final damage " + str(final_damage))
 	final_heal = (1 / multiplyer) * heal
+	print("final heal " + str(final_heal))
 	
