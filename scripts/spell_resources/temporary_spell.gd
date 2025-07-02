@@ -7,6 +7,16 @@ var base_heal: Array[BaseHealSpellResource]
 var final_damage: float
 var final_heal: float
 
+func sort_spells(spells: Array[SpellResource]):
+	for spell: SpellResource in spells:
+		match spell.type:
+			Spells.TYPES.ELEMENT:
+				elements.append(spell)
+			Spells.TYPES.BASEDAMAGE:
+				base_damage.append(spell)
+			Spells.TYPES.BASEHEAL:
+				base_heal.append(spell)
+
 func calculate_multiplyer(enemy_element: int) -> float:
 	var multiplyer: float = 1
 	if len(elements) > 0:
@@ -34,7 +44,8 @@ func calculate_heal() -> float:
 	else:
 		return 0
 	
-func calculate_final_spell_effect(enemy_element: int):
+func calculate_final_spell_effect(spells: Array[SpellResource], enemy_element: int):
+	sort_spells(spells)
 	var multiplyer: float = calculate_multiplyer(enemy_element)
 	var damage: float = calculate_damage()
 	var heal: float = calculate_heal()

@@ -70,6 +70,10 @@ func player_deal_damage(amount: float, player_element: int) -> void:
 	enemy_texture.get_attacked_animation()
 	amount *= damage_component.damage_multiplyer(player_element, enemy_resource.element)
 	health_component.damage_health(amount)
+	
+func player_deal_calculated_damage(amount: float) -> void:
+	enemy_texture.get_attacked_animation()
+	health_component.damage_health(amount)
 
 
 func _on_random_enemy_spawner_random_enemy(random_enemy: EnemyResource) -> void:
