@@ -7,7 +7,13 @@ var wins = 0
 var losses = 0
 var damage = 1
 
+var enemy_damage_modifyer: float = 1
+var enemy_speed_modifyer: float = 1
+var enemy_health_modifyer: float = 1
+
 var paused: bool = false
+
+
 
 const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"

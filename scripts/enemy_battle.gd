@@ -16,9 +16,11 @@ signal battle_won
 var max_health: int 
 var current_health: int 
 var enemy_name: String 
-var dmg: int
+var dmg: float
 var regen: int 
 var element: int
+var attack_cooldown: float
+var heal_cooldown: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,18 +29,20 @@ func _ready() -> void:
 func initialise_enemy() -> void:
 	
 	enemy_texture.texture = enemy_resource.texture
-	max_health = enemy_resource.health
-	current_health = enemy_resource.health
+	max_health = enemy_resource.health * State.enemy_health_modifyer
+	current_health = max_health
 	enemy_name = enemy_resource.name
-	dmg = enemy_resource.damage
+	dmg = enemy_resource.damage * State.enemy_damage_modifyer
 	regen = enemy_resource.regeneration
 	element = enemy_resource.element
+	attack_cooldown = enemy_resource.attack_cooldown * State.enemy_speed_modifyer
+	heal_cooldown = enemy_resource.heal_cooldown * State.enemy_speed_modifyer
 	health_component.initialise_health(current_health,max_health, regen)
 
 
 func battle_start() -> void:
-	set_timer(attack_timer, enemy_resource.attack_cooldown)
-	set_timer(health_component.heal_timer, enemy_resource.heal_cooldown)
+	set_timer(attack_timer, attack_cooldown)
+	set_timer(health_component.heal_timer, heal_cooldown)
 	health_component.heal_timer.start()
 	attack_timer.start()
 

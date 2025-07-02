@@ -6,15 +6,15 @@
 [ext_resource type="StyleBox" uid="uid://df2xcacdd4svj" path="res://assets/fonts/styleboxes/button_normal.tres" id="3_yiqwf"]
 [ext_resource type="Shortcut" uid="uid://0ckqs6sqhd83" path="res://assets/button_shortcuts/escape_shortcut.tres" id="5_m75aj"]
 
-[sub_resource type="Gradient" id="Gradient_x5o1g"]
+[sub_resource type="Gradient" id="Gradient_6qdqt"]
 colors = PackedColorArray(0, 0, 0, 0.392157, 0.741385, 0.741385, 0.741385, 0.392157)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_cyi1i"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oy2i5"]
 frequency = 0.0005
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_en0jt"]
-color_ramp = SubResource("Gradient_x5o1g")
-noise = SubResource("FastNoiseLite_cyi1i")
+color_ramp = SubResource("Gradient_6qdqt")
+noise = SubResource("FastNoiseLite_oy2i5")
 
 [node name="WorldMenu" type="Control"]
 custom_minimum_size = Vector2(1080, 720)
@@ -29,13 +29,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.995828
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_en0jt")
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -63,7 +62,7 @@ theme_override_styles/pressed = ExtResource("2_123vl")
 theme_override_styles/normal = ExtResource("3_yiqwf")
 shortcut = ExtResource("5_m75aj")
 shortcut_feedback = false
-text = "Back to Game"
+text = " Back to Game "
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -100,4 +99,5 @@ text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/BackToGame" to="." method="_on_back_to_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

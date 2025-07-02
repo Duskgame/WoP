@@ -26,7 +26,7 @@ func update_spells() -> void:
 			Spells.TYPES.DAMAGE:
 				spell_dict[spell.name] = spell as DamageSpellResource
 			Spells.TYPES.HEALING:
-				spell_dict[spell.name] = spell as HealSpellRecource
+				spell_dict[spell.name] = spell as HealSpellResource
 			Spells.TYPES.SUMMONING:
 				spell_dict[spell.name] = spell as SummoningSpellResource
 

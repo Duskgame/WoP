@@ -1,5 +1,3 @@
-extends Node
-
 class_name TemporarySpell
 
 var elements: Array[ElementSpellResource]
@@ -42,3 +40,4 @@ func calculate_final_spell_effect(enemy_element: int):
 	var heal: float = calculate_heal()
 	final_damage = multiplyer * damage
 	final_heal = (1 / multiplyer) * heal
+	

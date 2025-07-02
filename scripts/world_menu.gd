@@ -5,6 +5,8 @@ class_name WorldMenu
 const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
 
+const options = preload("res://scenes/options.tscn")
+
 func _ready() -> void:
 	pause_everything()
 
@@ -42,3 +44,8 @@ func _on_exit_button_pressed() -> void:
 func _on_back_to_game_pressed() -> void:
 	unpause_everything()
 	queue_free()
+
+
+func _on_options_button_pressed() -> void:
+	var options_instance = options.instantiate()
+	add_child(options_instance)
