@@ -115,7 +115,6 @@ theme_override_styles/read_only = SubResource("StyleBoxTexture_wup5n")
 theme_override_styles/normal = SubResource("StyleBoxTexture_paugt")
 placeholder_text = "Type to use Spell"
 alignment = 1
-max_length = 20
 editable = false
 expand_to_text_length = true
 context_menu_enabled = false

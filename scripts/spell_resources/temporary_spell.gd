@@ -38,28 +38,41 @@ func calculate_damage() -> float:
 		var damage: float = 1
 		for base_damage_component in base_damage:
 			damage *= base_damage_component.get_base_damage()
-		damage /= len(base_damage) ** 1.2
+		damage = max(damage / len(base_damage) ** (1 + len(base_damage) * 0.1), add_damage())
 		return damage
 	else:
 		return 0
+	
+func add_damage() -> float:
+	var damage: float = 0
+	for base_damage_component in base_damage:
+		damage += base_damage_component.get_base_damage()
+	return damage
 	
 func calculate_heal() -> float:
 	if len(base_heal) > 0:
 		var heal: float = 1
 		for base_heal_component in base_heal:
 			heal *= base_heal_component.get_base_heal()
-		heal /= len(base_heal) ** 1.2
+		heal = max(heal / len(base_heal) ** (1 + len(base_heal) * 0.1), add_healing())
 		return heal
 	else:
 		return 0
+
+func add_healing() -> float:
+	var heal: float = 0
+	for base_heal_component in base_heal:
+		heal += base_heal_component.get_base_heal()
+	return heal
+
 	
 func calculate_final_spell_effect(spells: Array[SpellResource], enemy_element: int):
 	sort_spells(spells)
 	var multiplyer: float = calculate_multiplyer(enemy_element)
 	var damage: float = calculate_damage()
 	var heal: float = calculate_heal()
-	final_damage = multiplyer * damage
+	final_damage = snappedf(multiplyer * damage, 0.01)
 	print("final damage " + str(final_damage))
-	final_heal = (1 / multiplyer) * heal
+	final_heal = snappedf((1 / multiplyer) * heal, 0.01)
 	print("final heal " + str(final_heal))
 	
