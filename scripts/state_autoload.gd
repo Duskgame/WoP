@@ -2,6 +2,7 @@ extends Node
 
 var current_health = 25
 var max_health = 25
+var inventory: Array
 
 var wins = 0
 var losses = 0
