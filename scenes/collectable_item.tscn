@@ -1,17 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://oe5kqpkkind5"]
+[gd_scene load_steps=2 format=3 uid="uid://oe5kqpkkind5"]
 
-[ext_resource type="Script" path="res://scenes/collectable_item.gd" id="1_vlsy3"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gn6m6"]
-radius = 47.0425
+[ext_resource type="Script" path="res://scripts/items/collectable_item.gd" id="1_vlsy3"]
 
 [node name="CollectableItem" type="Node2D"]
 script = ExtResource("1_vlsy3")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_gn6m6")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://djcyj2dlav5y7"]
+[gd_scene load_steps=42 format=4 uid="uid://djcyj2dlav5y7"]
 
 [ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="1_7vwl5"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_hb66u"]
@@ -32,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://cjcyqj6q6f73n" path="res://Resources/Spells/aquaspiral.tres" id="30_cqkja"]
 [ext_resource type="Resource" uid="uid://c0im5e66bq5v8" path="res://Resources/Spells/life.tres" id="31_b3vcd"]
 [ext_resource type="Resource" uid="uid://xkojscrao3lw" path="res://Resources/Spells/lifeblood.tres" id="32_oimqx"]
+[ext_resource type="PackedScene" uid="uid://br00jpb7t1qmf" path="res://scenes/collectable_essence.tscn" id="33_6728x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piuwp"]
 resource_name = "grasspath"
@@ -1541,3 +1542,6 @@ position = Vector2(-6572, 3485)
 
 [node name="MonsterDen8" parent="." instance=ExtResource("14_m2ywl")]
 position = Vector2(-6572, 6125)
+
+[node name="CollectableEssence" parent="." instance=ExtResource("33_6728x")]
+position = Vector2(-1307, 3604)

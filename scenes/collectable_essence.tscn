@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://br00jpb7t1qmf"]
+
+[ext_resource type="Script" path="res://scripts/items/collectable_essence.gd" id="1_ulman"]
+[ext_resource type="Texture2D" uid="uid://dp4ll7kvw3cfg" path="res://assets/sprites/Miscelaneous/Fire crystal.png" id="2_ko8qo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvpal"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mp7jj"]
+radius = 98.0051
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i225a"]
+radius = 8.06226
+
+[node name="CollectableEssence" type="Node2D"]
+z_index = -1
+script = ExtResource("1_ulman")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_mvpal")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ko8qo")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_mp7jj")
+
+[node name="CollectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
+shape = SubResource("CircleShape2D_i225a")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
