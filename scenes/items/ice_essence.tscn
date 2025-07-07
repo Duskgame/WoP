@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://pwtshff5h0nm"]
+
+[ext_resource type="Script" path="res://scripts/items/essence.gd" id="1_puh51"]
+
+[node name="WaterEssence" type="Node2D"]
+script = ExtResource("1_puh51")

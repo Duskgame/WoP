@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://br00jpb7t1qmf"]
+[gd_scene load_steps=8 format=3 uid="uid://br00jpb7t1qmf"]
 
 [ext_resource type="Script" path="res://scripts/items/collectable_essence.gd" id="1_ulman"]
 [ext_resource type="Texture2D" uid="uid://dp4ll7kvw3cfg" path="res://assets/sprites/Miscelaneous/Fire crystal.png" id="2_ko8qo"]
+[ext_resource type="Texture2D" uid="uid://cqfw8squ4wrvh" path="res://assets/sprites/Miscelaneous/Water crystal.png" id="3_812ky"]
+[ext_resource type="Texture2D" uid="uid://bb26n02v20ip" path="res://assets/sprites/Miscelaneous/Ice crystal.png" id="4_4sahs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvpal"]
 
@@ -14,6 +16,7 @@ radius = 8.06226
 [node name="CollectableEssence" type="Node2D"]
 z_index = -1
 script = ExtResource("1_ulman")
+sprites = Array[CompressedTexture2D]([ExtResource("2_ko8qo"), ExtResource("3_812ky"), ExtResource("4_4sahs")])
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 

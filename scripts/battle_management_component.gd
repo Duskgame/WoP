@@ -7,17 +7,20 @@ signal battle_ended
 signal player_won
 
 const BATTLE_SCENE_PATH = "res://scenes/battle/battle2.0.tscn"
+const ENEMY_ESSENCE = "res://scenes/items/collectable_essence.tscn"
 const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
 
 var enemy_body: EnemyBody
 var battle_scene: PackedScene
+var enemy_essence: PackedScene
 var sprite: Sprite2D
 var collision_shape: CollisionShape2D
 
 func initialize(body: EnemyBody, enemy_sprite: Sprite2D, enemy_collision_shape: CollisionShape2D):
 	self.enemy_body = body
 	self.battle_scene = preload(BATTLE_SCENE_PATH)
+	self.enemy_essence = preload(ENEMY_ESSENCE)
 	self.sprite = enemy_sprite
 	self.collision_shape = enemy_collision_shape
 	
@@ -85,6 +88,7 @@ func _on_battle_ended():
 
 
 func _on_player_won():
+	create_collectable_essence()
 	player_won.emit()
 	battle_ended.emit()
 	sprite.queue_free()
@@ -93,3 +97,13 @@ func _on_player_won():
 	await get_tree().create_timer(1).timeout
 	pause_group(ENEMIES_GROUP_NAME, false)
 	enemy_body.queue_free()
+
+func create_collectable_essence():
+	var collectable_essence: CollectableEssence = enemy_essence.instantiate()
+	var grandparent = get_node("../..")
+	grandparent.add_child(collectable_essence)
+	collectable_essence._ready()
+	collectable_essence.instanciate_essence(enemy_body.enemy_resource.element)
+	collectable_essence.global_position = enemy_body.global_position
+	print(collectable_essence.global_position)
+	

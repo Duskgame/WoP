@@ -32,7 +32,7 @@
 [ext_resource type="Resource" uid="uid://cjcyqj6q6f73n" path="res://Resources/Spells/aquaspiral.tres" id="30_cqkja"]
 [ext_resource type="Resource" uid="uid://c0im5e66bq5v8" path="res://Resources/Spells/life.tres" id="31_b3vcd"]
 [ext_resource type="Resource" uid="uid://xkojscrao3lw" path="res://Resources/Spells/lifeblood.tres" id="32_oimqx"]
-[ext_resource type="PackedScene" uid="uid://br00jpb7t1qmf" path="res://scenes/collectable_essence.tscn" id="33_6728x"]
+[ext_resource type="PackedScene" uid="uid://br00jpb7t1qmf" path="res://scenes/items/collectable_essence.tscn" id="33_6728x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piuwp"]
 resource_name = "grasspath"
