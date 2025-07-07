@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://djcyj2dlav5y7"]
+[gd_scene load_steps=36 format=4 uid="uid://djcyj2dlav5y7"]
 
 [ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="1_7vwl5"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_hb66u"]
@@ -15,23 +15,17 @@
 [ext_resource type="PackedScene" uid="uid://d4mmn1w88m7k0" path="res://scenes/random_ice_enemy.tscn" id="13_ahnto"]
 [ext_resource type="PackedScene" uid="uid://clpjm2jx3knbw" path="res://scenes/monster_den.tscn" id="14_m2ywl"]
 [ext_resource type="Script" path="res://scripts/spell_resource.gd" id="15_r1gl5"]
-[ext_resource type="Resource" uid="uid://ijvb4dyo5vk8" path="res://Resources/Spells/fireball.tres" id="16_c7s7c"]
-[ext_resource type="Resource" uid="uid://c4ls2asdt68b7" path="res://Resources/Spells/ice.tres" id="17_3d1yo"]
-[ext_resource type="Resource" uid="uid://ck4yxu8py3bxt" path="res://Resources/Spells/iceshard.tres" id="18_ys2eb"]
-[ext_resource type="Resource" uid="uid://dlf35jayags28" path="res://Resources/Spells/recovery.tres" id="19_hsdcq"]
-[ext_resource type="Resource" uid="uid://b1l2p0nylauhh" path="res://Resources/Spells/summon_fire_minion.tres" id="20_nxlmf"]
-[ext_resource type="Resource" uid="uid://c5yyyadyg4ouo" path="res://Resources/Spells/summon_ice_minion.tres" id="21_i18eq"]
-[ext_resource type="Resource" uid="uid://rg3iew1osxg8" path="res://Resources/Spells/summon_water_minion.tres" id="22_wc1ts"]
-[ext_resource type="Resource" uid="uid://0ebat5ahyfqt" path="res://Resources/Spells/water.tres" id="23_wdcu7"]
-[ext_resource type="Resource" uid="uid://hte81bqqhfyr" path="res://Resources/Spells/waterslash.tres" id="24_kbcsn"]
-[ext_resource type="Resource" uid="uid://c1vo3vak744e" path="res://Resources/Spells/frost.tres" id="25_6ne6h"]
-[ext_resource type="Resource" uid="uid://fxowppvgyqel" path="res://Resources/Spells/frostbite.tres" id="26_6dfr5"]
-[ext_resource type="Resource" uid="uid://8p2m07xi7bix" path="res://Resources/Spells/flame.tres" id="27_v1f4r"]
-[ext_resource type="Resource" uid="uid://doe5p36tcjcnn" path="res://Resources/Spells/flamelance.tres" id="28_u81di"]
-[ext_resource type="Resource" uid="uid://byihdbr2v5ifr" path="res://Resources/Spells/aqua.tres" id="29_3qfy0"]
-[ext_resource type="Resource" uid="uid://cjcyqj6q6f73n" path="res://Resources/Spells/aquaspiral.tres" id="30_cqkja"]
-[ext_resource type="Resource" uid="uid://c0im5e66bq5v8" path="res://Resources/Spells/life.tres" id="31_b3vcd"]
-[ext_resource type="Resource" uid="uid://xkojscrao3lw" path="res://Resources/Spells/lifeblood.tres" id="32_oimqx"]
+[ext_resource type="Resource" uid="uid://bkm5ruyu4kpfr" path="res://Resources/Spells/spell_component_resources/akos.tres" id="15_xaajf"]
+[ext_resource type="Resource" uid="uid://d3wcx5jl83hvo" path="res://Resources/Spells/spell_component_resources/aqu.tres" id="16_agja2"]
+[ext_resource type="Resource" uid="uid://ds187p7wd5kqp" path="res://Resources/Spells/spell_component_resources/belos.tres" id="17_7uw78"]
+[ext_resource type="Resource" uid="uid://bcytvmlvb0eqa" path="res://Resources/Spells/spell_component_resources/doru.tres" id="18_sh1g1"]
+[ext_resource type="Resource" uid="uid://chj0suarfw561" path="res://Resources/Spells/spell_component_resources/haima.tres" id="19_ex024"]
+[ext_resource type="Resource" uid="uid://dpfjllwivhpik" path="res://Resources/Spells/spell_component_resources/iasis.tres" id="20_4on6h"]
+[ext_resource type="Resource" uid="uid://dnxyeyu10u5hm" path="res://Resources/Spells/spell_component_resources/kamax.tres" id="21_lp16v"]
+[ext_resource type="Resource" uid="uid://dd6t6k1m6i43t" path="res://Resources/Spells/spell_component_resources/kry.tres" id="22_jouj0"]
+[ext_resource type="Resource" uid="uid://brwm1mh8t2g1n" path="res://Resources/Spells/spell_component_resources/pyr.tres" id="23_5bvnr"]
+[ext_resource type="Resource" uid="uid://d1disiqrcq7qs" path="res://Resources/Spells/spell_component_resources/typto.tres" id="24_63eqy"]
+[ext_resource type="Resource" uid="uid://by71qld1m21su" path="res://Resources/Spells/spell_component_resources/xiphos.tres" id="25_4qgxp"]
 [ext_resource type="PackedScene" uid="uid://br00jpb7t1qmf" path="res://scenes/items/collectable_essence.tscn" id="33_6728x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piuwp"]
@@ -1515,7 +1509,7 @@ disable_mode = 1
 
 [node name="CollectableSpells" parent="." instance=ExtResource("11_teu57")]
 position = Vector2(321, 27)
-possible_spells = Array[ExtResource("15_r1gl5")]([ExtResource("16_c7s7c"), ExtResource("17_3d1yo"), ExtResource("18_ys2eb"), ExtResource("19_hsdcq"), ExtResource("20_nxlmf"), ExtResource("21_i18eq"), ExtResource("22_wc1ts"), ExtResource("23_wdcu7"), ExtResource("24_kbcsn"), ExtResource("25_6ne6h"), ExtResource("26_6dfr5"), ExtResource("27_v1f4r"), ExtResource("28_u81di"), ExtResource("29_3qfy0"), ExtResource("30_cqkja"), ExtResource("31_b3vcd"), ExtResource("32_oimqx")])
+possible_spells = Array[ExtResource("15_r1gl5")]([ExtResource("15_xaajf"), ExtResource("16_agja2"), ExtResource("17_7uw78"), ExtResource("18_sh1g1"), ExtResource("19_ex024"), ExtResource("20_4on6h"), ExtResource("21_lp16v"), ExtResource("22_jouj0"), ExtResource("23_5bvnr"), ExtResource("24_63eqy"), ExtResource("25_4qgxp")])
 
 [node name="RandomIceEnemy" parent="." instance=ExtResource("13_ahnto")]
 y_sort_enabled = false

@@ -7,6 +7,8 @@ var fire_essence: int
 var water_essence: int
 var ice_essence: int
 
+var essences = [fire_essence, water_essence, ice_essence]
+
 var wins = 0
 var losses = 0
 var damage = 1

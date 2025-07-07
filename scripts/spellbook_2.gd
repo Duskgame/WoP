@@ -19,7 +19,7 @@ var current_page: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	instanciate_spellbook(test_spellbook)
 	
 func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> void:
 	opening_animation.frame = 0
@@ -36,7 +36,7 @@ func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> voi
 	put_pages_in_spell_page_array()
 	#print(spell_dict)
 	display_spells()
-	
+	print(spell_page_array)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -177,6 +177,8 @@ func remove_both_pages():
 	remove_page(right_page)
 
 func put_pages_in_spell_page_array():
+	var essence_page: VBoxContainer = VBoxContainer.new()
+	spell_page_array.append(display_essences(essence_page))
 	for type_array in spell_array:
 		var new_page: VBoxContainer = VBoxContainer.new()
 		var array_number: int = spell_array.find(type_array)
@@ -223,7 +225,7 @@ func _on_next_button_pressed() -> void:
 		#print(current_page)
 		remove_both_pages()
 		display_both_pages(current_page)
-	if current_page + 1 == len(spell_page_array):
+	if current_page + 2 == len(spell_page_array):
 		next_button.visible = false
 	else:
 		display_next_button_type()
@@ -246,7 +248,7 @@ func _on_previous_button_pressed() -> void:
 
 func display_next_button_type():
 	if current_page + 1 < len(spell_page_array):
-		var next_spell_array: Array = spell_array[current_page + 1]
+		var next_spell_array: Array = spell_array[current_page - 1]
 		var next_spell: SpellResource = next_spell_array[0]
 		var next_type: String = Spells.TYPES.find_key(next_spell.type)
 		next_button.text = next_type.to_pascal_case()
@@ -256,3 +258,38 @@ func display_previous_button_type():
 	var previous_spell: SpellResource = previous_spell_array[0]
 	var previous_type: String = Spells.TYPES.find_key(previous_spell.type)
 	previous_button.text = previous_type.to_pascal_case()
+
+
+func display_essence_headline() -> RichTextLabel:
+	var type_label = RichTextLabel.new()
+	type_label.bbcode_enabled = true
+	type_label.text = ("[color=#000000] Collected Essences [/color]")
+	type_label.theme = preload("res://assets/fonts/themes/terminal_theme.tres")
+	type_label.add_theme_font_size_override("normal_font_size", 30)
+	type_label.fit_content = true
+	type_label.custom_minimum_size.y = 30
+	return type_label
+	
+func display_essences(page: VBoxContainer) -> VBoxContainer:
+	page.add_child(display_essence_headline())
+	var puffer: Label = Label.new()
+	page.add_child(puffer)
+	var count: int = 0 
+	for essence in State.essences:
+		page.add_child(create_essence_display(essence, count))
+		count += 1
+	return page
+
+func create_essence_display(amount: int, element: int):
+	var type_label = RichTextLabel.new()
+	type_label.bbcode_enabled = true
+	type_label.text = (
+		Spells.get_element_essence_color(element)
+		+ "[color=#000000]"
+		+ str(amount) 
+		+ "[/color]"
+		)
+	type_label.theme = preload("res://assets/fonts/themes/terminal_theme.tres")
+	type_label.fit_content = true
+	type_label.custom_minimum_size.y = 30
+	return type_label

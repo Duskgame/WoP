@@ -92,3 +92,29 @@ func get_damage_element_name_color(spell: DamageSpellResource) -> String:
 		var foo:
 			printerr("Unexpected State \"", foo, "\" is not in Spells Element")
 			return ""
+
+func get_element_essence_color(element_enum: int):
+	var element: String = str(Spells.ELEMENTS.find_key(element_enum).to_pascal_case())
+	var essence_string: String = " Essences: "
+	match element_enum:
+		Spells.ELEMENTS.FIRE:
+			return COLOR_FIRE_RED + element + essence_string + BBCODE_END_COLOR
+		Spells.ELEMENTS.WATER:
+			return COLOR_WATER_BLUE + element + essence_string + BBCODE_END_COLOR
+		Spells.ELEMENTS.ICE:
+			return COLOR_ICE_BLUE + element + essence_string + BBCODE_END_COLOR
+		var foo:
+			printerr("Unexpected State \"", foo, "\" is not in Spells Element")
+			return ""
+
+func get_element_color_code(element_enum: int):
+	match element_enum:
+		Spells.ELEMENTS.FIRE:
+			return COLOR_FIRE_RED
+		Spells.ELEMENTS.WATER:
+			return COLOR_WATER_BLUE
+		Spells.ELEMENTS.ICE:
+			return COLOR_ICE_BLUE
+		var foo:
+			printerr("Unexpected State \"", foo, "\" is not in Spells Element")
+			return ""

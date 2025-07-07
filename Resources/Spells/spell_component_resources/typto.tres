@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseDamageSpellResource" load_steps=2 format=3 uid="uid://d1disiqrcq7qs"]
+
+[ext_resource type="Script" path="res://scripts/spell_resources/base_damage_spell_component.gd" id="1_b1npu"]
+
+[resource]
+script = ExtResource("1_b1npu")
+type = 4
+name = "typto"
+proficiency_lvl = 1
+proficiency_exp = 0
+needed_exp = 10
+proficiency_bonus = 1.0

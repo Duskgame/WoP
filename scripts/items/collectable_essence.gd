@@ -40,13 +40,13 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 	match element:
 		Spells.ELEMENTS.FIRE:
 			State.fire_essence += 1
-			print("fire essence " + str(State.fire_essence))
+			#print("fire essence " + str(State.fire_essence))
 		Spells.ELEMENTS.WATER:
 			State.water_essence += 1
-			print("water essence " + str(State.water_essence))
+			#print("water essence " + str(State.water_essence))
 		Spells.ELEMENTS.ICE:
 			State.ice_essence += 1
-			print("ice essence " + str(State.ice_essence))
+			#print("ice essence " + str(State.ice_essence))
 	self.queue_free()
 
 

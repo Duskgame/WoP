@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseHealSpellResource" load_steps=2 format=3 uid="uid://chj0suarfw561"]
+
+[ext_resource type="Script" path="res://scripts/spell_resources/base_heal_spell_resource.gd" id="1_f8ehi"]
+
+[resource]
+script = ExtResource("1_f8ehi")
+type = 0
+name = "haima"
+proficiency_lvl = 1
+proficiency_exp = 0
+needed_exp = 10
+proficiency_bonus = 1.0
