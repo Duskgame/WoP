@@ -2,6 +2,7 @@ extends Node
 
 var current_health = 25
 var max_health = 25
+var current_position: Vector2
 
 var fire_essence: int
 var water_essence: int
@@ -9,8 +10,9 @@ var ice_essence: int
 
 var essences = [fire_essence, water_essence, ice_essence]
 
-var wins = 0
-var losses = 0
+var wins: float = 0
+var losses: float = 0
+
 var damage = 1
 
 var enemy_damage_modifyer: float = 0.5
@@ -39,6 +41,7 @@ func pause_node(node: Node, pause: bool):
 	print("paused " + str(node))
 
 func pause_everything():
+	SaveSpellbook.save_state()
 	pause_group(ENEMIES_GROUP_NAME, true)
 	pause_group(PLAYER_GROUP_NAME, true)
 	State.paused = true
@@ -50,3 +53,8 @@ func unpause_everything():
 	pause_group(PLAYER_GROUP_NAME, false)
 	State.paused = false
 	print(str(State.paused))
+
+func get_current_position():
+	var player: player_body = get_tree().get_first_node_in_group(PLAYER_GROUP_NAME)
+	if player:
+		current_position = player.global_position

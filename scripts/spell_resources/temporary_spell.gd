@@ -72,7 +72,7 @@ func calculate_final_spell_effect(spells: Array[SpellResource], enemy_element: i
 	var damage: float = calculate_damage()
 	var heal: float = calculate_heal()
 	final_damage = snappedf(multiplyer * damage, 0.01)
-	print("final damage " + str(final_damage))
+	#print("final damage " + str(final_damage))
 	final_heal = snappedf((1 / multiplyer) * heal, 0.01)
-	print("final heal " + str(final_heal))
+	#print("final heal " + str(final_heal))
 	

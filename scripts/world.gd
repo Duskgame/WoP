@@ -33,13 +33,15 @@ func _process(delta: float) -> void:
 	
 	
 func _on_battle_detected(battle: Battle):
+	SaveSpellbook.save_state()
 	State.paused = true
-	print(player.global_position)
+	#print(player.global_position)
 	camera.global_position = battle.global_position
 	audio.pitch_scale = 1.75 - (State.current_health / State.max_health)
 	ui.hide()
 	
 func _on_battle_ended() -> void:
+	SaveSpellbook.save_state()
 	State.paused = false
 	audio.pitch_scale = 0.75
 	ui.show()
@@ -48,9 +50,10 @@ func load_player_spellbook_resource():
 	player.load_spellbook_resource()
 
 func end_game():
-		await get_tree().create_timer(1).timeout
-		print("escape")
-		queue_free()
+	SaveSpellbook.save_state()
+	await get_tree().create_timer(1).timeout
+	print("escape")
+	queue_free()
 
 
 func _on_spell_to_collect_spell_learned(spell: SpellResource) -> void:

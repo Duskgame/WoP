@@ -88,6 +88,7 @@ func _on_battle_ended():
 
 
 func _on_player_won():
+	calc_enemy_power()
 	create_collectable_essence()
 	player_won.emit()
 	battle_ended.emit()
@@ -98,12 +99,29 @@ func _on_player_won():
 	pause_group(ENEMIES_GROUP_NAME, false)
 	enemy_body.queue_free()
 
-func create_collectable_essence():
-	var collectable_essence: CollectableEssence = enemy_essence.instantiate()
-	var grandparent = get_node("../..")
-	grandparent.add_child(collectable_essence)
-	collectable_essence._ready()
-	collectable_essence.instanciate_essence(enemy_body.enemy_resource.element)
-	collectable_essence.global_position = enemy_body.global_position
-	print(collectable_essence.global_position)
+func create_collectable_essence() -> void:
+	for i in calc_essence_amount():
+		var collectable_essence: CollectableEssence = enemy_essence.instantiate()
+		var grandparent = get_node("../..")
+		grandparent.add_child(collectable_essence)
+		collectable_essence._ready()
+		collectable_essence.instanciate_essence(enemy_body.enemy_resource.element)
+		collectable_essence.global_position = enemy_body.global_position + Vector2(randi_range(-20,20),randi_range(-20,20))
+	#print(collectable_essence.global_position)
 	
+func calc_enemy_power() -> float:
+	var power: float = (
+		enemy_body.enemy_resource.damage
+		* enemy_body.enemy_resource.regeneration
+		* State.enemy_damage_modifyer
+		* (1 + (State.wins * 0.03))
+		/ enemy_body.enemy_resource.attack_cooldown
+		/ enemy_body.enemy_resource.heal_cooldown
+		/ State.enemy_speed_modifyer
+		/ (1 + (State.losses * 0.03))
+		)
+	#print(power)
+	return power
+	
+func calc_essence_amount() -> int:
+	return randi_range(calc_enemy_power() * 20, calc_enemy_power() * 30)

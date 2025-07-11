@@ -19,7 +19,7 @@ var current_page: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	instanciate_spellbook(test_spellbook)
+	pass
 	
 func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> void:
 	opening_animation.frame = 0
@@ -36,7 +36,7 @@ func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> voi
 	put_pages_in_spell_page_array()
 	#print(spell_dict)
 	display_spells()
-	print(spell_page_array)
+	#print(spell_page_array)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -275,7 +275,7 @@ func display_essences(page: VBoxContainer) -> VBoxContainer:
 	var puffer: Label = Label.new()
 	page.add_child(puffer)
 	var count: int = 0 
-	for essence in State.essences:
+	for essence in [State.fire_essence, State.water_essence, State.ice_essence]:
 		page.add_child(create_essence_display(essence, count))
 		count += 1
 	return page

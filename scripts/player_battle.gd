@@ -78,7 +78,7 @@ func _on_spell_book_use_spell(input: String) -> void:
 
 func get_spell_proficiency(spell: SpellResource):
 	spell.increase_proficiency()
-	print(spell.name + " proficiency " + str(spell.proficiency_exp))
+	#print(spell.name + " proficiency " + str(spell.proficiency_exp))
 
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
@@ -90,7 +90,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 			_on_spell_book_use_spell(word)
 			spell_array.append(get_spell(word))
 	if len(spell_array) > 0:
-		print(spell_array)
+		#print(spell_array)
 		var temporary_spell: TemporarySpell = TemporarySpell.new()
 		temporary_spell.calculate_final_spell_effect(spell_array,enemy.element)
 		health_component.heal_health(temporary_spell.final_heal)

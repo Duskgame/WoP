@@ -20,6 +20,8 @@ func _ready() -> void:
 func instanciate_player_body() -> void:
 	add_to_group("Player")
 	load_spellbook_resource()
+	if State.current_position:
+		self.global_position = State.current_position
 
 func _physics_process(delta: float) -> void:
 	
