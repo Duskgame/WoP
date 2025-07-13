@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func set_text(spell_to_display: SpellResource):
@@ -32,17 +32,17 @@ func set_text(spell_to_display: SpellResource):
 	await  get_tree().create_timer(3).timeout
 	queue_free()
 	
-func set_name_color(name:String) -> String:
+func set_name_color(name_string: String) -> String:
 	if spell.type == Spells.TYPES.HEALING:
-		return "[color=#4ACF5F]" + name + "[/color]"
+		return "[color=#4ACF5F]" + name_string + "[/color]"
 	elif spell.type == Spells.TYPES.DAMAGE or spell.type == Spells.TYPES.SUMMONING:
 		match spell.element:
 			Spells.ELEMENTS.FIRE:
-				return "[color=#B33831]" + name + "[/color]"
+				return "[color=#B33831]" + name_string + "[/color]"
 			Spells.ELEMENTS.WATER:
-				return "[color=#3D436F]" + name + "[/color]"
+				return "[color=#3D436F]" + name_string + "[/color]"
 			Spells.ELEMENTS.ICE:
-				return "[color=#5FCDE4]" + name + "[/color]"
+				return "[color=#5FCDE4]" + name_string + "[/color]"
 			var foo:
 				printerr("Unexpected State \"", foo, "\" is not in Spells Element")
 				return ""

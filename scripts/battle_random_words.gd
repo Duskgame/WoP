@@ -52,7 +52,7 @@ func set_heal_spells(heal_spell: Button):
 	Spells.heal_spells.erase(heal_spell.text)
 
 func set_attacktimer():
-	attacktimer.wait_time = attacktimer.wait_time - (State.wins * 0.05) + (State.losses * 0.05)
+	attacktimer.wait_time = attacktimer.wait_time - (State.wins * State.win_modifier) + (State.losses * State.loss_modifier)
 	
 func set_healtimer():
 	healtimer.wait_time = attacktimer.wait_time * 2.5

@@ -28,7 +28,7 @@ func _ready() -> void:
 	for spell: SpellToCollect in get_tree().get_nodes_in_group(COLLECTABLE_SPELLS):
 		spell.spell_learned.connect(_on_spell_to_collect_spell_learned)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	camera.global_position = player.global_position 
 	
 	

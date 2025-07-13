@@ -28,7 +28,7 @@ func instanciate_spell_to_collect():
 		spell_to_collect = get_spell_to_collct()
 		print(spell_to_collect.name)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	collect_spell()
 
 func get_spell_to_collct() -> SpellResource:
@@ -55,7 +55,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		label.visible = true
 		collectable = true
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	player = null
 	label.visible = false
 	collectable = false

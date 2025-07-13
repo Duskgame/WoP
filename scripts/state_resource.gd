@@ -10,14 +10,17 @@ class_name StateResource
 @export var water_essence: int
 @export var ice_essence: int
 
-@export var wins: float = 0
-@export var losses: float = 0
+@export var wins: float
+@export var losses: float
+
+@export var win_modifier: float
+@export var loss_modifier: float
 
 @export var damage: int
 
-@export var enemy_damage_modifyer: float
-@export var enemy_speed_modifyer: float
-@export var enemy_health_modifyer: float
+@export var enemy_damage_modifier: float
+@export var enemy_speed_modifier: float
+@export var enemy_health_modifier: float
 
 @export var paused: bool
 
@@ -30,10 +33,12 @@ func get_state():
 	self.ice_essence = State.ice_essence
 	self.wins = State.wins
 	self.losses = State.losses
+	self.win_modifier = State.win_modifier
+	self.loss_modifier = State.loss_modifier
 	self.damage = State.damage
-	self.enemy_damage_modifyer = State.enemy_damage_modifyer
-	self.enemy_speed_modifyer = State.enemy_speed_modifyer
-	self.enemy_health_modifyer = State.enemy_health_modifyer
+	self.enemy_damage_modifier = State.enemy_damage_modifier
+	self.enemy_speed_modifier = State.enemy_speed_modifier
+	self.enemy_health_modifier = State.enemy_health_modifier
 	self.paused = State.paused
 	
 func set_state():
@@ -45,8 +50,10 @@ func set_state():
 	State.ice_essence = self.ice_essence
 	State.wins = self.wins
 	State.losses = self.losses
+	State.win_modifier = self.win_modifier
+	State.loss_modifier = self.loss_modifier
 	State.damage = self.damage
-	State.enemy_damage_modifyer = self.enemy_damage_modifyer
-	State.enemy_speed_modifyer = self.enemy_speed_modifyer
-	State.enemy_health_modifyer = self.enemy_health_modifyer
-	State.paused = self.enemy_health_modifyer
+	State.enemy_damage_modifier = self.enemy_damage_modifier
+	State.enemy_speed_modifier = self.enemy_speed_modifier
+	State.enemy_health_modifier = self.enemy_health_modifier
+	State.paused = self.enemy_health_modifier

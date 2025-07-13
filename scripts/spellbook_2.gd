@@ -38,10 +38,6 @@ func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> voi
 	display_spells()
 	#print(spell_page_array)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 #dict for easy access to spells
 func put_spells_in_dict() -> void:

@@ -46,7 +46,7 @@ func get_relative_wait_time() -> float:
 	return (float(max(enemy_group_size, 1)) / float(enemy_group_max)) * float(60)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	SpawnTimer.paused = State.paused
 	if player_inside:
 		start_boss_battle()

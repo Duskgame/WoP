@@ -113,15 +113,15 @@ func calc_enemy_power() -> float:
 	var power: float = (
 		enemy_body.enemy_resource.damage
 		* enemy_body.enemy_resource.regeneration
-		* State.enemy_damage_modifyer
-		* (1 + (State.wins * 0.03))
+		* State.enemy_damage_modifier
+		* (1 + (State.wins * State.win_modifier / 5 * 3))
 		/ enemy_body.enemy_resource.attack_cooldown
 		/ enemy_body.enemy_resource.heal_cooldown
-		/ State.enemy_speed_modifyer
-		/ (1 + (State.losses * 0.03))
+		/ State.enemy_speed_modifier
+		/ (1 + (State.losses * State.loss_modifier / 5 * 3))
 		)
 	#print(power)
 	return power
 	
 func calc_essence_amount() -> int:
-	return randi_range(calc_enemy_power() * 20, calc_enemy_power() * 30)
+	return max(randi_range(calc_enemy_power() * 20, calc_enemy_power() * 30), 1)

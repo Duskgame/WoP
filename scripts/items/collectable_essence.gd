@@ -30,11 +30,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		collectable = true
 		playerbody = body
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	collectable = false
 
 
-func _on_collection_area_body_entered(body: Node2D) -> void:
+func _on_collection_area_body_entered(_body: Node2D) -> void:
 	var essence = Essence.new()
 	essence.element = self.element
 	match element:

@@ -13,11 +13,14 @@ var essences = [fire_essence, water_essence, ice_essence]
 var wins: float = 0
 var losses: float = 0
 
+var win_modifier: float = 0.05
+var loss_modifier: float = 0.05
+
 var damage = 1
 
-var enemy_damage_modifyer: float = 0.5
-var enemy_speed_modifyer: float = 1.5
-var enemy_health_modifyer: float = 0.5
+var enemy_damage_modifier: float = 0.5
+var enemy_speed_modifier: float = 1.5
+var enemy_health_modifier: float = 0.5
 
 var paused: bool = false
 

@@ -29,14 +29,14 @@ func _ready() -> void:
 func initialise_enemy() -> void:
 	
 	enemy_texture.texture = enemy_resource.texture
-	max_health = enemy_resource.health * State.enemy_health_modifyer
+	max_health = enemy_resource.health * State.enemy_health_modifier
 	current_health = max_health
 	enemy_name = enemy_resource.name
-	dmg = enemy_resource.damage * State.enemy_damage_modifyer
+	dmg = enemy_resource.damage * State.enemy_damage_modifier
 	regen = enemy_resource.regeneration
 	element = enemy_resource.element
-	attack_cooldown = enemy_resource.attack_cooldown * State.enemy_speed_modifyer
-	heal_cooldown = enemy_resource.heal_cooldown * State.enemy_speed_modifyer
+	attack_cooldown = enemy_resource.attack_cooldown * State.enemy_speed_modifier
+	heal_cooldown = enemy_resource.heal_cooldown * State.enemy_speed_modifier
 	health_component.initialise_health(current_health,max_health, regen)
 
 
@@ -51,7 +51,7 @@ func battle_end() -> void:
 	attack_timer.stop()
 
 func set_timer(timer: Timer , base_time: float) -> void:
-	timer.wait_time = base_time - (State.wins * 0.05) + (State.losses * 0.05)
+	timer.wait_time = base_time - (State.wins * State.win_modifier) + (State.losses * State.loss_modifier)
 
 func _on_attack_timer_timeout() -> void:
 	enemy_texture.attack_animation()
