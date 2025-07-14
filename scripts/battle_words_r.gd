@@ -4,7 +4,7 @@ signal won_battle
 signal lost_battle
 
 @export var enemy: Resource = EnemyResource
-@export var player: Resource = PlayerResource
+#@export var player: Resource = PlayerResource
 
 @onready var textbox = $Textbox
 @onready var player_hp = $PlayerPanel/PlayerData/HPBar
@@ -33,15 +33,15 @@ func _ready() -> void:
 	
 	fill_spellbook()
 	
-	current_player_health = player.current_health
+	current_player_health = State.current_health
 	current_enemy_health = enemy.health
 	
-	set_health(player_hp, player.current_health, player.max_health)
+	set_health(player_hp, State.current_health, State.max_health)
 	set_health(enemy_hp, enemy.health, enemy.health)
 	enemy_texture.texture = enemy.texture
 	
 func set_attacktimer():
-	attacktimer.wait_time = attacktimer.wait_time - (player.wins * 0.05) + (player.losses * 0.05)
+	attacktimer.wait_time = attacktimer.wait_time - (State.wins * 0.05) + (State.losses * 0.05)
 	
 func set_healtimer():
 	healtimer.wait_time = attacktimer.wait_time * 2.5
@@ -106,13 +106,13 @@ func _on_run_pressed() -> void:
 
 func _on_won_battle() -> void:
 	await end_of_battle("You have won!")
-	player.wins += 1
+	State.wins += 1
 	get_tree().reload_current_scene()
 
 func _on_lost_battle() -> void:
 	await end_of_battle("You have lost")
-	player.losses += 1
-	player.current_health += 5
+	State.losses += 1
+	State.current_health += 5
 	get_tree().reload_current_scene()
 
 func enemy_attack_animation():
@@ -123,9 +123,9 @@ func enemy_attack_animation():
 
 func _on_attack_timer_timeout() -> void:
 	enemy_attack_animation()
-	player.current_health = max(player.current_health - enemy.damage, 0)
-	set_health(player_hp, player.current_health, player.max_health)
-	if player.current_health <=0:
+	State.current_health = max(State.current_health - enemy.damage, 0)
+	set_health(player_hp, State.current_health, State.max_health)
+	if State.current_health <=0:
 		attacktimer.stop()
 		healtimer.stop()
 		lost_battle.emit()
