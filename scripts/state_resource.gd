@@ -16,7 +16,7 @@ class_name StateResource
 @export var win_modifier: float
 @export var loss_modifier: float
 
-@export var damage: int
+@export var damage_modifier: float
 
 @export var enemy_damage_modifier: float
 @export var enemy_speed_modifier: float
@@ -35,7 +35,7 @@ func get_state():
 	self.losses = State.losses
 	self.win_modifier = State.win_modifier
 	self.loss_modifier = State.loss_modifier
-	self.damage = State.damage
+	self.damage_modifier = State.damage_modifier
 	self.enemy_damage_modifier = State.enemy_damage_modifier
 	self.enemy_speed_modifier = State.enemy_speed_modifier
 	self.enemy_health_modifier = State.enemy_health_modifier
@@ -52,7 +52,7 @@ func set_state():
 	State.losses = self.losses
 	State.win_modifier = self.win_modifier
 	State.loss_modifier = self.loss_modifier
-	State.damage = self.damage
+	State.damage_modifier = self.damage_modifier
 	State.enemy_damage_modifier = self.enemy_damage_modifier
 	State.enemy_speed_modifier = self.enemy_speed_modifier
 	State.enemy_health_modifier = self.enemy_health_modifier

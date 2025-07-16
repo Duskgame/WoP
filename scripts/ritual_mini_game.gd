@@ -24,10 +24,8 @@ func _ready() -> void:
 	start_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
-	#for current in range(1, level + 1):
-		#crate_random_label(current)
 
 func create_circle(c_level: int):
 	var texture: CircleTextureRect
@@ -54,8 +52,8 @@ func calc_circle_size(c_level: int):
 		var difference: int = max_level - level
 		min_size += difference * (difference + 6) * 4
 	# tested magic numbers for smooth growth
-		var size_calc: int = min_size + ((c_level) * ((c_level) + 6 + (difference*2)) * 4) 
-		return Vector2(size_calc, size_calc)
+		var diff_calc: int = min_size + ((c_level) * ((c_level) + 6 + (difference*2)) * 4) 
+		return Vector2(diff_calc, diff_calc)
 	var size_calc: int = min_size + c_level * (c_level + 6) * 4
 	return Vector2(size_calc, size_calc)
 	
@@ -68,8 +66,7 @@ func create_multiple_circles(number_of_circles: int):
 
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
-	for node in label_group:
-		node as FallingLabel
+	for node:FallingLabel in label_group:
 		if new_text == str(node.text):
 			var circle = get_current_circle(node.level)
 			circle.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -82,8 +79,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	line.clear()
 
 func get_current_circle(c_level: int):
-	for node in circle_group:
-		node as CircleTextureRect
+	for node: CircleTextureRect in circle_group:
 		if node.level == c_level:
 			return node
 		
@@ -91,6 +87,7 @@ func get_current_circle(c_level: int):
 func create_random_label(c_level: int):
 	var label: FallingLabel = FallingLabel.new()
 	label.level = c_level
+	label.deleted.connect(_on_falling_label_deleted)
 	label.add_to_group(LABEL)
 	add_child(label)
 
@@ -98,4 +95,7 @@ func start_game():
 	for current in range(1, level + 1):
 		create_random_label(current)
 		label_group = get_tree().get_nodes_in_group(LABEL)
-		await get_tree().create_timer(5 / (current * speed_modifier)).timeout
+		await get_tree().create_timer(max(level - (current * speed_modifier), 1)).timeout
+
+func _on_falling_label_deleted(node: FallingLabel):
+	label_group.erase(node)

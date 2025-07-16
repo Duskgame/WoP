@@ -16,7 +16,7 @@ var losses: float = 0
 var win_modifier: float = 0.05
 var loss_modifier: float = 0.05
 
-var damage = 1
+var damage_modifier: float = 1
 
 var enemy_damage_modifier: float = 0.5
 var enemy_speed_modifier: float = 1.5
