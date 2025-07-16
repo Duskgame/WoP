@@ -9,6 +9,7 @@ const LABEL = "label"
 @onready var line: LineEdit = $Panel/LineEdit
 @onready var light: PointLight2D = $Center/PointLight2D
 
+var ritual_type
 var level: int = 8
 var max_level: int = 8
 var speed_modifier: float = 1
@@ -99,3 +100,6 @@ func start_game():
 
 func _on_falling_label_deleted(node: FallingLabel):
 	label_group.erase(node)
+
+func end_game():
+	var textbox: Textbox = Textbox.new()

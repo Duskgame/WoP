@@ -6,7 +6,7 @@ signal deleted(node: FallingLabel)
 
 @onready var view_rect: Rect2 = get_viewport_rect()
 
-var speed: float = 10
+var speed: float = 20
 var level: int = 8
 
 var characters = 'abcdefghijklmnopqrstuvwxyz'
@@ -15,7 +15,7 @@ var characters = 'abcdefghijklmnopqrstuvwxyz'
 func _ready() -> void:
 	theme = load("res://assets/fonts/themes/menu_button.tres")
 	add_theme_stylebox_override("normal", load("res://assets/fonts/styleboxes/button_normal.tres"))
-	var number_of_chars: int = randi_range(ceil(level / 2) + 2,ceil(level / 2) + 4)
+	var number_of_chars: int = randi_range(3, 3 + ceil(level / 2))
 	text = generate_word(characters, number_of_chars)
 	position = Vector2(randf_range(0 + view_rect.size.x * 0.0,0 + view_rect.size.x * 0.8),0)
 
