@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://klml4ep71qhw"]
+[gd_scene load_steps=6 format=3 uid="uid://klml4ep71qhw"]
 
 [ext_resource type="Script" path="res://scripts/ritual_mini_game.gd" id="1_aqol3"]
+[ext_resource type="Texture2D" uid="uid://cusmo23eavjie" path="res://assets/fonts/themes/radiant_light.tres" id="2_nhsbm"]
+
+[sub_resource type="Gradient" id="Gradient_t5eke"]
+offsets = PackedFloat32Array(0, 0.512953, 1)
+colors = PackedColorArray(0.332881, 0.332881, 0.332881, 0.196078, 0.733005, 0.733005, 0.733005, 0.196078, 1, 1, 1, 0.196078)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ejkqb"]
+seed = 14
+frequency = 0.0042
+fractal_lacunarity = 1.735
+fractal_weighted_strength = 0.37
+domain_warp_amplitude = 28.475
+domain_warp_frequency = -0.305
+domain_warp_fractal_type = 2
+domain_warp_fractal_octaves = 10
+domain_warp_fractal_lacunarity = 4.035
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hvd7r"]
+in_3d_space = true
+seamless_blend_skirt = 0.95
+color_ramp = SubResource("Gradient_t5eke")
+noise = SubResource("FastNoiseLite_ejkqb")
 
 [node name="RitualMiniGame" type="Control"]
 layout_mode = 3
@@ -10,6 +33,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aqol3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.643137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("NoiseTexture2D_hvd7r")
 
 [node name="Center" type="Control" parent="."]
 layout_mode = 1
@@ -23,7 +58,18 @@ offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="PointLight2D" type="PointLight2D" parent="Center"]
+z_index = -2
+position = Vector2(1, 0)
+color = Color(1, 1, 0, 0.705882)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_item_cull_mask = 2
+texture = ExtResource("2_nhsbm")
+texture_scale = 3.0
+
 [node name="Panel" type="Panel" parent="."]
+z_index = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 12
@@ -46,7 +92,7 @@ offset_right = 142.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Text"
+placeholder_text = "Text"
 context_menu_enabled = false
 shortcut_keys_enabled = false
 middle_mouse_paste_enabled = false

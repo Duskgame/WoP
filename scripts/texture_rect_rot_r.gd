@@ -2,7 +2,7 @@ extends CircleTextureRect
 
 class_name TextureRight
 
-var speed: float = 0.1
+var speed: float = 0.05 
 
 var level: int
 
@@ -11,10 +11,9 @@ var rotating = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	self.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if rotating:
-		rotation -= speed * delta
+	rotation -= speed * level * delta
