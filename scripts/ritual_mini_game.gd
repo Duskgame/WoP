@@ -21,9 +21,7 @@ var label_group: Array
 func _ready() -> void:
 	create_multiple_circles(level)
 	line.grab_focus()
-	crate_random_label(1)
-	label_group = get_tree().get_nodes_in_group(LABEL)
-
+	start_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -90,8 +88,14 @@ func get_current_circle(c_level: int):
 			return node
 		
 
-func crate_random_label(c_level: int):
+func create_random_label(c_level: int):
 	var label: FallingLabel = FallingLabel.new()
 	label.level = c_level
 	label.add_to_group(LABEL)
 	add_child(label)
+
+func start_game():
+	for current in range(1, level + 1):
+		create_random_label(current)
+		label_group = get_tree().get_nodes_in_group(LABEL)
+		await get_tree().create_timer(5 / (current * speed_modifier)).timeout
