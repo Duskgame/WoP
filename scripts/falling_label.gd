@@ -21,7 +21,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.global_position.y += speed * level * 0.5 * delta
+	self.global_position.y += speed * delta
 	if global_position.y > view_rect.size.y:
 		deleted.emit(self)
 		queue_free()

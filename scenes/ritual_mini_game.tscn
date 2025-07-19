@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://klml4ep71qhw"]
+[gd_scene load_steps=6 format=3 uid="uid://klml4ep71qhw"]
 
 [ext_resource type="Script" path="res://scripts/ritual_mini_game.gd" id="1_aqol3"]
 [ext_resource type="Texture2D" uid="uid://cusmo23eavjie" path="res://assets/fonts/themes/radiant_light.tres" id="2_nhsbm"]
-[ext_resource type="PackedScene" uid="uid://cqnk3fok3i4bx" path="res://scenes/battle/textbox.tscn" id="3_t3oti"]
 
 [sub_resource type="Gradient" id="Gradient_t5eke"]
 offsets = PackedFloat32Array(0, 0.512953, 1)
@@ -100,15 +99,5 @@ middle_mouse_paste_enabled = false
 selecting_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
-
-[node name="Textbox" parent="." instance=ExtResource("3_t3oti")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-offset_left = 212.0
-offset_top = 138.0
-offset_right = 868.0
-offset_bottom = 278.0
-grow_horizontal = 1
 
 [connection signal="text_submitted" from="Panel/LineEdit" to="." method="_on_line_edit_text_submitted"]

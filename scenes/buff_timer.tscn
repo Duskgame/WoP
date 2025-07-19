@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvr80l10wm77k"]
+
+[ext_resource type="Script" path="res://scripts/buff.gd" id="1_4d8cd"]
+
+[node name="Timer" type="Timer"]
+script = ExtResource("1_4d8cd")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

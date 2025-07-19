@@ -13,7 +13,7 @@ var ritual_type
 var level: int = 8
 var max_level: int = 8
 var speed_modifier: float = 1
-var cleared_level: int = 0
+var cleared_words: float
 var circle_group: Array
 var label_group: Array
 
@@ -69,11 +69,12 @@ func create_multiple_circles(number_of_circles: int):
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	for node:FallingLabel in label_group:
 		if new_text == str(node.text):
-			var circle = get_current_circle(node.level)
-			circle.process_mode = Node.PROCESS_MODE_ALWAYS
-			circle.self_modulate = Color("#ffffffff")
-			cleared_level += 1
-			light.texture_scale += 1
+			if check_if_last_label_in_lvl(node):
+				var circle = get_current_circle(node.level)
+				circle.process_mode = Node.PROCESS_MODE_ALWAYS
+				circle.self_modulate = Color("#ffffffff")
+				light.texture_scale += 1
+			cleared_words += 1
 			label_group.erase(node)
 			node.queue_free()
 			#node.material = load("res://assets/fonts/themes/light_outline.tres")
@@ -83,7 +84,12 @@ func get_current_circle(c_level: int):
 	for node: CircleTextureRect in circle_group:
 		if node.level == c_level:
 			return node
-		
+
+
+func check_if_last_label_in_lvl(node: FallingLabel):
+	var count: int = label_group.filter(func(label: FallingLabel): return label.level == node.level).size()
+	if count == 1:
+		return true
 
 func create_random_label(c_level: int):
 	var label: FallingLabel = FallingLabel.new()
@@ -94,12 +100,18 @@ func create_random_label(c_level: int):
 
 func start_game():
 	for current in range(1, level + 1):
-		create_random_label(current)
-		label_group = get_tree().get_nodes_in_group(LABEL)
-		await get_tree().create_timer(max(level - (current * speed_modifier), 1)).timeout
+		for i in current:
+			create_random_label(current)
+			label_group = get_tree().get_nodes_in_group(LABEL)
+			await get_tree().create_timer(2.5 / speed_modifier).timeout
+		await get_tree().create_timer(current / speed_modifier).timeout
+	if label_group.size() == 0:
+		end_game()
+
 
 func _on_falling_label_deleted(node: FallingLabel):
+	cleared_words -= 0.1
 	label_group.erase(node)
 
 func end_game():
-	var textbox: Textbox = Textbox.new()
+	print(cleared_words)
