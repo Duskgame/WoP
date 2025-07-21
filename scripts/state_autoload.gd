@@ -1,5 +1,7 @@
 extends Node
 
+class_name Sate
+
 var current_health = 25
 var max_health = 25
 var current_position: Vector2

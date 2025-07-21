@@ -10,7 +10,7 @@ const LABEL = "label"
 @onready var light: PointLight2D = $Center/PointLight2D
 @onready var message: RitualMessagePanel = $MessagePanel
 
-var ritual_type
+var ritual_type: Spells.RITUAL_TYPES = Spells.RITUAL_TYPES.STRENGHT
 var level: int = 2
 var max_level: int = 8
 var speed_modifier: float = 1
@@ -25,7 +25,7 @@ func _ready() -> void:
 	create_multiple_circles(level)
 	line.grab_focus()
 	start_game()
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -120,16 +120,24 @@ func _on_falling_label_deleted(node: FallingLabel):
 func end_game():
 	line.editable = false
 	await get_tree().create_timer(3).timeout
-	message.display_text("damage",cleared_words,"damage", 30 * speed_modifier)
+	var type: String = str(Spells.RITUAL_TYPES.find_key(ritual_type)).to_pascal_case()
+	message.display_text(type ,cleared_words,"damage", 30 * speed_modifier)
 	message.visible = true
 	message.button.grab_focus()
-	print(cleared_words)
+	create_buff_timer() 
+	#print(cleared_words)
 
 func check_for_end():
 	if last_word:
 		if label_group.is_empty():
 			end_game()
 
+func create_buff_timer():
+	var buff_timer: BuffTimer = BuffTimer.new()
+	State.add_child(buff_timer)
+	buff_timer.start_buff_timer(cleared_words, ritual_type, 30 * speed_modifier)
+
+
 func _on_message_panel_closed() -> void:
 	await get_tree().create_timer(2).timeout
-	queue_free()
+	self.queue_free()

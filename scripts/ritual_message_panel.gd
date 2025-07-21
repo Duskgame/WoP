@@ -10,11 +10,12 @@ signal closed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	display_text("damage", 3 ,"damage", 30)
+	pass
+	#display_text("Strenght", 3 ,"Damage", 30)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -26,14 +27,22 @@ func display_text(ritual_type: String, bonus: float, bonus_type: String, time: f
 	text_label.bbcode_enabled = true
 	text_label.text = (
 		"You have performed the Ritual of "
+		+ Spells.COLOR_DAMAGE_RED
 		+ str(ritual_type)
+		+ Spells.BBCODE_END_COLOR
 		+ "\n \n"
 		+"you have gained +"
+		+ Spells.COLOR_DAMAGE_RED
 		+ str(bonus)
+		+ Spells.BBCODE_END_COLOR
 		+ "% "
+		+ Spells.COLOR_DAMAGE_RED
 		+ str(bonus_type)
+		+ Spells.BBCODE_END_COLOR
 		+ "\n \n"
 		+ "For "
+		+ Spells.COLOR_DAMAGE_RED
 		+ str(time)
+		+ Spells.BBCODE_END_COLOR
 		+ " seconds"
 	)

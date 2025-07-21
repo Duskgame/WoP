@@ -27,6 +27,11 @@ enum TYPES {
 	BASEHEAL = 5
 }
 
+enum RITUAL_TYPES {
+	STRENGHT = 0,
+	HEALTH = 1
+}
+
 func get_spell_name_color_by_element(spell: SpellResource) -> String:
 	var name: String = spell.name.to_pascal_case()
 	if spell.type == Spells.TYPES.HEALING:
