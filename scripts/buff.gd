@@ -12,7 +12,7 @@ func _ready() -> void:
 	pass
 
 func start_buff_timer(buff_bonus: float, ritual_type: int, buff_duration: float):
-	self.bonus = (0.01 * buff_bonus) + 1
+	self.bonus = snappedf((0.01 * buff_bonus) + 1, 0.01)
 	self.type = ritual_type
 	self.duration = buff_duration
 	start(duration)

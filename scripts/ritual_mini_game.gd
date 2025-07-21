@@ -11,9 +11,10 @@ const LABEL = "label"
 @onready var message: RitualMessagePanel = $MessagePanel
 
 var ritual_type: Spells.RITUAL_TYPES = Spells.RITUAL_TYPES.STRENGHT
-var level: int = 2
+var level: int = 1
 var max_level: int = 8
 var speed_modifier: float = 1
+var total_words: int
 var cleared_words: float
 var circle_group: Array
 var label_group: Array
@@ -45,8 +46,9 @@ func create_circle(c_level: int):
 	texture.pivot_offset = Vector2(texture.size / 2)
 	texture.position = center.position - texture.pivot_offset
 	texture.rotation = c_level * 10
-	texture.z_index = -2
+	texture.z_index = -1
 	texture.self_modulate = Color("#ffffffa4")
+	texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	texture.add_to_group(CIRCLES)
 	add_child(texture)
 
@@ -63,7 +65,7 @@ func calc_circle_size(c_level: int):
 	
 
 func create_multiple_circles(number_of_circles: int):
-	for i in range(1, number_of_circles + 1):
+	for i in range(1, min(number_of_circles + 1, max_level)):
 		create_circle(i)
 	circle_group = get_tree().get_nodes_in_group(CIRCLES)
 
@@ -100,6 +102,7 @@ func create_random_label(c_level: int):
 	label.level = c_level
 	label.deleted.connect(_on_falling_label_deleted)
 	label.add_to_group(LABEL)
+	total_words += 1
 	add_child(label)
 
 func start_game():
@@ -117,11 +120,21 @@ func _on_falling_label_deleted(node: FallingLabel):
 	label_group.erase(node)
 	check_for_end()
 
+func get_buff_type(ritual: int):
+	match ritual:
+		Spells.RITUAL_TYPES.STRENGHT:
+			return "Damage"
+		Spells.RITUAL_TYPES.HEALTH:
+			return "Health"
+
+
 func end_game():
 	line.editable = false
+	if cleared_words == total_words:
+		cleared_words *= snappedf((0.01 * level * level) + 1, 0.01)
 	await get_tree().create_timer(3).timeout
 	var type: String = str(Spells.RITUAL_TYPES.find_key(ritual_type)).to_pascal_case()
-	message.display_text(type ,cleared_words,"damage", 30 * speed_modifier)
+	message.display_text(type ,cleared_words, get_buff_type(ritual_type), 30 * speed_modifier)
 	message.visible = true
 	message.button.grab_focus()
 	create_buff_timer() 
@@ -140,4 +153,4 @@ func create_buff_timer():
 
 func _on_message_panel_closed() -> void:
 	await get_tree().create_timer(2).timeout
-	self.queue_free()
+	queue_free()

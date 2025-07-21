@@ -23,6 +23,7 @@ class_name StateResource
 @export var enemy_health_modifier: float
 
 @export var paused: bool
+@export var children: Array
 
 func get_state():
 	self.current_health = State.current_health
@@ -40,6 +41,7 @@ func get_state():
 	self.enemy_speed_modifier = State.enemy_speed_modifier
 	self.enemy_health_modifier = State.enemy_health_modifier
 	self.paused = State.paused
+	self.children = State.get_children()
 	
 func set_state():
 	State.current_health = self.current_health
@@ -57,3 +59,5 @@ func set_state():
 	State.enemy_speed_modifier = self.enemy_speed_modifier
 	State.enemy_health_modifier = self.enemy_health_modifier
 	State.paused = self.enemy_health_modifier
+	for node in children:
+		State.add_child(node)

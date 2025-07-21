@@ -60,6 +60,7 @@ anchor_right = 0.878333
 anchor_bottom = 0.825
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("3_wydrj")
 theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
 theme_override_fonts/font = ExtResource("4_pwmf8")

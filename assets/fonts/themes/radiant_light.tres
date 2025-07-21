@@ -1,12 +1,15 @@
 [gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://cusmo23eavjie"]
 
 [sub_resource type="Gradient" id="Gradient_i2the"]
-offsets = PackedFloat32Array(0, 0.852792, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.406091, 1, 1, 1, 0)
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.182741, 0.527919, 0.827411, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 0.988805, 0.988806, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0)
 
 [resource]
 gradient = SubResource("Gradient_i2the")
+use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.9, 0.2)
+fill_to = Vector2(0.9375, 0.125)
 metadata/_snap_enabled = true
+metadata/_snap_count = 16
