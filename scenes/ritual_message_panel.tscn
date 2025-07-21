@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://4qmqycrbt8s1"]
+
+[ext_resource type="StyleBox" uid="uid://df2xcacdd4svj" path="res://assets/fonts/styleboxes/button_normal.tres" id="1_gcv5a"]
+[ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="2_f2i5s"]
+[ext_resource type="Script" path="res://scripts/ritual_message_panel.gd" id="2_fv4el"]
+[ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="3_wydrj"]
+[ext_resource type="FontFile" uid="uid://bmuynnr78lkhk" path="res://assets/fonts/terminal-grotesque-webfont.woff" id="4_pwmf8"]
+[ext_resource type="StyleBox" uid="uid://cr11ysb55fg63" path="res://assets/fonts/styleboxes/invisible.tres" id="5_i4fm1"]
+[ext_resource type="StyleBox" uid="uid://cysqklup1v1ve" path="res://assets/fonts/styleboxes/button_pressed.tres" id="7_ancys"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_4rpj8"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_5uslk"]
+events = [SubResource("InputEventKey_4rpj8")]
+
+[node name="MessagePanel" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_gcv5a")
+script = ExtResource("2_fv4el")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -120.0
+offset_right = 230.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_f2i5s")
+theme_override_font_sizes/normal_font_size = 26
+text = "You have performed the Ritual of....
+
+You have gained +...% ... 
+
+for ... seconds"
+
+[node name="AcceptButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.756667
+anchor_top = 0.6525
+anchor_right = 0.878333
+anchor_bottom = 0.825
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wydrj")
+theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_fonts/font = ExtResource("4_pwmf8")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = ExtResource("5_i4fm1")
+theme_override_styles/hover = ExtResource("1_gcv5a")
+theme_override_styles/pressed = ExtResource("7_ancys")
+theme_override_styles/normal = ExtResource("1_gcv5a")
+shortcut = SubResource("Shortcut_5uslk")
+text = "x"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="AcceptButton" to="." method="_on_accept_button_pressed"]

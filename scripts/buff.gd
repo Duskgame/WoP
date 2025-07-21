@@ -2,16 +2,21 @@ extends Timer
 
 class_name BuffTimer
 
-var factor: float 
-var modification: float
+var bonus: float 
+var buff_type: float
 var duration: float
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start(duration)
-	modification *= factor
+	pass
 
+func start_buff_timer(bonus: float, buff_type: float, duration: float):
+	self.bonus = bonus
+	self.buff_type = buff_type
+	self.duration = duration
+	start(duration)
+	buff_type *= bonus
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,5 +25,5 @@ func _process(delta: float) -> void:
 
 
 func _on_timeout() -> void:
-	modification /= factor
+	buff_type /= bonus
 	queue_free()

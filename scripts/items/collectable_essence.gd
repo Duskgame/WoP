@@ -13,6 +13,9 @@ var direction: Vector2
 var playerbody: player_body
 var speed: float = 5
 
+func _ready() -> void:
+	pass
+
 func instanciate_essence(enemy_element: Spells.ELEMENTS):
 	element = enemy_element
 	sprite.texture = sprites[element]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://klml4ep71qhw"]
+[gd_scene load_steps=7 format=3 uid="uid://klml4ep71qhw"]
 
 [ext_resource type="Script" path="res://scripts/ritual_mini_game.gd" id="1_aqol3"]
 [ext_resource type="Texture2D" uid="uid://cusmo23eavjie" path="res://assets/fonts/themes/radiant_light.tres" id="2_nhsbm"]
+[ext_resource type="PackedScene" uid="uid://4qmqycrbt8s1" path="res://scenes/ritual_message_panel.tscn" id="3_21eti"]
 
 [sub_resource type="Gradient" id="Gradient_t5eke"]
 offsets = PackedFloat32Array(0, 0.512953, 1)
@@ -62,6 +63,8 @@ grow_vertical = 2
 z_index = -2
 position = Vector2(1, 0)
 color = Color(1, 1, 0, 0.705882)
+range_layer_min = -5
+range_layer_max = -1
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_item_cull_mask = 2
@@ -100,4 +103,8 @@ selecting_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
+[node name="MessagePanel" parent="." instance=ExtResource("3_21eti")]
+layout_mode = 1
+
 [connection signal="text_submitted" from="Panel/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="closed" from="MessagePanel" to="." method="_on_message_panel_closed"]

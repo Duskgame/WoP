@@ -9,7 +9,7 @@ signal deleted(node: FallingLabel)
 var speed: float = 20
 var level: int = 8
 
-var characters = 'abcdefghijklmnopqrstuvwxyz'
+var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	self.global_position.y += speed * delta
-	if global_position.y > view_rect.size.y:
+	if global_position.y > view_rect.size.y + size.y:
 		deleted.emit(self)
 		queue_free()
 

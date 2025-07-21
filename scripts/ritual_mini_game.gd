@@ -8,18 +8,20 @@ const LABEL = "label"
 @onready var center: Control = $Center
 @onready var line: LineEdit = $Panel/LineEdit
 @onready var light: PointLight2D = $Center/PointLight2D
+@onready var message: RitualMessagePanel = $MessagePanel
 
 var ritual_type
-var level: int = 8
+var level: int = 2
 var max_level: int = 8
 var speed_modifier: float = 1
 var cleared_words: float
 var circle_group: Array
 var label_group: Array
-
+var last_word: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	message.visible = false
 	create_multiple_circles(level)
 	line.grab_focus()
 	start_game()
@@ -27,6 +29,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
 
 func create_circle(c_level: int):
 	var texture: CircleTextureRect
@@ -42,7 +45,7 @@ func create_circle(c_level: int):
 	texture.pivot_offset = Vector2(texture.size / 2)
 	texture.position = center.position - texture.pivot_offset
 	texture.rotation = c_level * 10
-	texture.z_index = -1
+	texture.z_index = -2
 	texture.self_modulate = Color("#ffffffa4")
 	texture.add_to_group(CIRCLES)
 	add_child(texture)
@@ -68,7 +71,7 @@ func create_multiple_circles(number_of_circles: int):
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	for node:FallingLabel in label_group:
-		if new_text == str(node.text):
+		if new_text.to_lower() == str(node.text.to_lower()):
 			if check_if_last_label_in_lvl(node):
 				var circle = get_current_circle(node.level)
 				circle.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -79,6 +82,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 			node.queue_free()
 			#node.material = load("res://assets/fonts/themes/light_outline.tres")
 	line.clear()
+	check_for_end()
 
 func get_current_circle(c_level: int):
 	for node: CircleTextureRect in circle_group:
@@ -103,15 +107,29 @@ func start_game():
 		for i in current:
 			create_random_label(current)
 			label_group = get_tree().get_nodes_in_group(LABEL)
-			await get_tree().create_timer(2.5 / speed_modifier).timeout
+			await get_tree().create_timer(2 / speed_modifier).timeout
 		await get_tree().create_timer(current / speed_modifier).timeout
-	if label_group.size() == 0:
-		end_game()
+	last_word = true
 
 
 func _on_falling_label_deleted(node: FallingLabel):
 	cleared_words -= 0.1
 	label_group.erase(node)
+	check_for_end()
 
 func end_game():
+	line.editable = false
+	await get_tree().create_timer(3).timeout
+	message.display_text("damage",cleared_words,"damage", 30 * speed_modifier)
+	message.visible = true
+	message.button.grab_focus()
 	print(cleared_words)
+
+func check_for_end():
+	if last_word:
+		if label_group.is_empty():
+			end_game()
+
+func _on_message_panel_closed() -> void:
+	await get_tree().create_timer(2).timeout
+	queue_free()
