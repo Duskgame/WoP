@@ -16,7 +16,8 @@ func _process(_delta: float) -> void:
 
 func set_text(spell_to_display: SpellResource):
 	spell = spell_to_display
-	var spell_name = set_name_color(str(spell.name.to_pascal_case()))
+	var spell_name = Spells.get_spell_name_color_by_element(spell_to_display)
+	#set_name_color(str(spell.name.to_pascal_case()))
 	
 	label.text = (
 		"[center]"

@@ -59,6 +59,7 @@ func start_boss_battle():
 			var monster_instance: EnemyBody = monster_to_spawn.instantiate()
 			parent.add_child(monster_instance)
 			boss_monster = monster_instance
+			boss_monster.hide()
 			monster_spawned.emit(monster_instance)
 			monster_instance.battle_component.start_boss_battle()
 			monster_instance.battle_ended.connect(boss_battle_lost)
