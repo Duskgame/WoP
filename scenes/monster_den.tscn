@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://clpjm2jx3knbw"]
+[gd_scene load_steps=10 format=3 uid="uid://clpjm2jx3knbw"]
 
 [ext_resource type="Script" path="res://scripts/monster_den.gd" id="1_jucnb"]
 [ext_resource type="Texture2D" uid="uid://bct5qk4sp6dvm" path="res://assets/sprites/tiles/monster_den.png" id="1_ooevw"]
@@ -12,6 +12,9 @@ size = Vector2(102, 77)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pafw2"]
 radius = 69.4622
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hi13o"]
+radius = 726.43
 
 [node name="MonsterDen" type="StaticBody2D"]
 y_sort_enabled = true
@@ -47,6 +50,13 @@ offset_bottom = -74.0
 theme = ExtResource("6_gnx7i")
 text = "Press E to enter "
 
+[node name="PlayerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+shape = SubResource("CircleShape2D_hi13o")
+
 [connection signal="body_entered" from="SpawnArea" to="." method="_on_spawn_area_body_entered"]
 [connection signal="body_exited" from="SpawnArea" to="." method="_on_spawn_area_body_exited"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]
+[connection signal="body_exited" from="PlayerArea" to="." method="_on_player_area_body_exited"]

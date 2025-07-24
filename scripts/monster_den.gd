@@ -21,10 +21,12 @@ const collectable_spells = preload("res://scenes/collectable_spells.tscn")
 @onready var SpawnTimer: Timer = $SpawnTimer
 @onready var label: Label = $Label
 @onready var parent = $"../"
+@onready var player_area = $PlayerArea
 @onready var enemy_group_size: int = len(get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME))
 
 var bodies_inside: Array
 var player_inside: bool = false
+var player_in_area: bool = false
 var monster_to_spawn: PackedScene
 var boss_monster: EnemyBody
 var enemy_group_max: int = 20
@@ -97,7 +99,7 @@ func boss_battle_lost():
 
 func _on_spawn_timer_timeout() -> void:
 	if len(bodies_inside) == 0:
-		if enemy_group_size < enemy_group_max:
+		if player_in_area:
 			var monster_instance: EnemyBody = monster_to_spawn.instantiate()
 			add_child(monster_instance)
 			enemy_group_size = len(get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME))
@@ -121,3 +123,13 @@ func _on_spawn_area_body_exited(body: Node2D) -> void:
 	if body is player_body:
 		label.hide()
 		player_inside = false
+
+
+func _on_player_area_body_entered(body: Node2D) -> void:
+	if body is player_body:
+		player_in_area = true
+
+
+func _on_player_area_body_exited(body: Node2D) -> void:
+	if body is player_body:
+		player_in_area = false

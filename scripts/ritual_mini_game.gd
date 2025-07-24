@@ -53,9 +53,9 @@ func create_circle(c_level: int):
 	add_child(texture)
 
 func calc_circle_size(c_level: int):
-	var min_size: int = 120
+	var min_size: int = 240
 	var level_addition: int = 6
-	var level_multiplier: int = 8
+	var level_multiplier: int = 7
 	if level < max_level:
 		var difference: int = max_level - level
 		min_size += difference * (difference + level_addition) * level_multiplier
