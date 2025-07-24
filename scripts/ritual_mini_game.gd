@@ -11,9 +11,9 @@ const LABEL = "label"
 @onready var message: RitualMessagePanel = $MessagePanel
 
 var ritual_type: Spells.RITUAL_TYPES = Spells.RITUAL_TYPES.STRENGHT
-var level: int = 1
-var max_level: int = 8
-var speed_modifier: float = 1
+@export var level: int = 5
+var max_level: int = 5
+@export var speed_modifier: float = 1
 var total_words: int
 var cleared_words: float
 var circle_group: Array
@@ -54,18 +54,20 @@ func create_circle(c_level: int):
 
 func calc_circle_size(c_level: int):
 	var min_size: int = 120
+	var level_addition: int = 6
+	var level_multiplier: int = 8
 	if level < max_level:
 		var difference: int = max_level - level
-		min_size += difference * (difference + 6) * 4
+		min_size += difference * (difference + level_addition) * level_multiplier
 	# tested magic numbers for smooth growth
-		var diff_calc: int = min_size + ((c_level) * ((c_level) + 6 + (difference*2)) * 4) 
+		var diff_calc: int = min_size + ((c_level) * ((c_level) + level_addition + (difference*2)) * level_multiplier) 
 		return Vector2(diff_calc, diff_calc)
-	var size_calc: int = min_size + c_level * (c_level + 6) * 4
+	var size_calc: int = min_size + c_level * (c_level + level_addition) * level_multiplier
 	return Vector2(size_calc, size_calc)
 	
 
 func create_multiple_circles(number_of_circles: int):
-	for i in range(1, min(number_of_circles + 1, max_level)):
+	for i in range(1, min(number_of_circles + 1, max_level + 1)):
 		create_circle(i)
 	circle_group = get_tree().get_nodes_in_group(CIRCLES)
 
@@ -107,7 +109,7 @@ func create_random_label(c_level: int):
 
 func start_game():
 	for current in range(1, level + 1):
-		for i in current:
+		for i in (current + 4):
 			create_random_label(current)
 			label_group = get_tree().get_nodes_in_group(LABEL)
 			await get_tree().create_timer(2 / speed_modifier).timeout
@@ -134,7 +136,7 @@ func end_game():
 		cleared_words *= snappedf((0.01 * level * level) + 1, 0.01)
 	await get_tree().create_timer(3).timeout
 	var type: String = str(Spells.RITUAL_TYPES.find_key(ritual_type)).to_pascal_case()
-	message.display_text(type ,cleared_words, get_buff_type(ritual_type), 30 * speed_modifier)
+	message.display_text(type ,cleared_words, get_buff_type(ritual_type), 30 * speed_modifier,cleared_words,total_words)
 	message.visible = true
 	message.button.grab_focus()
 	create_buff_timer() 

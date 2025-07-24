@@ -107,6 +107,7 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
 [node name="MessagePanel" parent="." instance=ExtResource("3_21eti")]
+visible = false
 z_index = 1
 layout_mode = 1
 

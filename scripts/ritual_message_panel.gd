@@ -23,7 +23,8 @@ func _on_accept_button_pressed() -> void:
 	closed.emit()
 	queue_free()
 
-func display_text(ritual_type: String, bonus: float, bonus_type: String, time: float):
+func display_text(ritual_type: String, bonus: float, bonus_type: String, time: float, 
+cleared_words: int, total_words: int):
 	text_label.bbcode_enabled = true
 	text_label.text = (
 		"You have performed the Ritual of "
@@ -31,7 +32,17 @@ func display_text(ritual_type: String, bonus: float, bonus_type: String, time: f
 		+ str(ritual_type)
 		+ Spells.BBCODE_END_COLOR
 		+ "\n \n"
-		+"you have gained +"
+		+ "You have cleared "
+		+ Spells.COLOR_DAMAGE_RED
+		+ str(cleared_words)
+		+ Spells.BBCODE_END_COLOR
+		+ "/"
+		+ Spells.COLOR_DAMAGE_RED
+		+ str(total_words)
+		+ Spells.BBCODE_END_COLOR
+		+ " incantations"
+		+ "\n \n"
+		+"and have gained +"
 		+ Spells.COLOR_DAMAGE_RED
 		+ str(bonus)
 		+ Spells.BBCODE_END_COLOR
