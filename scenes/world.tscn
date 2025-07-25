@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://djcyj2dlav5y7"]
+[gd_scene load_steps=23 format=4 uid="uid://djcyj2dlav5y7"]
 
 [ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="1_7vwl5"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_hb66u"]
@@ -14,18 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://wu8xj4ku1q5p" path="res://scenes/collectable_spells.tscn" id="11_teu57"]
 [ext_resource type="PackedScene" uid="uid://d4mmn1w88m7k0" path="res://scenes/random_ice_enemy.tscn" id="13_ahnto"]
 [ext_resource type="PackedScene" uid="uid://clpjm2jx3knbw" path="res://scenes/monster_den.tscn" id="14_m2ywl"]
-[ext_resource type="Script" path="res://scripts/spell_resource.gd" id="15_r1gl5"]
-[ext_resource type="Resource" uid="uid://bkm5ruyu4kpfr" path="res://Resources/Spells/spell_component_resources/akos.tres" id="15_xaajf"]
-[ext_resource type="Resource" uid="uid://d3wcx5jl83hvo" path="res://Resources/Spells/spell_component_resources/aqu.tres" id="16_agja2"]
-[ext_resource type="Resource" uid="uid://ds187p7wd5kqp" path="res://Resources/Spells/spell_component_resources/belos.tres" id="17_7uw78"]
-[ext_resource type="Resource" uid="uid://bcytvmlvb0eqa" path="res://Resources/Spells/spell_component_resources/doru.tres" id="18_sh1g1"]
-[ext_resource type="Resource" uid="uid://chj0suarfw561" path="res://Resources/Spells/spell_component_resources/haima.tres" id="19_ex024"]
-[ext_resource type="Resource" uid="uid://dpfjllwivhpik" path="res://Resources/Spells/spell_component_resources/iasis.tres" id="20_4on6h"]
-[ext_resource type="Resource" uid="uid://dnxyeyu10u5hm" path="res://Resources/Spells/spell_component_resources/kamax.tres" id="21_lp16v"]
-[ext_resource type="Resource" uid="uid://dd6t6k1m6i43t" path="res://Resources/Spells/spell_component_resources/kry.tres" id="22_jouj0"]
-[ext_resource type="Resource" uid="uid://brwm1mh8t2g1n" path="res://Resources/Spells/spell_component_resources/pyr.tres" id="23_5bvnr"]
-[ext_resource type="Resource" uid="uid://d1disiqrcq7qs" path="res://Resources/Spells/spell_component_resources/typto.tres" id="24_63eqy"]
-[ext_resource type="Resource" uid="uid://by71qld1m21su" path="res://Resources/Spells/spell_component_resources/xiphos.tres" id="25_4qgxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piuwp"]
 resource_name = "grasspath"
@@ -1508,7 +1496,6 @@ disable_mode = 1
 
 [node name="CollectableSpells" parent="." instance=ExtResource("11_teu57")]
 position = Vector2(321, 27)
-possible_spells = Array[ExtResource("15_r1gl5")]([ExtResource("15_xaajf"), ExtResource("16_agja2"), ExtResource("17_7uw78"), ExtResource("18_sh1g1"), ExtResource("19_ex024"), ExtResource("20_4on6h"), ExtResource("21_lp16v"), ExtResource("22_jouj0"), ExtResource("23_5bvnr"), ExtResource("24_63eqy"), ExtResource("25_4qgxp")])
 
 [node name="RandomIceEnemy" parent="." instance=ExtResource("13_ahnto")]
 y_sort_enabled = false

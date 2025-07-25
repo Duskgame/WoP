@@ -14,7 +14,7 @@ size = Vector2(102, 77)
 radius = 69.4622
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hi13o"]
-radius = 726.43
+radius = 1078.78
 
 [node name="MonsterDen" type="StaticBody2D"]
 y_sort_enabled = true

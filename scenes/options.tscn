@@ -155,8 +155,8 @@ popup/item_2/text = "Hard"
 popup/item_2/id = 2
 
 [connection signal="pressed" from="VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer3/PlayerMaxHealthModifier" to="." method="_on_player_max_health_modifyer_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer/EnemyDamageModifier" to="." method="_on_enemy_damage_modifyer_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/EnemySpeedModifier" to="." method="_on_enemy_speed_modifyer_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer4/EnemyHealthModifier" to="." method="_on_enemy_health_modifyer_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer3/PlayerMaxHealthModifier" to="." method="_on_player_max_health_modifier_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/EnemyDamageModifier" to="." method="_on_enemy_damage_modifier_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/EnemySpeedModifier" to="." method="_on_enemy_speed_modifier_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer4/EnemyHealthModifier" to="." method="_on_enemy_health_modifier_value_changed"]
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer5/OptionButton" to="." method="_on_option_button_item_selected"]

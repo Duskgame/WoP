@@ -4,7 +4,6 @@ class_name SpellToCollect
 
 signal spell_learned(spell: SpellResource)
 
-
 #Needs to have Collectable Spells Scene as a parent
 
 @onready var area: Area2D = $Area2D

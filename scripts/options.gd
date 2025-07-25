@@ -31,6 +31,7 @@ func _on_player_max_health_modifier_value_changed(value: float) -> void:
 
 func _on_enemy_health_modifier_value_changed(value: float) -> void:
 	State.enemy_health_modifier = value
+	print(State.enemy_health_modifier)
 
 
 func _on_back_to_menu_pressed() -> void:

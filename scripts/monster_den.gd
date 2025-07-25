@@ -68,7 +68,8 @@ func start_boss_battle():
 
 func boss_battle_won():
 	
-	if get_tree().get_nodes_in_group(POSSIBLE_SPELLS):
+	if get_tree().get_nodes_in_group(POSSIBLE_SPELLS).size() > 0:
+		print("hi")
 		var possible_spells: CollectableSpells = get_tree().get_first_node_in_group(POSSIBLE_SPELLS)
 		drop_spell_to_learn(possible_spells)
 	else:
@@ -100,7 +101,9 @@ func boss_battle_lost():
 
 func _on_spawn_timer_timeout() -> void:
 	if len(bodies_inside) == 0:
-		if player_in_area:
+		var enemy_group = get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME)
+		var den_group = get_tree().get_nodes_in_group(MONSTER_DEN)
+		if player_in_area and enemy_group.size() < den_group.size() * 5:
 			var monster_instance: EnemyBody = monster_to_spawn.instantiate()
 			add_child(monster_instance)
 			enemy_group_size = len(get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME))

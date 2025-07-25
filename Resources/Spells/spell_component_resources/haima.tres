@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_f8ehi")
-type = 0
+type = 5
 name = "haima"
 proficiency_lvl = 1
 proficiency_exp = 0
