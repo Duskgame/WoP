@@ -230,8 +230,7 @@ position = Vector2(540, 360)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_iif7j")
 animation = &"opening"
-frame = 4
-frame_progress = 0.481572
+frame = 9
 speed_scale = 1.5
 
 [node name="Pages" type="HBoxContainer" parent="."]

@@ -10,6 +10,7 @@ const BATTLE_SCENE_PATH = "res://scenes/battle/battle2.0.tscn"
 const ENEMY_ESSENCE = "res://scenes/items/collectable_essence.tscn"
 const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
+const ACTIVE_BATTLE_GROUP = "active_battle"
 
 var enemy_body: EnemyBody
 var battle_scene: PackedScene

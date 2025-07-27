@@ -11,6 +11,8 @@ const SpellLineDisplayScene = preload("res://scenes/battle/display_spell_line.ts
 @onready var next_button: Button = $NextButton
 @onready var previous_button: Button = $PreviousButton
 
+const ACTIVE_BATTLE_GROUP = "active_battle"
+
 var spell_dict: Dictionary = {}
 var spell_page_array: Array = []
 var spell_array: Array = []
@@ -173,8 +175,9 @@ func remove_both_pages():
 	remove_page(right_page)
 
 func put_pages_in_spell_page_array():
-	var essence_page: VBoxContainer = VBoxContainer.new()
-	spell_page_array.append(display_essences(essence_page))
+	if get_tree().get_nodes_in_group(ACTIVE_BATTLE_GROUP).size() == 0:
+		var essence_page: VBoxContainer = VBoxContainer.new()
+		spell_page_array.append(display_essences(essence_page))
 	for type_array in spell_array:
 		var new_page: VBoxContainer = VBoxContainer.new()
 		var array_number: int = spell_array.find(type_array)
@@ -244,16 +247,18 @@ func _on_previous_button_pressed() -> void:
 
 func display_next_button_type():
 	if current_page + 1 < len(spell_page_array):
-		var next_spell_array: Array = spell_array[current_page - 1]
-		var next_spell: SpellResource = next_spell_array[0]
-		var next_type: String = Spells.TYPES.find_key(next_spell.type)
-		next_button.text = next_type.to_pascal_case()
+		#var next_spell_array: Array = spell_array[current_page - 1]
+		#var next_spell: SpellResource = next_spell_array[0]
+		#var next_type: String = Spells.TYPES.find_key(next_spell.type)
+		#next_button.text = next_type.to_pascal_case()
+		next_button.text = "->"
 	
 func display_previous_button_type():
-	var previous_spell_array: Array = spell_array[current_page - 2]
-	var previous_spell: SpellResource = previous_spell_array[0]
-	var previous_type: String = Spells.TYPES.find_key(previous_spell.type)
-	previous_button.text = previous_type.to_pascal_case()
+	#var previous_spell_array: Array = spell_array[current_page - 2]
+	#var previous_spell: SpellResource = previous_spell_array[0]
+	#var previous_type: String = Spells.TYPES.find_key(previous_spell.type)
+	#previous_button.text = previous_type.to_pascal_case()
+	previous_button.text = "<-"
 
 
 func display_essence_headline() -> RichTextLabel:

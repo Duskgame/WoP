@@ -11,10 +11,11 @@ signal player_won
 @onready var enemy: Enemy = $Enemy
 @onready var camera: Camera2D = $Camera2D
 
+const ACTIVE_BATTLE_GROUP = "active_battle"
 
 func _ready() -> void:
 	State.paused = true
-	add_to_group("active_battle")
+	add_to_group(ACTIVE_BATTLE_GROUP)
 	assert(player)
 	assert(enemy)
 	background.set_backgound(enemy.element)

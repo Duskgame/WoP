@@ -3,7 +3,7 @@ extends Resource
 class_name SpellBookResource
 
 @export var spells: Array[SpellResource]
-
+@export var rituals: Array[RitualResource]
 
 func get_spell(spell_name: String) -> SpellResource:
 	for spell in spells:

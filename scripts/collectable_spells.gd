@@ -5,6 +5,7 @@ class_name CollectableSpells
 const POSSIBLE_SPELLS = "PossibleSpells"
 const COLLECTABLE_SPELLS = "CollectableSpells"
 @export var possible_spells: Array[SpellResource]
+@export var possibble_rituals: Array[RitualResource]
 
 func free() -> void:
 	add_to_group(POSSIBLE_SPELLS)

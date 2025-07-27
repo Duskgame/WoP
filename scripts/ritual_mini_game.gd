@@ -11,11 +11,12 @@ const LABEL = "label"
 @onready var message: RitualMessagePanel = $MessagePanel
 
 var ritual_type: Spells.RITUAL_TYPES = Spells.RITUAL_TYPES.STRENGHT
-@export var level: int = 5
+@export var level: int = 2
 var max_level: int = 5
 @export var speed_modifier: float = 1
 var total_words: int
-var cleared_words: float
+var cleared_words: int
+var bonus: float
 var circle_group: Array
 var label_group: Array
 var last_word: bool = false
@@ -82,6 +83,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 				circle.self_modulate = Color("#ffffffff")
 				light.texture_scale += 1
 			cleared_words += 1
+			bonus += 1
 			label_group.erase(node)
 			node.queue_free()
 			#node.material = load("res://assets/fonts/themes/light_outline.tres")
@@ -118,7 +120,7 @@ func start_game():
 
 
 func _on_falling_label_deleted(node: FallingLabel):
-	cleared_words -= 0.1
+	bonus -= 0.1
 	label_group.erase(node)
 	check_for_end()
 
@@ -133,10 +135,11 @@ func get_buff_type(ritual: int):
 func end_game():
 	line.editable = false
 	if cleared_words == total_words:
-		cleared_words *= snappedf((0.01 * level * level) + 1, 0.01)
+		bonus *= snappedf((0.01 * level * level) + 1, 0.01)
 	await get_tree().create_timer(3).timeout
 	var type: String = str(Spells.RITUAL_TYPES.find_key(ritual_type)).to_pascal_case()
-	message.display_text(type ,cleared_words, get_buff_type(ritual_type), 30 * speed_modifier,cleared_words,total_words)
+	snappedf(bonus, 0.01)
+	message.display_text(type ,bonus , get_buff_type(ritual_type), 30 * speed_modifier,cleared_words,total_words)
 	message.visible = true
 	message.button.grab_focus()
 	create_buff_timer() 
@@ -150,7 +153,7 @@ func check_for_end():
 func create_buff_timer():
 	var buff_timer: BuffTimer = BuffTimer.new()
 	State.add_child(buff_timer)
-	buff_timer.start_buff_timer(cleared_words, ritual_type, 30 * speed_modifier)
+	buff_timer.start_buff_timer(bonus, ritual_type, 30 * speed_modifier)
 
 
 func _on_message_panel_closed() -> void:

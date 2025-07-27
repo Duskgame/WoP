@@ -29,7 +29,7 @@ enum TYPES {
 
 enum RITUAL_TYPES {
 	STRENGHT = 0,
-	HEALTH = 1
+	VITALITY = 1
 }
 
 func get_spell_name_color_by_element(spell: SpellResource) -> String:

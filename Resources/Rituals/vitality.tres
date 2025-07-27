@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RitualResource" load_steps=2 format=3 uid="uid://despr3vg02e65"]
+
+[ext_resource type="Script" path="res://scripts/ritual_resource.gd" id="1_vvh2g"]
+
+[resource]
+script = ExtResource("1_vvh2g")
+name = "Ritual of Vitality"
+type = 1

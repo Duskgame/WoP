@@ -2,8 +2,6 @@ extends Control
 
 class_name Player
 
-
-
 signal battle_lost
 signal escape
 
