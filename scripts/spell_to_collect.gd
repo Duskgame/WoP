@@ -1,4 +1,4 @@
-extends CollectableSpells
+extends Collectables
 
 class_name SpellToCollect
 
@@ -7,7 +7,7 @@ signal spell_learned(spell: SpellResource)
 #Needs to have Collectable Spells Scene as a parent
 
 @onready var area: Area2D = $Area2D
-@onready var collectable_spells: CollectableSpells = $"../"
+@onready var collectables: Collectables = $"../"
 @onready var label: Label = $Label
 
 var spell_to_collect: SpellResource
@@ -16,11 +16,11 @@ var player: player_body
 
 func _ready() -> void:
 	add_to_group(COLLECTABLE_SPELLS)
-	assert(collectable_spells, "Needs collectable spells as parent node")
+	assert(collectables, "Needs collectable spells as parent node")
 
 	
 func instanciate_spell_to_collect():
-	if len(collectable_spells.possible_spells) < 1:
+	if len(collectables.possible_spells) < 1:
 		print("no valid spells to learn ... deleting spell to collect")
 		queue_free()
 	else:
@@ -32,9 +32,9 @@ func _process(_delta: float) -> void:
 
 func get_spell_to_collct() -> SpellResource:
 	var spell: SpellResource
-	spell = collectable_spells.possible_spells.pick_random()
-	collectable_spells.possible_spells.erase(spell)
-	#print(collectable_spells.possible_spells)
+	spell = collectables.possible_spells.pick_random()
+	collectables.possible_spells.erase(spell)
+	#print(collectables.possible_spells)
 	return spell
 
 func collect_spell():

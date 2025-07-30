@@ -13,6 +13,7 @@ func save_spellbook_resource(spellbook_resource: SpellBookResource):
 
 	var save_spellbook: SpellBookResource = SpellBookResource.new()
 	save_spellbook.spells = spellbook_resource.duplicate_spells()
+	save_spellbook.rituals = spellbook_resource.duplicate_ritauals()
 	
 	var result = ResourceSaver.save(save_spellbook, spellbook_path)
 	if result == OK:

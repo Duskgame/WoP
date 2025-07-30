@@ -22,3 +22,9 @@ func duplicate_spells() -> Array[SpellResource]:
 	for spell in spells:
 		duplicated_spells.append(spell.duplicate_spell())
 	return duplicated_spells
+
+func duplicate_ritauals() -> Array[RitualResource]:
+	var duplicated_rituals: Array[RitualResource] = []
+	for ritual in rituals:
+		duplicated_rituals.append(ritual.duplicate_ritual())
+	return duplicated_rituals

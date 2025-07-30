@@ -4,6 +4,7 @@ extends Control
 @export var spell_ex: SpellResource
 
 var spell: SpellResource
+var ritual: RitualResource
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func set_text(spell_to_display: SpellResource):
+func set_spell_text(spell_to_display: SpellResource):
 	spell = spell_to_display
 	var spell_name = Spells.get_spell_name_color_by_element(spell_to_display)
 	#set_name_color(str(spell.name.to_pascal_case()))
@@ -32,6 +33,23 @@ func set_text(spell_to_display: SpellResource):
 	tween.tween_property(label, "modulate", Color(1, 1, 1, 0), 3.5)
 	await  get_tree().create_timer(3).timeout
 	queue_free()
+	
+func set_ritual_text(ritual_to_display: RitualResource):
+	ritual = ritual_to_display
+	var ritual_name = Spells.get_ritual_type_color_name(ritual_to_display)
+	#set_name_color(str(spell.name.to_pascal_case()))
+	label.text = (
+		"[center]"
+		+"You have learned the "
+		+ ritual_name
+		+"[/center]"
+		)
+	await  get_tree().create_timer(3).timeout
+	var tween = create_tween()
+	tween.tween_property(label, "modulate", Color(1, 1, 1, 0), 3.5)
+	await  get_tree().create_timer(3).timeout
+	queue_free()
+	
 	
 func set_name_color(name_string: String) -> String:
 	if spell.type == Spells.TYPES.HEALING:

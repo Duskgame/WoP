@@ -1,9 +1,10 @@
-[gd_scene load_steps=47 format=3 uid="uid://cchqbxuseqkus"]
+[gd_scene load_steps=48 format=3 uid="uid://cchqbxuseqkus"]
 
 [ext_resource type="Script" path="res://scripts/spellbook_2.gd" id="1_ebjl2"]
 [ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="1_jttrd"]
 [ext_resource type="Resource" uid="uid://b3xlbbrgbeckw" path="res://Resources/Spells/spellbook/test_spellbook_full.tres" id="2_dqj62"]
 [ext_resource type="PackedScene" uid="uid://dwm521hc0gch2" path="res://scenes/left_page_container.tscn" id="4_neudn"]
+[ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="5_1jtse"]
 [ext_resource type="PackedScene" uid="uid://damlkq8b86g50" path="res://scenes/right_page_container.tscn" id="5_isa5p"]
 [ext_resource type="StyleBox" uid="uid://cr11ysb55fg63" path="res://assets/fonts/styleboxes/invisible.tres" id="6_nw6gd"]
 [ext_resource type="Texture2D" uid="uid://cputkmmrcoe8a" path="res://assets/sprites/Player/next_button_hover.png" id="6_on6tk"]
@@ -254,6 +255,21 @@ theme_override_constants/margin_bottom = 5
 
 [node name="LeftPage" parent="Pages/MarginContainer" instance=ExtResource("4_neudn")]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pages/MarginContainer/LeftPage"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pages/MarginContainer/LeftPage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_1jtse")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 31
+text = "ritual of stuff"
+
+[node name="Button" type="Button" parent="Pages/MarginContainer/LeftPage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="Pages"]
 layout_mode = 2

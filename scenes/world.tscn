@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://djcyj2dlav5y7"]
+[gd_scene load_steps=24 format=4 uid="uid://djcyj2dlav5y7"]
 
 [ext_resource type="PackedScene" uid="uid://e6e2u6r6uayw" path="res://scenes/player.tscn" id="1_7vwl5"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_hb66u"]
@@ -11,8 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://dgjtq0uidbkky" path="res://assets/Sounds/Chill Loop.mp3" id="8_oqt08"]
 [ext_resource type="Resource" uid="uid://c840qjq4ncbsh" path="res://Resources/Spells/spellbook/empty_spellbook.tres" id="8_xmyak"]
 [ext_resource type="PackedScene" uid="uid://dt5pppo6bbsco" path="res://scenes/pause.tscn" id="9_k2hv0"]
-[ext_resource type="PackedScene" uid="uid://wu8xj4ku1q5p" path="res://scenes/collectable_spells.tscn" id="11_teu57"]
+[ext_resource type="PackedScene" uid="uid://wu8xj4ku1q5p" path="res://scenes/collectables.tscn" id="11_teu57"]
 [ext_resource type="PackedScene" uid="uid://d4mmn1w88m7k0" path="res://scenes/random_ice_enemy.tscn" id="13_ahnto"]
+[ext_resource type="PackedScene" uid="uid://bacw644vbs8m0" path="res://scenes/ritual_to_collect.tscn" id="14_32ngv"]
 [ext_resource type="PackedScene" uid="uid://clpjm2jx3knbw" path="res://scenes/monster_den.tscn" id="14_m2ywl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piuwp"]
@@ -1496,6 +1497,9 @@ disable_mode = 1
 
 [node name="CollectableSpells" parent="." instance=ExtResource("11_teu57")]
 position = Vector2(321, 27)
+
+[node name="ritual_to_collect" parent="CollectableSpells" instance=ExtResource("14_32ngv")]
+position = Vector2(-1505, 3514)
 
 [node name="RandomIceEnemy" parent="." instance=ExtResource("13_ahnto")]
 y_sort_enabled = false

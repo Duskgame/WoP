@@ -123,3 +123,14 @@ func get_element_color_code(element_enum: int):
 		var foo:
 			printerr("Unexpected State \"", foo, "\" is not in Spells Element")
 			return ""
+
+func get_ritual_type_color_name(ritual: RitualResource) -> String:
+	var r_name: String = ritual.name
+	match ritual.type:
+		Spells.RITUAL_TYPES.VITALITY:
+			return COLOR_HEALING_GREEN + r_name + BBCODE_END_COLOR
+		Spells.RITUAL_TYPES.STRENGHT:
+			return COLOR_DAMAGE_RED + r_name + BBCODE_END_COLOR
+		_:
+			printerr("Unexpected Ritual Type", ritual.type)
+	return ""

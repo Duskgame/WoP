@@ -251,14 +251,14 @@ func display_next_button_type():
 		#var next_spell: SpellResource = next_spell_array[0]
 		#var next_type: String = Spells.TYPES.find_key(next_spell.type)
 		#next_button.text = next_type.to_pascal_case()
-		next_button.text = "->"
+		next_button.text = "Next"
 	
 func display_previous_button_type():
 	#var previous_spell_array: Array = spell_array[current_page - 2]
 	#var previous_spell: SpellResource = previous_spell_array[0]
 	#var previous_type: String = Spells.TYPES.find_key(previous_spell.type)
 	#previous_button.text = previous_type.to_pascal_case()
-	previous_button.text = "<-"
+	previous_button.text = "Back"
 
 
 func display_essence_headline() -> RichTextLabel:

@@ -8,10 +8,10 @@ signal collectable_spell_spawned(collectable: SpellToCollect)
 const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
 const COLLECTABLE_SPELLS = "CollectableSpells"
-const POSSIBLE_SPELLS = "PossibleSpells"
+const COLLECTABLES = "Collectables"
 const MONSTER_DEN = "MonsterDens"
 const spell_to_learn = preload("res://scenes/spell_to_collect.tscn")
-const collectable_spells = preload("res://scenes/collectable_spells.tscn")
+const collectables = preload("res://scenes/collectables.tscn")
 
 
 @export var possible_monster_to_spawn: Array[PackedScene]
@@ -68,12 +68,12 @@ func start_boss_battle():
 
 func boss_battle_won():
 	
-	if get_tree().get_nodes_in_group(POSSIBLE_SPELLS).size() > 0:
+	if get_tree().get_nodes_in_group(COLLECTABLES).size() > 0:
 		print("hi")
-		var possible_spells: CollectableSpells = get_tree().get_first_node_in_group(POSSIBLE_SPELLS)
+		var possible_spells: Collectables = get_tree().get_first_node_in_group(COLLECTABLES)
 		drop_spell_to_learn(possible_spells)
 	else:
-		var new_possible_spells: CollectableSpells = collectable_spells.instantiate()
+		var new_possible_spells: Collectables = collectables.instantiate()
 		parent.add_child(new_possible_spells)
 		var player: player_body = get_tree().get_first_node_in_group(PLAYER_GROUP_NAME)
 		new_possible_spells.remove_learned_spells(player.spellbook)
@@ -84,7 +84,7 @@ func boss_battle_won():
 		boss_monster.queue_free()
 	queue_free()
 
-func drop_spell_to_learn(collectable_parent: CollectableSpells):
+func drop_spell_to_learn(collectable_parent: Collectables):
 	var collectable_instance: SpellToCollect = spell_to_learn.instantiate()
 	collectable_parent.add_child(collectable_instance)
 	collectable_instance.instanciate_spell_to_collect()

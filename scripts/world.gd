@@ -3,20 +3,21 @@ extends Node2D
 class_name world
 
 const ENEMIES_GROUP_NAME = "Enemies"
+const COLLECTABLES = "Collectables"
 const COLLECTABLE_SPELLS = "CollectableSpells"
-const POSSIBLE_SPELLS = "PossibleSpells"
+const COLLECTABLE_RITUALS = "CollectableRituals"
 const MONSTER_DEN = "MonsterDens"
 
 @onready var player: player_body = $PlayerBody
 @onready var camera: Camera2D = $Camera2D
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var ui: Pause = $Camera2D/Pause
-@onready var collectable_spells:CollectableSpells = $CollectableSpells
+@onready var collectables: Collectables = $CollectableSpells
 
 
 func _ready() -> void:
 	player.instanciate_player_body()
-	collectable_spells.remove_learned_spells(player.spellbook)
+	collectables.remove_learned_spells(player.spellbook)
 	if len(get_tree().get_nodes_in_group(MONSTER_DEN)) > 0:
 		for den: MonsterDen in get_tree().get_nodes_in_group(MONSTER_DEN):
 			den.monster_spawned.connect(_on_monster_den_monster_spawned)
@@ -27,6 +28,8 @@ func _ready() -> void:
 		enemy.connect("battle_ended", _on_battle_ended)
 	for spell: SpellToCollect in get_tree().get_nodes_in_group(COLLECTABLE_SPELLS):
 		spell.spell_learned.connect(_on_spell_to_collect_spell_learned)
+	for ritual: RitualToCollect in get_tree().get_nodes_in_group(COLLECTABLE_RITUALS):
+		ritual.ritual_learned.connect(_on_ritual_to_collect_ritual_learned)
 	State.paused = false
 
 func _process(_delta: float) -> void:
@@ -61,8 +64,13 @@ func _on_spell_to_collect_spell_learned(spell: SpellResource) -> void:
 	var message = preload("res://scenes/spell_learned_message.tscn")
 	var message_instance = message.instantiate()
 	camera.add_child(message_instance)
-	message_instance.set_text(spell)
+	message_instance.set_spell_text(spell)
 
+func _on_ritual_to_collect_ritual_learned(ritual: RitualResource) -> void:
+	var message = preload("res://scenes/spell_learned_message.tscn")
+	var message_instance = message.instantiate()
+	camera.add_child(message_instance)
+	message_instance.set_ritual_text(ritual)
 
 func _on_monster_den_monster_spawned(monster: EnemyBody) -> void:
 		monster.connect("battle_detected", _on_battle_detected)

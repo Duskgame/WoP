@@ -1,0 +1,23 @@
+[gd_scene load_steps=17 format=3 uid="uid://wu8xj4ku1q5p"]
+
+[ext_resource type="Script" path="res://scripts/collectable_spells.gd" id="1_5kryd"]
+[ext_resource type="Script" path="res://scripts/spell_resource.gd" id="2_jskvt"]
+[ext_resource type="Resource" uid="uid://bkm5ruyu4kpfr" path="res://Resources/Spells/spell_component_resources/akos.tres" id="3_qqps1"]
+[ext_resource type="Resource" uid="uid://d3wcx5jl83hvo" path="res://Resources/Spells/spell_component_resources/aqu.tres" id="4_aqrfw"]
+[ext_resource type="Resource" uid="uid://ds187p7wd5kqp" path="res://Resources/Spells/spell_component_resources/belos.tres" id="5_rkkp1"]
+[ext_resource type="Resource" uid="uid://bcytvmlvb0eqa" path="res://Resources/Spells/spell_component_resources/doru.tres" id="6_rpe10"]
+[ext_resource type="Resource" uid="uid://chj0suarfw561" path="res://Resources/Spells/spell_component_resources/haima.tres" id="7_481tr"]
+[ext_resource type="Resource" uid="uid://dpfjllwivhpik" path="res://Resources/Spells/spell_component_resources/iasis.tres" id="8_aamgv"]
+[ext_resource type="Resource" uid="uid://dnxyeyu10u5hm" path="res://Resources/Spells/spell_component_resources/kamax.tres" id="9_fcdeh"]
+[ext_resource type="Resource" uid="uid://dd6t6k1m6i43t" path="res://Resources/Spells/spell_component_resources/kry.tres" id="10_26ms4"]
+[ext_resource type="Resource" uid="uid://brwm1mh8t2g1n" path="res://Resources/Spells/spell_component_resources/pyr.tres" id="11_wjnmv"]
+[ext_resource type="Resource" uid="uid://d1disiqrcq7qs" path="res://Resources/Spells/spell_component_resources/typto.tres" id="12_ir44u"]
+[ext_resource type="Resource" uid="uid://by71qld1m21su" path="res://Resources/Spells/spell_component_resources/xiphos.tres" id="13_rjtpf"]
+[ext_resource type="Script" path="res://scripts/ritual_resource.gd" id="14_fjc7p"]
+[ext_resource type="Resource" uid="uid://c35ely7g5ggya" path="res://Resources/Rituals/strength.tres" id="15_gpirn"]
+[ext_resource type="Resource" uid="uid://despr3vg02e65" path="res://Resources/Rituals/vitality.tres" id="16_yu8mh"]
+
+[node name="Collectabless" type="Node2D"]
+script = ExtResource("1_5kryd")
+possible_spells = Array[ExtResource("2_jskvt")]([ExtResource("3_qqps1"), ExtResource("4_aqrfw"), ExtResource("5_rkkp1"), ExtResource("6_rpe10"), ExtResource("7_481tr"), ExtResource("8_aamgv"), ExtResource("9_fcdeh"), ExtResource("10_26ms4"), ExtResource("11_wjnmv"), ExtResource("12_ir44u"), ExtResource("13_rjtpf")])
+possible_rituals = Array[ExtResource("14_fjc7p")]([ExtResource("15_gpirn"), ExtResource("16_yu8mh")])
