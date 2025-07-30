@@ -9,12 +9,13 @@ var duration: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	start_buff_timer(0,1,5)
 
 func start_buff_timer(buff_bonus: float, ritual_type: int, buff_duration: float):
 	self.bonus = snappedf((0.01 * buff_bonus) + 1, 0.01)
 	self.type = ritual_type
 	self.duration = buff_duration
+	self.one_shot = true
 	start(duration)
 	get_buff_type(type)
 	print(type)
@@ -22,13 +23,15 @@ func start_buff_timer(buff_bonus: float, ritual_type: int, buff_duration: float)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	#print(time_left)
+	if time_left == 0:
+		end_timer()
 
 func get_buff_type(ritual: int):
 	match ritual:
 		Spells.RITUAL_TYPES.STRENGHT:
 			State.damage_modifier *= bonus
-		Spells.RITUAL_TYPES.HEALTH:
+		Spells.RITUAL_TYPES.VITALITY:
 			State.max_health *= bonus
 			State.current_health = State.max_health
 
@@ -36,9 +39,12 @@ func remove_buff(ritual: int):
 	match ritual:
 		Spells.RITUAL_TYPES.STRENGHT:
 			State.damage_modifier /= bonus
-		Spells.RITUAL_TYPES.HEALTH:
+		Spells.RITUAL_TYPES.VITALITY:
 			State.max_health /= bonus
 
-func _on_timeout() -> void:
+func end_timer():
 	remove_buff(type)
-	queue_free()
+	self.queue_free()
+
+func _on_timeout() -> void:
+	end_timer()

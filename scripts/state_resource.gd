@@ -41,6 +41,7 @@ func get_state():
 	self.enemy_speed_modifier = State.enemy_speed_modifier
 	self.enemy_health_modifier = State.enemy_health_modifier
 	self.paused = State.paused
+	self.children.clear()
 	self.children = State.get_children()
 	
 func set_state():
@@ -59,5 +60,7 @@ func set_state():
 	State.enemy_speed_modifier = self.enemy_speed_modifier
 	State.enemy_health_modifier = self.enemy_health_modifier
 	State.paused = self.enemy_health_modifier
+	for node in State.get_children():
+		State.remove_child(node)
 	for node in children:
 		State.add_child(node)

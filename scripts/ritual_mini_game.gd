@@ -104,6 +104,7 @@ func check_if_last_label_in_lvl(node: FallingLabel):
 func create_random_label(c_level: int):
 	var label: FallingLabel = FallingLabel.new()
 	label.level = c_level
+	label.deleting_point = self.global_position.y + self.size.y
 	label.deleted.connect(_on_falling_label_deleted)
 	label.add_to_group(LABEL)
 	total_words += 1
@@ -128,14 +129,14 @@ func get_buff_type(ritual: int):
 	match ritual:
 		Spells.RITUAL_TYPES.STRENGHT:
 			return "Damage"
-		Spells.RITUAL_TYPES.HEALTH:
-			return "Health"
+		Spells.RITUAL_TYPES.VITALITY:
+			return "Vitality"
 
 
 func end_game():
 	line.editable = false
 	if cleared_words == total_words:
-		bonus *= snappedf((0.01 * level * level) + 1, 0.01)
+		bonus *= max(snappedf((0.01 * level * level) + 1, 0.01), 0)
 	await get_tree().create_timer(3).timeout
 	var type: String = str(Spells.RITUAL_TYPES.find_key(ritual_type)).to_pascal_case()
 	snappedf(bonus, 0.01)

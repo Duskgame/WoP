@@ -3,6 +3,7 @@ extends Control
 class_name Spellbook
 
 const SpellLineDisplayScene = preload("res://scenes/battle/display_spell_line.tscn")
+const RitualLineDisplayScene = preload("res://scenes/ritual_line.tscn")
 
 @export var test_spellbook: SpellBookResource
 @onready var opening_animation: AnimatedSprite2D = $AnimatedSprite2D
@@ -16,6 +17,7 @@ const ACTIVE_BATTLE_GROUP = "active_battle"
 var spell_dict: Dictionary = {}
 var spell_page_array: Array = []
 var spell_array: Array = []
+var ritual_array: Array = []
 var spellbook_resource: SpellBookResource
 var current_page: int = 1
 
@@ -31,7 +33,9 @@ func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> voi
 	await opening_animation.animation_finished
 	spellbook_resource = current_spellbook_resource
 	sort_spells_in_arrays()
+	put_rituals_in_array()
 	slice_spell_array_in_chunks()
+	#slice_array_in_chunks(ritual_array)
 	#print(spell_array)
 	set_spell_array_to_lower()
 	put_spells_in_dict()
@@ -109,27 +113,27 @@ func sort_spells_in_arrays():
 
 
 func slice_spell_array_in_chunks():
-	var new_spell_array: Array = [] 
+	var new_array: Array = [] 
 	const chunk: int = 5
-	for type_array: Array in spell_array:
-		if len(type_array) > 5:
-			var of_five: int = len(type_array) / chunk
-			var remainder: int = len(type_array) % chunk
+	for array: Array in spell_array:
+		if len(array) > 5:
+			var of_five: int = len(array) / chunk
+			var remainder: int = len(array) % chunk
 			var slice: int = 0
 			#print(of_five)
 			#print(remainder)
 			while true:
 				#slice the array (0,5),(5,10),(10,15)... 
-				new_spell_array.append(type_array.slice(slice * chunk, (slice * chunk) + chunk))
+				new_array.append(array.slice(slice * chunk, (slice * chunk) + chunk))
 				slice += 1
 				if slice == of_five:
 					break
-			new_spell_array.append(type_array.slice(remainder * -1, len(type_array)))
+			new_array.append(array.slice(remainder * -1, len(array)))
 		else:
-			new_spell_array.append(type_array)
+			new_array.append(array)
 	#After complete loop replace original array with sliced array
 	spell_array.clear()
-	for array in new_spell_array:
+	for array in new_array:
 		if len(array) > 0:
 			spell_array.append(array)
 	#print(spell_array)
@@ -178,6 +182,9 @@ func put_pages_in_spell_page_array():
 	if get_tree().get_nodes_in_group(ACTIVE_BATTLE_GROUP).size() == 0:
 		var essence_page: VBoxContainer = VBoxContainer.new()
 		spell_page_array.append(display_essences(essence_page))
+		for array in ritual_array:
+			var new_page: VBoxContainer = VBoxContainer.new()
+			spell_page_array.append(display_rituals(new_page, array))
 	for type_array in spell_array:
 		var new_page: VBoxContainer = VBoxContainer.new()
 		var array_number: int = spell_array.find(type_array)
@@ -261,10 +268,10 @@ func display_previous_button_type():
 	previous_button.text = "Back"
 
 
-func display_essence_headline() -> RichTextLabel:
+func display_headline(text: String) -> RichTextLabel:
 	var type_label = RichTextLabel.new()
 	type_label.bbcode_enabled = true
-	type_label.text = ("[color=#000000] Collected Essences [/color]")
+	type_label.text = ("[color=#000000] " + text + "[/color]")
 	type_label.theme = preload("res://assets/fonts/themes/terminal_theme.tres")
 	type_label.add_theme_font_size_override("normal_font_size", 30)
 	type_label.fit_content = true
@@ -272,7 +279,7 @@ func display_essence_headline() -> RichTextLabel:
 	return type_label
 	
 func display_essences(page: VBoxContainer) -> VBoxContainer:
-	page.add_child(display_essence_headline())
+	page.add_child(display_headline("Collected Essences"))
 	var puffer: Label = Label.new()
 	page.add_child(puffer)
 	var count: int = 0 
@@ -294,3 +301,43 @@ func create_essence_display(amount: int, element: int):
 	type_label.fit_content = true
 	type_label.custom_minimum_size.y = 30
 	return type_label
+
+func create_ritual_line(ritual: RitualResource) -> RitualSpellbookLine:
+	var instance: RitualSpellbookLine = RitualLineDisplayScene.instantiate()
+	instance.ritual = ritual
+	return instance
+
+func display_rituals(page: VBoxContainer, array: Array) -> VBoxContainer:
+	page.add_child(display_headline("Rituals"))
+	for ritual in array:
+		page.add_child(create_ritual_line(ritual))
+	return page
+
+func put_rituals_in_array() -> void:
+	var new_array: Array = []
+	var step = 5
+	for ritual in spellbook_resource.rituals:
+		new_array.append(ritual)
+	if new_array.size() <= step:
+		ritual_array.append(new_array)
+	else:
+		var sorted_array: Array = []
+		const chunk: int = 5
+		var of_five: int = len(new_array) / chunk
+		var remainder: int = len(new_array) % chunk
+		var slice: int = 0
+			#print(of_five)
+			#print(remainder)
+		while true:
+			#slice the array (0,5),(5,10),(10,15)... 
+			sorted_array.append(new_array.slice(slice * chunk, (slice * chunk) + chunk))
+			slice += 1
+			if slice == of_five:
+				break
+			sorted_array.append(new_array.slice(remainder * -1, len(new_array)))
+			
+	#After complete loop replace original array with sliced array
+		new_array.clear()
+		for array in sorted_array:
+			if len(array) > 0:
+				ritual_array.append(array)

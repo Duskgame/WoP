@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="SpellBookResource" load_steps=12 format=3 uid="uid://b3xlbbrgbeckw"]
+[gd_resource type="Resource" script_class="SpellBookResource" load_steps=13 format=3 uid="uid://b3xlbbrgbeckw"]
 
+[ext_resource type="Script" path="res://scripts/ritual_resource.gd" id="1_487tr"]
 [ext_resource type="Script" path="res://scripts/spellbook_resource.gd" id="1_nma8v"]
 [ext_resource type="Script" path="res://scripts/spell_resource.gd" id="2_nnvxd"]
 [ext_resource type="Resource" uid="uid://ce0icyb0wcftj" path="res://Resources/Spells/fire.tres" id="3_sqp1k"]
@@ -15,3 +16,4 @@
 [resource]
 script = ExtResource("1_nma8v")
 spells = Array[ExtResource("2_nnvxd")]([ExtResource("3_sqp1k"), ExtResource("4_71cit"), ExtResource("5_iwb2s"), ExtResource("3_sqp1k"), ExtResource("4_71cit"), ExtResource("5_iwb2s"), ExtResource("3_sqp1k"), ExtResource("5_iwb2s"), ExtResource("3_sqp1k"), ExtResource("6_la2ou"), ExtResource("7_fju0v"), ExtResource("8_uy3qb"), ExtResource("9_kuw6p"), ExtResource("10_qcw45"), ExtResource("11_uhfrh"), ExtResource("9_kuw6p"), ExtResource("10_qcw45"), ExtResource("11_uhfrh"), ExtResource("4_71cit"), ExtResource("4_71cit"), ExtResource("4_71cit"), ExtResource("4_71cit"), ExtResource("4_71cit")])
+rituals = Array[ExtResource("1_487tr")]([])

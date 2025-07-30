@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/buff.gd" id="1_4d8cd"]
 
 [node name="Timer" type="Timer"]
+one_shot = true
 script = ExtResource("1_4d8cd")
 
 [connection signal="timeout" from="." to="." method="_on_timeout"]

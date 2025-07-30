@@ -6,7 +6,7 @@
 
 [sub_resource type="Gradient" id="Gradient_t5eke"]
 offsets = PackedFloat32Array(0, 0.512953, 1)
-colors = PackedColorArray(0.332881, 0.332881, 0.332881, 0.196078, 0.733005, 0.733005, 0.733005, 0.196078, 1, 1, 1, 0.196078)
+colors = PackedColorArray(0.333333, 0.333333, 0.333333, 1, 0.733333, 0.733333, 0.733333, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ejkqb"]
 seed = 14
@@ -27,6 +27,7 @@ color_ramp = SubResource("Gradient_t5eke")
 noise = SubResource("FastNoiseLite_ejkqb")
 
 [node name="RitualMiniGame" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +39,7 @@ script = ExtResource("1_aqol3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.643137)
-z_index = -2
+z_index = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,6 +52,7 @@ mouse_filter = 2
 texture = SubResource("NoiseTexture2D_hvd7r")
 
 [node name="Center" type="Control" parent="."]
+z_index = 4
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,15 +69,16 @@ z_index = -2
 position = Vector2(1, 0)
 color = Color(1, 1, 0, 1)
 energy = 1.51
-range_z_max = -2
+range_z_max = 4
 range_layer_min = -3
+range_layer_max = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_item_cull_mask = 2
 texture = ExtResource("2_nhsbm")
 texture_scale = 4.58
 
 [node name="Panel" type="Panel" parent="."]
-z_index = 1
+z_index = 4
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 12

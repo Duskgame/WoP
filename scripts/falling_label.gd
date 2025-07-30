@@ -8,11 +8,13 @@ signal deleted(node: FallingLabel)
 
 var speed: float = 20
 var level: int = 8
+var deleting_point: float
 
 var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	assert(deleting_point, "needs to be given global deleting point")
 	theme = load("res://assets/fonts/themes/menu_button.tres")
 	add_theme_stylebox_override("normal", load("res://assets/fonts/styleboxes/button_normal.tres"))
 	var number_of_chars: int = randi_range(3, 3 + ceil(level / 2))
@@ -22,7 +24,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	self.global_position.y += speed * delta
-	if global_position.y > view_rect.size.y + size.y:
+	if global_position.y > deleting_point :
+		print("deleting falling label ")
 		deleted.emit(self)
 		queue_free()
 

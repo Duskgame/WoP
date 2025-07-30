@@ -1438,7 +1438,6 @@ script = ExtResource("1_hb66u")
 stream = ExtResource("8_oqt08")
 volume_db = -7.429
 pitch_scale = 0.75
-autoplay = true
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -1500,6 +1499,10 @@ position = Vector2(321, 27)
 
 [node name="ritual_to_collect" parent="CollectableSpells" instance=ExtResource("14_32ngv")]
 position = Vector2(-1505, 3514)
+
+[node name="Timer" type="Timer" parent="CollectableSpells/ritual_to_collect"]
+wait_time = 22.518
+autostart = true
 
 [node name="RandomIceEnemy" parent="." instance=ExtResource("13_ahnto")]
 y_sort_enabled = false

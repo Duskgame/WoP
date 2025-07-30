@@ -2,7 +2,7 @@ extends Control
 
 class_name RitualInitiation
 
-@onready var start_button: Button = $VBoxContainer/StartButton
+@onready var start_button: Button = $NextButton
 @onready var level_slider: HSlider = $VBoxContainer/HBoxContainer/LevelSlider
 @onready var needed_essences_label: Label = $VBoxContainer/HBoxContainer6/NeededEssences
 @onready var fire_slider: HSlider = $VBoxContainer/HBoxContainer5/FireSlider
@@ -12,7 +12,7 @@ class_name RitualInitiation
 @onready var water_label: RichTextLabel = $VBoxContainer/HBoxContainer4/WaterLabel
 @onready var ice_label: RichTextLabel = $VBoxContainer/HBoxContainer3/IceLabel
 @onready var speed_spin_box: SpinBox = $VBoxContainer/HBoxContainer2/SpeedSpinBox
-@onready var parent = $"../"
+@onready var parent = $"../../../"
 
 var ritual_scene: PackedScene = preload("res://scenes/ritual_mini_game.tscn")
 var ritual_minigame: RitualMiniGame
@@ -109,20 +109,20 @@ func check_if_needed_essences_met():
 	else:
 		start_button.disabled = true
 
-func _on_level_slider_value_changed(value: float) -> void:
+func _on_level_slider_value_changed(value: int) -> void:
 	set_needed_essecence_label_with_level(value)
 	check_if_needed_essences_met()
 
 
-func _on_fire_slider_value_changed(value: float) -> void:
+func _on_fire_slider_value_changed(value: int) -> void:
 	set_fire_essence_label(value)
 	check_if_needed_essences_met()
 
-func _on_water_slider_value_changed(value: float) -> void:
+func _on_water_slider_value_changed(value: int) -> void:
 	set_water_essence_label(value)
 	check_if_needed_essences_met()
 
-func _on_ice_slider_value_changed(value: float) -> void:
+func _on_ice_slider_value_changed(value: int) -> void:
 	set_ice_essence_label(value)
 	check_if_needed_essences_met()
 
@@ -134,3 +134,8 @@ func _on_start_button_pressed() -> void:
 	ritual_minigame.level = level_slider.value
 	ritual_minigame.speed_modifier = speed_spin_box.value
 	parent.add_child(ritual_minigame)
+	queue_free()
+
+
+func _on_back_button_pressed() -> void:
+	queue_free()

@@ -1,10 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://csb5nxfprxla"]
+[gd_scene load_steps=45 format=3 uid="uid://csb5nxfprxla"]
 
 [ext_resource type="Script" path="res://scripts/initiating_ritual.gd" id="1_v5s72"]
-[ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="2_jefb3"]
-[ext_resource type="StyleBox" uid="uid://cysqklup1v1ve" path="res://assets/fonts/styleboxes/button_pressed.tres" id="3_3etoh"]
+[ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="2_es8vo"]
 [ext_resource type="StyleBox" uid="uid://cr11ysb55fg63" path="res://assets/fonts/styleboxes/invisible.tres" id="3_id686"]
-[ext_resource type="StyleBox" uid="uid://df2xcacdd4svj" path="res://assets/fonts/styleboxes/button_normal.tres" id="3_v3gvi"]
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="5_8u8ia"]
 [ext_resource type="StyleBox" uid="uid://ci7afnuip72x8" path="res://assets/fonts/styleboxes/fire_gradient.tres" id="7_kokcc"]
 [ext_resource type="Texture2D" uid="uid://dp4ll7kvw3cfg" path="res://assets/sprites/Miscelaneous/Fire crystal.png" id="7_obec1"]
@@ -12,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cqfw8squ4wrvh" path="res://assets/sprites/Miscelaneous/Water crystal.png" id="9_i3a6v"]
 [ext_resource type="StyleBox" uid="uid://budpv8ft1mju6" path="res://assets/fonts/styleboxes/ice_gradient.tres" id="9_pt13s"]
 [ext_resource type="Texture2D" uid="uid://bb26n02v20ip" path="res://assets/sprites/Miscelaneous/Ice crystal.png" id="11_yxw8x"]
+[ext_resource type="Texture2D" uid="uid://cputkmmrcoe8a" path="res://assets/sprites/Player/next_button_hover.png" id="14_2kxdr"]
+[ext_resource type="Texture2D" uid="uid://cobe4rhf68s3w" path="res://assets/sprites/Player/next_botton.png" id="15_osy5t"]
+[ext_resource type="Texture2D" uid="uid://df7b71h04jvkm" path="res://assets/sprites/Player/previous_button_hover.png" id="16_4fxdy"]
+[ext_resource type="Texture2D" uid="uid://boynqypuon4dm" path="res://assets/sprites/Player/previous_botton.png" id="17_6racc"]
 
 [sub_resource type="Gradient" id="Gradient_747yo"]
 offsets = PackedFloat32Array(0, 0.593909, 1)
@@ -23,6 +25,147 @@ frequency = 0.0005
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a3q0o"]
 color_ramp = SubResource("Gradient_747yo")
 noise = SubResource("FastNoiseLite_cyi1i")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jufg"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(1623, 1086, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34wqx"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(2705, 724, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyj7b"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(2164, 724, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpu8g"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(1623, 724, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1tcd"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(2705, 362, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ie4n"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(2164, 362, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8nu0"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(1623, 362, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb354"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(2705, 0, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpoxy"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(2164, 0, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maatk"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(1623, 0, 531, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7prb"]
+atlas = ExtResource("2_es8vo")
+region = Rect2(1623, 1086, 531, 352)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2rj0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jufg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34wqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyj7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpu8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1tcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ie4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8nu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb354")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpoxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maatk")
+}],
+"loop": true,
+"name": &"closing",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7prb")
+}],
+"loop": true,
+"name": &"opening",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ltigu"]
+texture = ExtResource("14_2kxdr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g6r7w"]
+texture = ExtResource("14_2kxdr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v5538"]
+texture = ExtResource("14_2kxdr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5bbq"]
+texture = ExtResource("14_2kxdr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ceoov"]
+texture = ExtResource("15_osy5t")
+
+[sub_resource type="InputEventKey" id="InputEventKey_b8tem"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_bka2o"]
+device = -1
+keycode = 4194321
+
+[sub_resource type="Shortcut" id="Shortcut_88cmm"]
+events = [SubResource("InputEventKey_b8tem"), SubResource("InputEventKey_bka2o")]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0qc35"]
+texture = ExtResource("16_4fxdy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4sy7"]
+texture = ExtResource("16_4fxdy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4br1"]
+texture = ExtResource("16_4fxdy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xsjdq"]
+texture = ExtResource("17_6racc")
+
+[sub_resource type="InputEventKey" id="InputEventKey_y7ify"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_3ojmp"]
+device = -1
+keycode = 4194319
+
+[sub_resource type="Shortcut" id="Shortcut_nie2n"]
+events = [SubResource("InputEventKey_y7ify"), SubResource("InputEventKey_3ojmp")]
 
 [node name="InitiatingRitual" type="Control"]
 layout_mode = 3
@@ -47,6 +190,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_a3q0o")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(540, 360)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_2rj0k")
+animation = &"opening"
+speed_scale = 1.5
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -54,32 +204,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -242.0
-offset_top = -254.5
-offset_right = 262.0
-offset_bottom = 254.5
+offset_left = -326.0
+offset_top = -158.0
+offset_right = 327.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-tooltip_text = "Sacrifice Essences 
-to start Ritual"
-theme = ExtResource("2_jefb3")
-theme_override_styles/focus = ExtResource("3_id686")
-theme_override_styles/disabled = ExtResource("3_3etoh")
-theme_override_styles/hover_pressed_mirrored = ExtResource("3_3etoh")
-theme_override_styles/hover = ExtResource("3_v3gvi")
-theme_override_styles/pressed = ExtResource("3_3etoh")
-theme_override_styles/normal = ExtResource("3_v3gvi")
-disabled = true
-text = "Perform Ritual of 
-dfg"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -104,6 +239,7 @@ ticks_on_borders = true
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer6"]
 layout_mode = 2
@@ -130,6 +266,7 @@ size_flags_vertical = 3
 [node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 50
 
 [node name="FireLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer5"]
 layout_mode = 2
@@ -155,6 +292,7 @@ ticks_on_borders = true
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 50
 
 [node name="WaterLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
@@ -180,6 +318,7 @@ ticks_on_borders = true
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 50
 
 [node name="IceLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -229,21 +368,63 @@ max_value = 10.0
 step = 0.1
 value = 1.0
 
-[node name="StartButton2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("2_jefb3")
+[node name="NextButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 787.0
+offset_top = 593.0
+offset_right = -129.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Sacrifice Essences 
+to start Ritual"
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = ExtResource("3_id686")
-theme_override_styles/disabled = ExtResource("3_3etoh")
-theme_override_styles/hover_pressed_mirrored = ExtResource("3_3etoh")
-theme_override_styles/hover = ExtResource("3_v3gvi")
-theme_override_styles/pressed = ExtResource("3_3etoh")
-theme_override_styles/normal = ExtResource("3_v3gvi")
-text = "Back to Game"
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ltigu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_g6r7w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v5538")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u5bbq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ceoov")
+disabled = true
+shortcut = SubResource("Shortcut_88cmm")
+text = "next"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 603.0
+offset_right = -811.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("3_id686")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_0qc35")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p4sy7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u4br1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xsjdq")
+shortcut = SubResource("Shortcut_nie2n")
+text = "previous"
+
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/LevelSlider" to="." method="_on_level_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer5/FireSlider" to="." method="_on_fire_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer4/WaterSlider" to="." method="_on_water_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer3/IceSlider" to="." method="_on_ice_slider_value_changed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

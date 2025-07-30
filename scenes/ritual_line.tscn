@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2sqyyrf0xfob"]
+[gd_scene load_steps=5 format=3 uid="uid://b2sqyyrf0xfob"]
 
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="1_s1m6m"]
 [ext_resource type="Script" path="res://scripts/ritual_line.gd" id="1_utri6"]
 [ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="2_nsxbi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8pd7"]
 
 [node name="RitualLine" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
@@ -14,6 +16,7 @@ size_flags_horizontal = 3
 theme = ExtResource("1_s1m6m")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
 text = "ritual of stuff
 "
 fit_content = true
@@ -22,5 +25,8 @@ fit_content = true
 layout_mode = 2
 theme = ExtResource("2_nsxbi")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r8pd7")
 text = "start
 "
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
