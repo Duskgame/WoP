@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="SpellBookResource" load_steps=10 format=3 uid="uid://dpya3m4nlupto"]
+[gd_resource type="Resource" script_class="SpellBookResource" load_steps=11 format=3 uid="uid://dpya3m4nlupto"]
 
 [ext_resource type="Script" path="res://scripts/spellbook_resource.gd" id="1_gmjx8"]
+[ext_resource type="Script" path="res://scripts/ritual_resource.gd" id="1_nxp1n"]
 [ext_resource type="Script" path="res://scripts/spell_resource.gd" id="2_65rsa"]
 [ext_resource type="Resource" uid="uid://bkm5ruyu4kpfr" path="res://Resources/Spells/spell_component_resources/akos.tres" id="3_4fsq5"]
 [ext_resource type="Resource" uid="uid://d3wcx5jl83hvo" path="res://Resources/Spells/spell_component_resources/aqu.tres" id="4_exr0p"]
@@ -13,3 +14,4 @@
 [resource]
 script = ExtResource("1_gmjx8")
 spells = Array[ExtResource("2_65rsa")]([ExtResource("3_4fsq5"), ExtResource("4_exr0p"), ExtResource("5_ebfpg"), ExtResource("6_rn8uf"), ExtResource("7_5u6ch"), ExtResource("8_opfe5"), ExtResource("9_5kpmc")])
+rituals = Array[ExtResource("1_nxp1n")]([])

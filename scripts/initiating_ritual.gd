@@ -2,6 +2,8 @@ extends Control
 
 class_name RitualInitiation
 
+signal ritual_started(ritual_instance: RitualMiniGame)
+
 @onready var start_button: Button = $NextButton
 @onready var level_slider: HSlider = $VBoxContainer/HBoxContainer/LevelSlider
 @onready var needed_essences_label: Label = $VBoxContainer/HBoxContainer6/NeededEssences
@@ -131,9 +133,11 @@ func _on_start_button_pressed() -> void:
 	State.fire_essence -= fire_slider.value
 	State.water_essence -= water_slider.value
 	State.ice_essence -= ice_slider.value
+	SaveSpellbook.save_state()
 	ritual_minigame.level = level_slider.value
 	ritual_minigame.speed_modifier = speed_spin_box.value
 	parent.add_child(ritual_minigame)
+	ritual_started.emit(ritual_minigame)
 	queue_free()
 
 

@@ -16,6 +16,7 @@ const MONSTER_DEN = "MonsterDens"
 
 
 func _ready() -> void:
+	ui.connect("ritual_started", _on_ritual_started)
 	player.instanciate_player_body()
 	collectables.remove_learned_spells(player.spellbook)
 	if len(get_tree().get_nodes_in_group(MONSTER_DEN)) > 0:
@@ -35,7 +36,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	camera.global_position = player.global_position 
 	
-	
+func _on_ritual_started(ritual_instance: RitualMiniGame):
+	State.paused = true
+	camera.global_position = ritual_instance.global_position
+	ui.hide()
+
 func _on_battle_detected(battle: Battle):
 	SaveSpellbook.save_state()
 	State.paused = true

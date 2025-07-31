@@ -1,8 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2sqyyrf0xfob"]
+[gd_scene load_steps=9 format=3 uid="uid://b2sqyyrf0xfob"]
 
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="1_s1m6m"]
 [ext_resource type="Script" path="res://scripts/ritual_line.gd" id="1_utri6"]
 [ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="2_nsxbi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xwhod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_boxpj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlmhv"]
+bg_color = Color(0, 0, 0, 0)
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kgweq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8pd7"]
 
@@ -15,7 +29,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_s1m6m")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 31
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "ritual of stuff
 "
@@ -24,7 +38,15 @@ fit_content = true
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
 theme = ExtResource("2_nsxbi")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xwhod")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_boxpj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dlmhv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kgweq")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_r8pd7")
 text = "start
 "

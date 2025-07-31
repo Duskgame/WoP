@@ -2,6 +2,8 @@ extends Control
 
 class_name Pause
 
+signal ritual_started(ritual_instance: RitualMiniGame)
+
 const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
 const world_menu = preload("res://scenes/world_menu.tscn")
@@ -50,8 +52,11 @@ func _on_spellbook_pressed() -> void:
 		var spellbook_instance: WorldSpellbook = WORLD_SPELLBOOK.instantiate()
 		add_child(spellbook_instance)
 		spellbook_instance.instanciate_world_spellbook(player.spellbook)
+		spellbook_instance.connect("ritual_started", _on_ritual_started)
 		spellbook_instance.connect("book_closed", _on_spellbook_closed)
 
 func _on_spellbook_closed() -> void:
 	State.unpause_everything()
 	
+func _on_ritual_started(ritual_instance: RitualMiniGame):
+	ritual_started.emit(ritual_instance)

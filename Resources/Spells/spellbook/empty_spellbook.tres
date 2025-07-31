@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="SpellBookResource" load_steps=5 format=3 uid="uid://c840qjq4ncbsh"]
+[gd_resource type="Resource" script_class="SpellBookResource" load_steps=6 format=3 uid="uid://c840qjq4ncbsh"]
 
 [ext_resource type="Script" path="res://scripts/spellbook_resource.gd" id="1_vx7qv"]
+[ext_resource type="Script" path="res://scripts/ritual_resource.gd" id="1_xcpd3"]
 [ext_resource type="Script" path="res://scripts/spell_resource.gd" id="2_dh01n"]
 [ext_resource type="Resource" uid="uid://2xngnu6lumb2" path="res://Resources/Spells/heal.tres" id="3_t15sq"]
 [ext_resource type="Resource" uid="uid://ce0icyb0wcftj" path="res://Resources/Spells/fire.tres" id="4_5ia1p"]
@@ -8,3 +9,4 @@
 [resource]
 script = ExtResource("1_vx7qv")
 spells = Array[ExtResource("2_dh01n")]([ExtResource("3_t15sq"), ExtResource("4_5ia1p")])
+rituals = Array[ExtResource("1_xcpd3")]([])

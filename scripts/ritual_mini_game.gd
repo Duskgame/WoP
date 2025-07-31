@@ -47,7 +47,7 @@ func create_circle(c_level: int):
 	texture.pivot_offset = Vector2(texture.size / 2)
 	texture.position = center.position - texture.pivot_offset
 	texture.rotation = c_level * 10
-	texture.z_index = -1
+	texture.z_index = 3
 	texture.self_modulate = Color("#ffffffa4")
 	texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	texture.add_to_group(CIRCLES)
@@ -106,6 +106,7 @@ func create_random_label(c_level: int):
 	label.level = c_level
 	label.deleting_point = self.global_position.y + self.size.y
 	label.deleted.connect(_on_falling_label_deleted)
+	label.z_index = 4
 	label.add_to_group(LABEL)
 	total_words += 1
 	add_child(label)

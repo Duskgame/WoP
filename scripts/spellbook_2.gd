@@ -2,6 +2,8 @@ extends Control
 
 class_name Spellbook
 
+signal ritual_started(ritual_instance: RitualMiniGame)
+
 const SpellLineDisplayScene = preload("res://scenes/battle/display_spell_line.tscn")
 const RitualLineDisplayScene = preload("res://scenes/ritual_line.tscn")
 
@@ -305,6 +307,7 @@ func create_essence_display(amount: int, element: int):
 func create_ritual_line(ritual: RitualResource) -> RitualSpellbookLine:
 	var instance: RitualSpellbookLine = RitualLineDisplayScene.instantiate()
 	instance.ritual = ritual
+	instance.connect("ritual_started", _on_ritual_started)
 	return instance
 
 func display_rituals(page: VBoxContainer, array: Array) -> VBoxContainer:
@@ -341,3 +344,6 @@ func put_rituals_in_array() -> void:
 		for array in sorted_array:
 			if len(array) > 0:
 				ritual_array.append(array)
+
+func _on_ritual_started(ritual_instance: RitualMiniGame):
+	ritual_started.emit(ritual_instance)
