@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2sqyyrf0xfob"]
+[gd_scene load_steps=11 format=3 uid="uid://b2sqyyrf0xfob"]
 
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="1_s1m6m"]
 [ext_resource type="Script" path="res://scripts/ritual_line.gd" id="1_utri6"]
 [ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="2_nsxbi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgbi2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0vl6g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xwhod"]
 
@@ -43,6 +47,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cgbi2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0vl6g")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xwhod")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_boxpj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dlmhv")

@@ -3,6 +3,8 @@ extends Control
 class_name RitualInitiation
 
 signal ritual_started(ritual_instance: RitualMiniGame)
+signal initiating_ritual
+signal stopping_initiation
 
 @onready var start_button: Button = $NextButton
 @onready var level_slider: HSlider = $VBoxContainer/HBoxContainer/LevelSlider
@@ -26,6 +28,7 @@ var needed_essences: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	initiating_ritual.emit()
 	ritual_minigame = ritual_scene.instantiate()
 	start_button.text = ("Start Ritual of " + "\n" + str(Spells.RITUAL_TYPES.find_key(ritual_type)).to_pascal_case())
 	set_level_slider_for_ritual(ritual_minigame)
@@ -138,8 +141,10 @@ func _on_start_button_pressed() -> void:
 	ritual_minigame.speed_modifier = speed_spin_box.value
 	ritual_started.emit(ritual_minigame)
 	ritual_minigame.grab_focus()
+	stopping_initiation.emit()
 	queue_free()
 
 
 func _on_back_button_pressed() -> void:
+	stopping_initiation.emit()
 	queue_free()

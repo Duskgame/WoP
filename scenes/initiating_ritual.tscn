@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://csb5nxfprxla"]
+[gd_scene load_steps=46 format=3 uid="uid://csb5nxfprxla"]
 
 [ext_resource type="Script" path="res://scripts/initiating_ritual.gd" id="1_v5s72"]
 [ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="2_es8vo"]
@@ -164,8 +164,12 @@ unicode = 97
 device = -1
 keycode = 4194319
 
+[sub_resource type="InputEventKey" id="InputEventKey_tc537"]
+device = -1
+keycode = 4194305
+
 [sub_resource type="Shortcut" id="Shortcut_nie2n"]
-events = [SubResource("InputEventKey_y7ify"), SubResource("InputEventKey_3ojmp")]
+events = [SubResource("InputEventKey_y7ify"), SubResource("InputEventKey_3ojmp"), SubResource("InputEventKey_tc537")]
 
 [node name="InitiatingRitual" type="Control"]
 layout_mode = 3
