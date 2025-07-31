@@ -139,7 +139,6 @@ func get_buff_type(ritual: int):
 
 
 func end_game():
-	ritual_ended.emit
 	line.editable = false
 	line.release_focus()
 	if cleared_words == total_words:
@@ -159,13 +158,12 @@ func check_for_end():
 			end_game()
 
 func create_buff_timer():
-	ritual_ended.emit
 	var buff_timer: BuffTimer = BuffTimer.new()
 	State.add_child(buff_timer)
 	buff_timer.start_buff_timer(bonus, ritual_type, 30 * speed_modifier)
 
 
 func _on_message_panel_closed() -> void:
-	ritual_ended.emit
+	ritual_ended.emit()
 	await get_tree().create_timer(2).timeout
 	queue_free()

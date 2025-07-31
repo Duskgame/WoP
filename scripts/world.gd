@@ -43,7 +43,6 @@ func _on_ritual_started(ritual_instance: RitualMiniGame):
 	ui.hide()
 
 func _on_ritual_ended():
-	print("hi")
 	ui.show()
 
 func _on_battle_detected(battle: Battle):
