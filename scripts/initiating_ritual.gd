@@ -136,8 +136,8 @@ func _on_start_button_pressed() -> void:
 	SaveSpellbook.save_state()
 	ritual_minigame.level = level_slider.value
 	ritual_minigame.speed_modifier = speed_spin_box.value
-	parent.add_child(ritual_minigame)
 	ritual_started.emit(ritual_minigame)
+	ritual_minigame.grab_focus()
 	queue_free()
 
 

@@ -1500,10 +1500,6 @@ position = Vector2(321, 27)
 [node name="ritual_to_collect" parent="CollectableSpells" instance=ExtResource("14_32ngv")]
 position = Vector2(-1505, 3514)
 
-[node name="Timer" type="Timer" parent="CollectableSpells/ritual_to_collect"]
-wait_time = 22.518
-autostart = true
-
 [node name="RandomIceEnemy" parent="." instance=ExtResource("13_ahnto")]
 y_sort_enabled = false
 position = Vector2(2832, 2674)

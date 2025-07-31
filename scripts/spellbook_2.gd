@@ -184,9 +184,10 @@ func put_pages_in_spell_page_array():
 	if get_tree().get_nodes_in_group(ACTIVE_BATTLE_GROUP).size() == 0:
 		var essence_page: VBoxContainer = VBoxContainer.new()
 		spell_page_array.append(display_essences(essence_page))
-		for array in ritual_array:
-			var new_page: VBoxContainer = VBoxContainer.new()
-			spell_page_array.append(display_rituals(new_page, array))
+		if spellbook_resource.rituals.size() > 0:
+			for array in ritual_array:
+				var new_page: VBoxContainer = VBoxContainer.new()
+				spell_page_array.append(display_rituals(new_page, array))
 	for type_array in spell_array:
 		var new_page: VBoxContainer = VBoxContainer.new()
 		var array_number: int = spell_array.find(type_array)

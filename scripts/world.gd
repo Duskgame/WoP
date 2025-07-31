@@ -38,13 +38,19 @@ func _process(_delta: float) -> void:
 	
 func _on_ritual_started(ritual_instance: RitualMiniGame):
 	State.paused = true
-	camera.global_position = ritual_instance.global_position
+	ritual_instance.ritual_ended.connect(_on_ritual_ended)
+	add_child(ritual_instance)
 	ui.hide()
+
+func _on_ritual_ended():
+	print("hi")
+	ui.show()
 
 func _on_battle_detected(battle: Battle):
 	SaveSpellbook.save_state()
 	State.paused = true
 	#print(player.global_position)
+	#print(battle.global_positiona)
 	camera.global_position = battle.global_position
 	audio.pitch_scale = 1.75 - (State.current_health / State.max_health)
 	ui.hide()

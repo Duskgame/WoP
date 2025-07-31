@@ -43,21 +43,21 @@ func pause_node(node: Node, pause: bool):
 	node.set_physics_process(!pause)
 	node.set_physics_process_internal(!pause)
 	node.set_process_unhandled_input(!pause)
-	print("paused " + str(node))
+	#print("paused " + str(node))
 
 func pause_everything():
 	SaveSpellbook.save_state()
 	pause_group(ENEMIES_GROUP_NAME, true)
 	pause_group(PLAYER_GROUP_NAME, true)
 	State.paused = true
-	print(str(State.paused))
+	#print(str(State.paused))
 	
 
 func unpause_everything():
 	pause_group(ENEMIES_GROUP_NAME, false)
 	pause_group(PLAYER_GROUP_NAME, false)
 	State.paused = false
-	print("pause state = " + str(State.paused))
+	#print("pause state = " + str(State.paused))
 
 func get_current_position():
 	var player: player_body = get_tree().get_first_node_in_group(PLAYER_GROUP_NAME)

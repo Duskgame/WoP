@@ -2,6 +2,8 @@ extends Control
 
 class_name RitualMiniGame
 
+signal ritual_ended
+
 const CIRCLES = "circles"
 const LABEL = "label"
 
@@ -9,6 +11,7 @@ const LABEL = "label"
 @onready var line: LineEdit = $Panel/LineEdit
 @onready var light: PointLight2D = $Center/PointLight2D
 @onready var message: RitualMessagePanel = $MessagePanel
+@onready var camera: Camera2D = $Camera2D
 
 var ritual_type: Spells.RITUAL_TYPES = Spells.RITUAL_TYPES.STRENGHT
 @export var level: int = 2
@@ -23,6 +26,7 @@ var last_word: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	camera.make_current()
 	message.visible = false
 	create_multiple_circles(level)
 	line.grab_focus()
@@ -135,7 +139,9 @@ func get_buff_type(ritual: int):
 
 
 func end_game():
+	ritual_ended.emit
 	line.editable = false
+	line.release_focus()
 	if cleared_words == total_words:
 		bonus *= max(snappedf((0.01 * level * level) + 1, 0.01), 0)
 	await get_tree().create_timer(3).timeout
@@ -153,11 +159,13 @@ func check_for_end():
 			end_game()
 
 func create_buff_timer():
+	ritual_ended.emit
 	var buff_timer: BuffTimer = BuffTimer.new()
 	State.add_child(buff_timer)
 	buff_timer.start_buff_timer(bonus, ritual_type, 30 * speed_modifier)
 
 
 func _on_message_panel_closed() -> void:
+	ritual_ended.emit
 	await get_tree().create_timer(2).timeout
 	queue_free()
