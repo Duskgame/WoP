@@ -236,7 +236,7 @@ func _on_next_button_pressed() -> void:
 		#print(current_page)
 		remove_both_pages()
 		display_both_pages(current_page)
-	if current_page + 2 == len(spell_page_array):
+	if current_page + 1 == len(spell_page_array):
 		next_button.visible = false
 	else:
 		display_next_button_type()
@@ -247,7 +247,7 @@ func _on_next_button_pressed() -> void:
 func _on_previous_button_pressed() -> void:
 	if current_page - 2 >= 1:
 		current_page -= 2
-		print(current_page)
+		#print(current_page)
 		remove_both_pages()
 		display_both_pages(current_page)
 	if current_page == 1:

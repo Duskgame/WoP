@@ -21,14 +21,14 @@ func pause_everything():
 	pause_group(ENEMIES_GROUP_NAME, true)
 	pause_group(PLAYER_GROUP_NAME, true)
 	State.paused = true
-	print(str(State.paused))
+	#print(str(State.paused))
 	
 
 func unpause_everything():
 	pause_group(ENEMIES_GROUP_NAME, false)
 	pause_group(PLAYER_GROUP_NAME, false)
 	State.paused = false
-	print(str(State.paused))
+	#print(str(State.paused))
 
 
 func _on_menu_button_pressed() -> void:

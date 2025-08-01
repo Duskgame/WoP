@@ -60,7 +60,7 @@ func load_state():
 		var loaded_resource = ResourceLoader.load(state_path, "")
 		if loaded_resource is StateResource:
 			loaded_resource.set_state()
-			print(loaded_resource.current_position)
+			#print(loaded_resource.current_position)
 			#print(loaded_resource.current_health)
 		else:
 			print("Failed to load state: Invalid resource type")

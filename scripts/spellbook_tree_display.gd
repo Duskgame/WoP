@@ -2,7 +2,7 @@ extends Tree
 
 @onready var spell_tree = $"."
 
-const SpellLineDisplayScene = preload("res://scenes/display_spell_line.tscn")
+const SpellLineDisplayScene = preload("res://scenes/battle/display_spell_line.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

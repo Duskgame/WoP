@@ -16,6 +16,7 @@ const MONSTER_DEN = "MonsterDens"
 
 
 func _ready() -> void:
+	place_enemies()
 	ui.connect("ritual_started", _on_ritual_started)
 	player.instanciate_player_body()
 	collectables.remove_learned_spells(player.spellbook)
@@ -41,6 +42,10 @@ func _on_ritual_started(ritual_instance: RitualMiniGame):
 	ritual_instance.ritual_ended.connect(_on_ritual_ended)
 	add_child(ritual_instance)
 	ui.hide()
+
+func place_enemies():
+	for node in State.enemies:
+		add_child(node)
 
 func _on_ritual_ended():
 	ui.show()
@@ -90,7 +95,7 @@ func _on_monster_den_monster_spawned(monster: EnemyBody) -> void:
 
 func _on_monster_den_collectable_spell_spawned(collectable: SpellToCollect) -> void:
 	collectable.spell_learned.connect(_on_spell_to_collect_spell_learned)
-	print("ping")
+	#print("ping")
 
 
 func _input(event: InputEvent) -> void:

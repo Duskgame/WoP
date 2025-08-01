@@ -25,6 +25,8 @@ class_name StateResource
 @export var paused: bool
 @export var children: Array
 
+@export var enemies: Array
+
 func get_state():
 	self.current_health = State.current_health
 	self.max_health = State.max_health

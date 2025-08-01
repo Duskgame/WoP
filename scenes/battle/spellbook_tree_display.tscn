@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://37seilvax7of"]
 
-[ext_resource type="Script" uid="uid://bniaoyqoum2y" path="res://scripts/spellbook_tree_display.gd" id="1_4oyo7"]
+[ext_resource type="Script" path="res://scripts/spellbook_tree_display.gd" id="1_4oyo7"]
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="1_68n1u"]
 
 [node name="Tree" type="Tree"]

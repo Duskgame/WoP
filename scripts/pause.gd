@@ -29,17 +29,18 @@ func pause_everything():
 	pause_group(ENEMIES_GROUP_NAME, true)
 	pause_group(PLAYER_GROUP_NAME, true)
 	State.paused = true
-	print(str(State.paused))
+	#print(str(State.paused))
 	
 
 func unpause_everything():
 	pause_group(ENEMIES_GROUP_NAME, false)
 	pause_group(PLAYER_GROUP_NAME, false)
 	State.paused = false
-	print(str(State.paused))
+	#print(str(State.paused))
 
 
 func _on_pause_button_pressed() -> void:
+	SaveSpellbook.save_state()
 	if self.has_node("WorldMenu"):
 		State.unpause_everything()
 	else:
@@ -49,6 +50,7 @@ func _on_pause_button_pressed() -> void:
 
 
 func _on_spellbook_pressed() -> void:
+	SaveSpellbook.save_state()
 	if self.has_node("WorldSpellbook"):
 		State.unpause_everything()
 	else:

@@ -42,7 +42,7 @@ func collect_spell():
 		if Input.is_physical_key_pressed(KEY_F):
 			player.spellbook.spells.append(spell_to_collect)
 			player.save_spellbook_resource()
-			print(player.spellbook.spells)
+			#print(player.spellbook.spells)
 			spell_learned.emit(spell_to_collect)
 			queue_free()
 

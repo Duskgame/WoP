@@ -26,7 +26,7 @@ var enemy_health_modifier: float = 0.5
 
 var paused: bool = false
 
-
+var enemies: Array
 
 const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
@@ -46,7 +46,7 @@ func pause_node(node: Node, pause: bool):
 	#print("paused " + str(node))
 
 func pause_everything():
-	SaveSpellbook.save_state()
+	#SaveSpellbook.save_state()
 	pause_group(ENEMIES_GROUP_NAME, true)
 	pause_group(PLAYER_GROUP_NAME, true)
 	State.paused = true
@@ -63,3 +63,7 @@ func get_current_position():
 	var player: player_body = get_tree().get_first_node_in_group(PLAYER_GROUP_NAME)
 	if player:
 		current_position = player.global_position
+
+func get_current_enemies():
+	enemies = get_tree().get_nodes_in_group(ENEMIES_GROUP_NAME)
+	return enemies

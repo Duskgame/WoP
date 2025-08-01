@@ -9,7 +9,7 @@ var duration: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start_buff_timer(0,1,5)
+	pass
 
 func start_buff_timer(buff_bonus: float, ritual_type: int, buff_duration: float):
 	self.bonus = snappedf((0.01 * buff_bonus) + 1, 0.01)
@@ -18,8 +18,8 @@ func start_buff_timer(buff_bonus: float, ritual_type: int, buff_duration: float)
 	self.one_shot = true
 	start(duration)
 	get_buff_type(type)
-	print(type)
-	print(State.damage_modifier)
+	#print(type)
+	#print(State.damage_modifier)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -44,6 +44,7 @@ func remove_buff(ritual: int):
 
 func end_timer():
 	remove_buff(type)
+	SaveSpellbook.save_state()
 	self.queue_free()
 
 func _on_timeout() -> void:
