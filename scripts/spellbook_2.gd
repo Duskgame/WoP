@@ -8,15 +8,15 @@ signal stopping_initiation
 
 const SpellLineDisplayScene = preload("res://scenes/battle/display_spell_line.tscn")
 const RitualLineDisplayScene = preload("res://scenes/ritual_line.tscn")
+const ACTIVE_BATTLE_GROUP = "active_battle"
 
 @export var test_spellbook: SpellBookResource
+
 @onready var opening_animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var left_page: VBoxContainer = $Pages/MarginContainer/LeftPage
 @onready var right_page: VBoxContainer = $Pages/MarginContainer2/RightPage
 @onready var next_button: Button = $NextButton
 @onready var previous_button: Button = $PreviousButton
-
-const ACTIVE_BATTLE_GROUP = "active_battle"
 
 var spell_dict: Dictionary = {}
 var spell_page_array: Array = []
@@ -48,6 +48,24 @@ func instanciate_spellbook(current_spellbook_resource: SpellBookResource) -> voi
 	display_spells()
 	#print(spell_page_array)
 
+func instanciate_battle_spellbook(current_spellbook_resource: SpellBookResource, enemy: EnemyResource) -> void:
+	opening_animation.frame = 0
+	previous_button.visible = false
+	next_button.visible = false
+	play_opening()
+	await opening_animation.animation_finished
+	spellbook_resource = current_spellbook_resource
+	sort_spells_in_arrays()
+	put_rituals_in_array()
+	slice_spell_array_in_chunks()
+	#slice_array_in_chunks(ritual_array)
+	#print(spell_array)
+	set_spell_array_to_lower()
+	put_spells_in_dict()
+	put_pages_in_battle_spell_page_array(enemy)
+	#print(spell_dict)
+	display_spells()
+	#print(spell_page_array)
 
 #dict for easy access to spells
 func put_spells_in_dict() -> void:
@@ -198,9 +216,22 @@ func put_pages_in_spell_page_array():
 		spell_page_array.append(VBoxContainer.new())
 	#print(spell_page_array)
 
+func put_pages_in_battle_spell_page_array(enemy:EnemyResource):
+	if get_tree().get_nodes_in_group(ACTIVE_BATTLE_GROUP).size() == 0:
+		var essence_page: VBoxContainer = VBoxContainer.new()
+		spell_page_array.append(display_essences(essence_page))
+		if spellbook_resource.rituals.size() > 0:
+			for array in ritual_array:
+				var new_page: VBoxContainer = VBoxContainer.new()
+				spell_page_array.append(display_rituals(new_page, array))
+	for type_array in spell_array:
+		var new_page: VBoxContainer = VBoxContainer.new()
+		var array_number: int = spell_array.find(type_array)
+		spell_page_array.append(display_battle_spell_page(new_page,type_array,enemy))
+	if len(spell_array) % 2 != 0:
+		spell_page_array.append(VBoxContainer.new())
+	#print(spell_page_array)
 
-
-			
 func display_spell_type(spell: SpellResource) -> RichTextLabel:
 	var type_label = RichTextLabel.new()
 	type_label.bbcode_enabled = true
@@ -229,6 +260,14 @@ func display_spell_page(page: VBoxContainer, array: Array) -> VBoxContainer:
 		page.add_child(spell_display)
 	return page
 
+func display_battle_spell_page(page: VBoxContainer, array: Array, enemy: EnemyResource) -> VBoxContainer:
+	page.add_child(display_spell_type(array[0]))
+	for spell: SpellResource in array:
+		var spell_display = SpellLineDisplayScene.instantiate()
+		spell_display.spell = spell
+		spell_display.enemy = enemy
+		page.add_child(spell_display)
+	return page
 
 func _on_next_button_pressed() -> void:
 	if current_page + 2 < len(spell_page_array):

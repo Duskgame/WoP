@@ -20,7 +20,7 @@ var minions: Array = []
 func _ready() -> void:
 	health_component.hpbar.set_health(State.current_health, State.max_health)
 	spellbook_resource = SaveSpellbook.load_spellbook_resource()
-	spellbook.instanciate_spellbook(spellbook_resource)
+	spellbook.instanciate_battle_spellbook(spellbook_resource, enemy.enemy_resource)
 
 func battle_start():
 	spell_input.editable = true

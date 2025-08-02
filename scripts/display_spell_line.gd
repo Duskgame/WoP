@@ -3,6 +3,7 @@ extends Control
 class_name SpellLineDisplay
 
 @onready var spell: SpellResource
+@onready var enemy: EnemyResource
 
 @onready var label: RichTextLabel = $Label
 @onready var expbar: EXPbar = $ProgressBar
@@ -30,6 +31,8 @@ func update_display() -> void:
 			+ Spells.BBCODE_END_COLOR
 			)
 		current_amount = ": " + str(spell.proficiency_bonus)
+		if enemy:
+			current_amount = ": " + str(spell.get_elemental_multiplyer(enemy.element))
 	
 	label.text = (
 	spell_name
