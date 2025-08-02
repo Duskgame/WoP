@@ -17,7 +17,7 @@ func duplicate_spell() -> ElementSpellResource:
 	return new_spell
 
 func get_elemental_multiplyer(enemy_element: int):
-	var multiplyer: float = 1
+	var multiplier: float = 1
 	var weak: float = 0.5 / proficiency_bonus
 	var neutral: float = 1
 	var strong: float = 1.5 * proficiency_bonus
@@ -26,26 +26,26 @@ func get_elemental_multiplyer(enemy_element: int):
 		Spells.ELEMENTS.FIRE:
 			match enemy_element:
 				Spells.ELEMENTS.FIRE:
-					multiplyer *=  neutral
+					multiplier *=  neutral
 				Spells.ELEMENTS.WATER: 
-					multiplyer *=  weak 
+					multiplier *=  weak 
 				Spells.ELEMENTS.ICE:
-					multiplyer *=  strong 
+					multiplier *=  strong 
 		Spells.ELEMENTS.WATER:
 			match enemy_element:
 				Spells.ELEMENTS.FIRE:
-					multiplyer *=  strong
+					multiplier *=  strong
 				Spells.ELEMENTS.WATER: 
-					multiplyer *=  neutral
+					multiplier *=  neutral
 				Spells.ELEMENTS.ICE:
-					multiplyer *=  weak
+					multiplier *=  weak
 		Spells.ELEMENTS.ICE:
 			match enemy_element:
 				Spells.ELEMENTS.FIRE:
-					multiplyer *=  weak
+					multiplier *=  weak
 				Spells.ELEMENTS.WATER: 
-					multiplyer *=  strong
+					multiplier *=  strong
 				Spells.ELEMENTS.ICE:
-					multiplyer *=  neutral
-	print("elemental multyplyer: " + str(multiplyer))
-	return multiplyer
+					multiplier *=  neutral
+	#print("elemental multiplier: " + str(multiplier))
+	return snapped(multiplier, 0.01)

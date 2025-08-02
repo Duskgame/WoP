@@ -51,7 +51,8 @@ func save_state():
 	
 	var result = ResourceSaver.save(save_state_resource, state_path)
 	if result == OK:
-		print("state saved successfully!")
+		pass
+		#print("state saved successfully!")
 	else:
 		print("Failed to save state. Error code: ", result)
 	

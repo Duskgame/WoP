@@ -51,7 +51,6 @@ func _on_ritual_ended():
 	ui.show()
 
 func _on_battle_detected(battle: Battle):
-	SaveSpellbook.save_state()
 	State.paused = true
 	#print(player.global_position)
 	#print(battle.global_positiona)
