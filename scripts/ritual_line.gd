@@ -11,7 +11,7 @@ const instanciate_ritual = preload("res://scenes/initiating_ritual.tscn")
 @onready var label: RichTextLabel = $RichTextLabel
 @onready var parent: Spellbook = $"../../../../../"
 
-var ritual: RitualResource = load("res://Resources/Rituals/strength.tres")
+var ritual: RitualResource
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	var instance: RitualInitiation = instanciate_ritual.instantiate()
-	instance.ritual_type = ritual.type
+	instance.ritual_resource = ritual
 	instance.connect("ritual_started", _on_ritual_started)
 	instance.connect("initiating_ritual", _on_initiating_ritual)
 	instance.connect("stopping_initiation", _on_stopping_initiation)

@@ -31,6 +31,7 @@ var enemies: Array
 const ENEMIES_GROUP_NAME = "Enemies"
 const PLAYER_GROUP_NAME = "Player"
 
+
 func pause_group(group_name: String, pause: bool):
 	for node in get_tree().get_nodes_in_group(group_name):
 		node.set_process(!pause)

@@ -6,6 +6,7 @@ signal ritual_started(ritual_instance: RitualMiniGame)
 signal initiating_ritual
 signal stopping_initiation
 
+@onready var title: RichTextLabel = $VBoxContainer/Title
 @onready var start_button: Button = $NextButton
 @onready var level_slider: HSlider = $VBoxContainer/HBoxContainer/LevelSlider
 @onready var needed_essences_label: Label = $VBoxContainer/HBoxContainer6/NeededEssences
@@ -21,7 +22,7 @@ signal stopping_initiation
 var ritual_scene: PackedScene = preload("res://scenes/ritual_mini_game.tscn")
 var ritual_minigame: RitualMiniGame
 
-var ritual_type: Spells.RITUAL_TYPES = Spells.RITUAL_TYPES.STRENGHT
+var ritual_resource: RitualResource
 
 var needed_essences: int = 0 
 
@@ -29,8 +30,9 @@ var needed_essences: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	initiating_ritual.emit()
+	set_title()
 	ritual_minigame = ritual_scene.instantiate()
-	start_button.text = ("Start Ritual of " + "\n" + str(Spells.RITUAL_TYPES.find_key(ritual_type)).to_pascal_case())
+	start_button.text = ("Start Ritual of " + "\n" + str(Spells.RITUAL_TYPES.find_key(ritual_resource.type)).to_pascal_case())
 	set_level_slider_for_ritual(ritual_minigame)
 	set_needed_essecence_label_with_level(level_slider.value)
 	set_all_essece_slider()
@@ -39,6 +41,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func set_title():
+	title.text = (
+		"[center]"
+		+ "Start " 
+		+ str(ritual_resource.name)
+		+ "[/center]"
+	)
 
 func set_level_slider_for_ritual(ritual: RitualMiniGame) -> void:
 	level_slider.max_value = ritual.max_level
@@ -137,6 +147,7 @@ func _on_start_button_pressed() -> void:
 	State.water_essence -= water_slider.value
 	State.ice_essence -= ice_slider.value
 	SaveSpellbook.save_state()
+	ritual_minigame.ritual_resource = ritual_resource
 	ritual_minigame.level = level_slider.value
 	ritual_minigame.speed_modifier = speed_spin_box.value
 	ritual_started.emit(ritual_minigame)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://csb5nxfprxla"]
+[gd_scene load_steps=47 format=3 uid="uid://csb5nxfprxla"]
 
 [ext_resource type="Script" path="res://scripts/initiating_ritual.gd" id="1_v5s72"]
 [ext_resource type="Texture2D" uid="uid://cy7aif4l360vd" path="res://assets/sprites/Player/SpellbookMain.png" id="2_es8vo"]
+[ext_resource type="Theme" uid="uid://c3rh6o4o4o4bu" path="res://assets/fonts/themes/menu_button.tres" id="3_fbqih"]
 [ext_resource type="StyleBox" uid="uid://cr11ysb55fg63" path="res://assets/fonts/styleboxes/invisible.tres" id="3_id686"]
 [ext_resource type="Theme" uid="uid://blo888x60cime" path="res://assets/fonts/themes/terminal_theme.tres" id="5_8u8ia"]
 [ext_resource type="StyleBox" uid="uid://ci7afnuip72x8" path="res://assets/fonts/styleboxes/fire_gradient.tres" id="7_kokcc"]
@@ -214,6 +215,18 @@ offset_right = 327.0
 offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fbqih")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Start Ritual of stuff[/center]"
+fit_content = true
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

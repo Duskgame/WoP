@@ -16,6 +16,7 @@ func start_buff_timer(buff_bonus: float, ritual_type: int, buff_duration: float)
 	self.type = ritual_type
 	self.duration = buff_duration
 	self.one_shot = true
+	timeout.connect(_on_timeout)
 	start(duration)
 	get_buff_type(type)
 	#print(type)
@@ -23,9 +24,10 @@ func start_buff_timer(buff_bonus: float, ritual_type: int, buff_duration: float)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
 	#print(time_left)
-	if time_left == 0:
-		end_timer()
+	#if time_left == 0:
+		#end_timer()
 
 func get_buff_type(ritual: int):
 	match ritual:
@@ -34,6 +36,7 @@ func get_buff_type(ritual: int):
 		Spells.RITUAL_TYPES.VITALITY:
 			State.max_health *= bonus
 			State.current_health = State.max_health
+	SaveSpellbook.save_state()
 
 func remove_buff(ritual: int):
 	match ritual:
@@ -41,6 +44,8 @@ func remove_buff(ritual: int):
 			State.damage_modifier /= bonus
 		Spells.RITUAL_TYPES.VITALITY:
 			State.max_health /= bonus
+	SaveSpellbook.save_state()
+
 
 func end_timer():
 	remove_buff(type)

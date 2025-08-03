@@ -4,6 +4,7 @@ class_name player_body
 
 signal battle_detected(enemy: EnemyBody)
 
+const PLAYER_GROUP = "Player"
 const SPEED = 100.0
 
 @export var spellbook: SpellBookResource
@@ -18,7 +19,7 @@ func _ready() -> void:
 	pass
 
 func instanciate_player_body() -> void:
-	add_to_group("Player")
+	add_to_group(PLAYER_GROUP)
 	load_spellbook_resource()
 	if State.current_position:
 		self.global_position = State.current_position

@@ -4,6 +4,7 @@ class_name RitualMiniGame
 
 signal ritual_ended
 
+const PLAYER_GROUP = "Player"
 const CIRCLES = "circles"
 const LABEL = "label"
 
@@ -13,7 +14,7 @@ const LABEL = "label"
 @onready var message: RitualMessagePanel = $MessagePanel
 @onready var camera: Camera2D = $Camera2D
 
-var ritual_type: Spells.RITUAL_TYPES = Spells.RITUAL_TYPES.STRENGHT
+var ritual_resource: RitualResource
 @export var level: int = 2
 var max_level: int = 5
 @export var speed_modifier: float = 1
@@ -142,11 +143,11 @@ func end_game():
 	line.editable = false
 	line.release_focus()
 	if cleared_words == total_words:
-		bonus *= max(snappedf((0.01 * level * level) + 1, 0.01), 0)
+		bonus *= max(snappedf((0.01 * level * level) + 1, 0.1), 0)
 	await get_tree().create_timer(3).timeout
-	var type: String = str(Spells.RITUAL_TYPES.find_key(ritual_type)).to_pascal_case()
+	var type: String = str(Spells.RITUAL_TYPES.find_key(ritual_resource.type)).to_pascal_case()
 	snappedf(bonus, 0.01)
-	message.display_text(type ,bonus , get_buff_type(ritual_type), 30 * speed_modifier,cleared_words,total_words)
+	message.display_text(type ,bonus , get_buff_type(ritual_resource.type), 30 * speed_modifier,cleared_words,total_words)
 	message.visible = true
 	message.button.grab_focus()
 	create_buff_timer() 
@@ -159,8 +160,9 @@ func check_for_end():
 
 func create_buff_timer():
 	var buff_timer: BuffTimer = BuffTimer.new()
-	State.add_child(buff_timer)
-	buff_timer.start_buff_timer(bonus, ritual_type, 30 * speed_modifier)
+	var player: player_body = get_tree().get_first_node_in_group(PLAYER_GROUP)
+	player.add_child(buff_timer)
+	buff_timer.start_buff_timer(bonus, ritual_resource.type, 30 * speed_modifier)
 
 
 func _on_message_panel_closed() -> void:
